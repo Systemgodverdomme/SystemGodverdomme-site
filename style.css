@@ -1,0 +1,123 @@
+/* STYLE PRINCIPAL POUR SYSTEM GODVERDOMME */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c0c0c;
+  color: #f5f5f5;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.8;
+  scroll-behavior: smooth;
+}
+
+header {
+  background: #ff1e1e;
+  color: #0c0c0c;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+section {
+  padding: 4rem 8vw;
+  border-bottom: 1px dashed #444;
+}
+
+h2 {
+  color: #ff4444;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+ul li::before {
+  content: "⚡ ";
+  color: #ff4444;
+}
+
+footer {
+  background-color: #111;
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Effet glitch d'intro */
+.glitch-intro {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 2s ease-out 2s forwards;
+}
+
+.glitch-text {
+  color: #ff1e1e;
+  font-size: 3rem;
+  text-shadow: 1px 0 red, -1px 0 cyan;
+  animation: glitch 0.8s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #111;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 2rem;
+  z-index: 1000;
+  border-right: 1px solid #333;
+}
+
+.sidebar img {
+  width: 64px;
+  height: 64px;
+}
+
+.sidebar button {
+  background-color: #ff1e1e;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  font-family: 'Share Tech Mono', monospace;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  transition: background 0.2s;
+}
+
+.sidebar button:hover {
+  background-color: #ff4444;
+}
+
+.content {
+  margin-left: 100px;
+}
