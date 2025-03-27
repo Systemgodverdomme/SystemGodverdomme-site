@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>System Godverdomme – Manifeste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script defer>
+    function togglePopup() {
+      const popup = document.getElementById("popup-follow");
+      if (popup.style.display === "flex") {
+        popup.style.opacity = 0;
+        setTimeout(() => popup.style.display = "none", 300);
+      } else {
+        popup.style.display = "flex";
+        setTimeout(() => popup.style.opacity = 1, 10);
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: sans-serif;
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: #ff4444;
+    }
+    .listen-section {
+      text-align: center;
+      margin-top: 2rem;
+      border-top: 1px solid #333;
+      padding-top: 2rem;
+    }
+    .platform-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .platform-links a {
+      background: #222;
+      color: #eee;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .platform-links a:hover {
+      background: #ff4444;
+      color: white;
+    }
+    .social-follow {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .social-follow button {
+      background: #ff4444;
+      border: none;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .popup-follow {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      animation: popup-zoom 0.3s ease forwards;
+      background: #222;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 90vw;
+    }
+    .popup-content h4 {
+      color: #ff4444;
+      margin-bottom: 1rem;
+    }
+    .popup-content a {
+      display: block;
+      margin: 0.5rem 0;
+      color: #eee;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    .popup-content a:hover {
+      color: #ff4444;
+    }
+    .popup-content button {
+      margin-top: 1rem;
+      padding: 0.4rem 1rem;
+      background: #444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    @keyframes popup-zoom {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Bienvenue dans l’univers System Godverdomme</h1>
+    <p>🎭 Un monde où l’absurde est roi, où le sérieux est un blasphème, et où la créativité explose en un chaos stylisé et volontairement irrévérencieux...</p>
+    <!-- (manifeste complet ici, inchangé) -->
+
+    <section class="listen-section">
+      <h2>🎧 Écouter "Vous n’aurez pas ma b!te"</h2>
+      <div class="platform-links">
+        <a href="https://open.spotify.com/intl-fr/album/0oPeZjNe1Wzx3TC2gWzb9G?si=j-EDQbUzRbm_1Zc1yAoVMg" target="_blank">Spotify</a>
+        <a href="https://music.apple.com/us/album/vous-naurez-pas-ma-b-te-single/1803413487" target="_blank">Apple Music</a>
+        <a href="https://dzr.page.link/RwtSTj2X6wqruLnJ9" target="_blank">Deezer</a>
+        <a href="https://music.youtube.com/search?q=vous+n%27aurez+pas+ma+b!te" target="_blank">YouTube Music</a>
+        <a href="https://music.amazon.com/albums/B0F22HFJH6?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR" target="_blank">Amazon Music</a>
+        <a href="https://soundcloud.com/system-godverdomme/vous-naurez-pas-ma-b-te" target="_blank">SoundCloud</a>
+        <a href="https://systemgodverdomme.bandcamp.com/track/vous-naurez-pas-ma-bite" target="_blank">Bandcamp</a>
+      </div>
+    </section>
+
+    <section class="social-follow">
+      <button onclick="togglePopup()">🔗 Suis System Godverdomme</button>
+    </section>
+  </main>
+
+  <div class="popup-follow" id="popup-follow">
+    <div class="popup-content">
+      <h4>Retrouve-nous ici :</h4>
+      <a href="https://x.com/SGodverdomme" target="_blank">Twitter / X</a>
+      <a href="https://www.youtube.com/@SystemGodverdomme" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/systemgodverdomme/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@systemgodverdomme" target="_blank">TikTok</a>
+      <button onclick="togglePopup()">Fermer</button>
+    </div>
+  </div>
+</body>
+</html>
