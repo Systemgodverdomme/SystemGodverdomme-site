@@ -1,151 +1,164 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>System Godverdomme – Manifeste</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { background: #111; color: #eee; font-family: sans-serif; line-height: 1.6; padding-bottom: 4rem; }
-    main { max-width: 900px; margin: auto; padding: 2rem; }
-    h1, h2 { color: #ff4444; }
-    .listen-section, .social-follow { text-align: center; margin-top: 2rem; border-top: 1px dashed #444; padding-top: 2rem; }
-    .platform-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
-    .platform-links a {
-      background: #222; color: #eee; text-decoration: none;
-      padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.2s;
-    }
-    .platform-links a:hover { background: #ff4444; color: white; }
-    .social-follow button {
-      background: #ff4444; border: none; color: white; padding: 0.6rem 1.2rem;
-      font-size: 1rem; border-radius: 8px; cursor: pointer;
-    }
-    .popup-follow {
-      display: none; opacity: 0; transition: opacity 0.3s ease;
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.85); justify-content: center;
-      align-items: center; z-index: 1000;
-    }
-    .popup-content {
-      background: #222; padding: 2rem; border-radius: 12px; text-align: center;
-      max-width: 90vw; animation: popup-zoom 0.3s ease forwards;
-    }
-    .popup-content a {
-      display: block; margin: 0.5rem 0; color: #eee;
-      text-decoration: none; font-size: 1.1rem;
-    }
-    .popup-content a:hover { color: #ff4444; }
-    .popup-content button {
-      margin-top: 1rem; padding: 0.4rem 1rem; background: #444;
-      color: white; border: none; border-radius: 6px; cursor: pointer;
-    }
-    @keyframes popup-zoom {
-      from { transform: scale(0.6); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-  </style>
-  <script defer>
-    function togglePopup() {
-      const popup = document.getElementById("popup-follow");
-      if (popup.style.display === "flex") {
-        popup.style.opacity = 0;
-        setTimeout(() => popup.style.display = "none", 300);
-      } else {
-        popup.style.display = "flex";
-        setTimeout(() => popup.style.opacity = 1, 10);
-      }
-    }
-  </script>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <title>System Godverdomme – Manifeste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #111; color: #eee; font-family: sans-serif; line-height: 1.6; padding-bottom: 4rem; }
+        main { max-width: 900px; margin: auto; padding: 2rem; }
+        h1, h2 { color: #ff4444; }
+        .top-links { text-align: center; margin-bottom: 2rem; }
+        .top-links a {
+            background: #222; color: #eee; text-decoration: none;
+            padding: 0.5rem 1rem; border-radius: 6px; margin: 0 0.5rem; transition: background 0.2s;
+        }
+        .top-links a:hover { background: #ff4444; color: white; }
+        .listen-section, .social-follow { text-align: center; margin-top: 2rem; border-top: 1px dashed #444; padding-top: 2rem; }
+        .platform-links { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+        .platform-links a {
+            background: #222; color: #eee; text-decoration: none;
+            padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.2s;
+        }
+        .platform-links a:hover { background: #ff4444; color: white; }
+        .social-follow button {
+            background: #ff4444; border: none; color: white; padding: 0.6rem 1.2rem;
+            font-size: 1rem; border-radius: 8px; cursor: pointer;
+        }
+        .popup-follow {
+            display: none; opacity: 0; transition: opacity 0.3s ease;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.85); justify-content: center;
+            align-items: center; z-index: 1000;
+        }
+        .popup-content {
+            background: #222; padding: 2rem; border-radius: 12px; text-align: center;
+            max-width: 90vw; animation: popup-zoom 0.3s ease forwards;
+        }
+        .popup-content a {
+            display: block; margin: 0.5rem 0; color: #eee;
+            text-decoration: none; font-size: 1.1rem;
+        }
+        .popup-content a:hover { color: #ff4444; }
+        .popup-content button {
+            margin-top: 1rem; padding: 0.4rem 1rem; background: #444;
+            color: white; border: none; border-radius: 6px; cursor: pointer;
+        }
+        @keyframes popup-zoom {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    <script defer>
+        function togglePopup() {
+            const popup = document.getElementById("popup-follow");
+            if (popup.style.display === "flex") {
+                popup.style.opacity = 0;
+                setTimeout(() => popup.style.display = "none", 300);
+            } else {
+                popup.style.display = "flex";
+                setTimeout(() => popup.style.opacity = 1, 10);
+            }
+        }
+    </script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-<main>
-<h1>Bienvenue dans l’univers System Godverdomme</h1>
-<p>🎭 Un monde où l’absurde est roi, où le sérieux est un blasphème, et où la créativité explose en un chaos stylisé et volontairement irrévérencieux.</p>
-<p>System Godverdomme, ce n’est pas juste un projet musical. C’est une expérience, un mouvement, un cri du cœur enrobé d’ironie et de satire corrosive.</p>
-<h2>Mais c'est quoi exactement, "System Godverdomme" ?</h2>
-<p>Avant tout, une envie viscérale d’écrire, de raconter, de créer des univers où chaque mot claque, vibre et provoque. Poèmes, chansons, brèves de comptoir, sketchs, pièces de théâtre, tribunes… Chaque texte est une bombe lâchée dans le réel, une parodie des travers de notre époque, un coup de pied dans la fourmilière du politiquement correct.</p>
-<h2>Pourquoi "Godverdomme" ?</h2>
-<p>"Godverdomme" ce n’est pas juste un juron flamand signifiant "Que Dieu me damne !". C’est un cri viscéral, une libération brutale, un lâcher de ballon sonore. Une détonation émotionnelle, une révolte pure, instinctive.</p>
-<p>Et ce n’est pas un hasard si System Godverdomme joue sur un clin d'œil à System of a Down.</p>
-<p>💥 "Of a Down" évoque une chute, une fatalité.<br>💥 "Godverdomme" est l’exact opposé : un rejet, une explosion incontrôlée, une insurrection verbale.</p>
-<p>Là où SOAD dénonce avec un mélange de satire et de rage musicale, Godverdomme pousse la révolte encore plus loin, en refusant même de choisir un camp, une étiquette, un cadre.</p>
-<p>🎶 Ici, aucun genre musical ne domine : métal, rock, soul, rap, reggae, trap, chanson française, blues… Tout y passe. System Godverdomme ne suit aucune règle, si ce n’est celle du chaos maîtrisé.</p>
-<p>💀 C’est un cri, un bordel organisé, une satire enragée. Un projet où la musique devient une arme, et où la révolte devient un art.</p>
+    <div class="top-links">
+        <a href="https://x.com/SGodverdomme" target="_blank">Twitter / X</a>
+        <a href="https://www.youtube.com/@SystemGodverdomme" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/systemgodverdomme/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@systemgodverdomme" target="_blank">TikTok</a>
+    </div>
 
-<h2>L’objectif ?</h2>
-<p>🎭 Transformer le quotidien en une parodie grinçante.<br>🏗️ Créer un écosystème Godverdommien...<br>🔥 Développer une communauté de réfractaires du sérieux...<br>💰 Devenir riche, immensément riche. Mais pas nécessairement d’argent… En tout cas, pas que.</p>
+    <main>
+        <h1>Bienvenue dans l’univers System Godverdomme</h1>
+        <p> Un monde où l’absurde est roi, où le sérieux est un blasphème, et où la créativité explose en un chaos stylisé et volontairement irrévérencieux.</p>
+        <p>System Godverdomme, ce n’est pas juste un projet musical. C’est une expérience, un mouvement, un cri du cœur enrobé d’ironie et de satire corrosive.</p>
+        <h2>Mais c'est quoi exactement, "System Godverdomme" ?</h2>
+        <p>Avant tout, une envie viscérale d’écrire, de raconter, de créer des univers où chaque mot claque, vibre et provoque. Poèmes, chansons, brèves de comptoir, sketchs, pièces de théâtre, tribunes… Chaque texte est une bombe lâchée dans le réel, une parodie des travers de notre époque, un coup de pied dans la fourmilière du politiquement correct.</p>
+        <h2>Pourquoi "Godverdomme" ?</h2>
+        <p>"Godverdomme" ce n’est pas juste un juron flamand signifiant "Que Dieu me damne !". C’est un cri viscéral, une libération brutale, un lâcher de ballon sonore. Une détonation émotionnelle, une révolte pure, instinctive.</p>
+        <p>Et ce n’est pas un hasard si System Godverdomme joue sur un clin d'œil à System of a Down.</p>
+        <p> "Of a Down" évoque une chute, une fatalité.<br> "Godverdomme" est l’exact opposé : un rejet, une explosion incontrôlée, une insurrection verbale.</p>
+        <p>Là où SOAD dénonce avec un mélange de satire et de rage musicale, Godverdomme pousse la révolte encore plus loin, en refusant même de choisir un camp, une étiquette, un cadre.</p>
+        <p> Ici, aucun genre musical ne domine : métal, rock, soul, rap, reggae, trap, chanson française, blues… Tout y passe. System Godverdomme ne suit aucune règle, si ce n’est celle du chaos maîtrisé.</p>
+        <p> C’est un cri, un bordel organisé, une satire enragée. Un projet où la musique devient une arme, et où la révolte devient un art.</p>
 
-<h2>Et après ?</h2>
-<p>Pourquoi s’arrêter à la musique ? System Godverdomme n’est pas juste un projet artistique, c’est une impulsion, une onde de choc, un appel à l’action.</p>
-<p>💥 Après avoir hurlé "GODVERDOMME !", après avoir explosé les dogmes culturels avec du Godverdommium pur à 100%, vient le temps de reconstruire.</p>
-<p>🏗️ Ce cri ne peut pas rester un simple exutoire : il doit se traduire en actes.</p>
-<p>📢 Godverdomme, demain, ce ne sera plus seulement une déconstruction, mais une alternative.</p>
-<p>✨ Respect, transmission, entraide : ce cri doit mener à quelque chose de plus grand.</p>
-<p>🔥 Créer. Dénoncer. Secouer les consciences. Mais surtout, agir.</p>
+        <h2>L’objectif ?</h2>
+        <p> Transformer le quotidien en une parodie grinçante.<br>️ Créer un écosystème Godverdommien...<br> Développer une communauté de réfractaires du sérieux...<br> Devenir riche, immensément riche. Mais pas nécessairement d’argent… En tout cas, pas que.</p>
 
-<h2>Et toi, tu fais quoi là-dedans ?</h2>
-<p>Si tu es arrivé ici, c’est que t’es déjà dans la matrice. Godverdomme, c’est aussi une tribu, un repaire pour ceux qui aiment l’humour qui pique, l’absurde qui fait réfléchir, et la musique (celle des mots autant que celle des instruments) qui n’a peur de rien.</p>
-<p>🎧 Tu veux soutenir l’aventure ?<br>✅ Abonne-toi.<br>✅ Partage cette folie.<br>✅ Propage la parole Godverdommique.<br>✅ Et surtout… attends-toi à être Godverdommisé.</p>
-<p>🚀 Parce qu’ici, tout peut basculer à chaque instant.<br>💀 Bienvenue dans le chaos.</p>
-<h2>Définitions :</h2>
+        <h2>Et après ?</h2>
+        <p>Pourquoi s’arrêter à la musique ? System Godverdomme n’est pas juste un projet artistique, c’est une impulsion, une onde de choc, un appel à l’action.</p>
+        <p> Après avoir hurlé "GODVERDOMME !", après avoir explosé les dogmes culturels avec du Godverdommium pur à 100%, vient le temps de reconstruire.</p>
+        <p>️ Ce cri ne peut pas rester un simple exutoire : il doit se traduire en actes.</p>
+        <p> Godverdomme, demain, ce ne sera plus seulement une déconstruction, mais une alternative.</p>
+        <p>✨ Respect, transmission, entraide : ce cri doit mener à quelque chose de plus grand.</p>
+        <p> Créer. Dénoncer. Secouer les consciences. Mais surtout, agir.</p>
 
-<p><strong>Godverdommien : (nom & adjectif)</strong><br>
-🔹 Définition : Individu adhérant à l’esprit System Godverdomme, animé par une révolte artistique et une volonté de déconstruire les normes établies. Un agent du chaos maîtrisé, oscillant entre satire et insurrection créative.<br>
-🔹 Nom commun : Un godverdommien est quelqu’un qui refuse le formatage et utilise l’art comme un pavé dans la vitrine du conformisme.<br>
-🔹 Adjectif : Une œuvre godverdommienne brise les codes, mélange les genres et impose un regard critique sur la société.<br>
-🔹 Synonymes : Hérétique culturel, hacker des genres, dissident sonore, architecte du chaos.
-</p>
+        <h2>Et toi, tu fais quoi là-dedans ?</h2>
+        <p>Si tu es arrivé ici, c’est que t’es déjà dans la matrice. Godverdomme, c’est aussi une tribu, un repaire pour ceux qui aiment l’humour qui pique, l’absurde qui fait réfléchir, et la musique (celle des mots autant que celle des instruments) qui n’a peur de rien.</p>
+        <p> Tu veux soutenir l’aventure ?<br>✅ Abonne-toi.<br>✅ Partage cette folie.<br>✅ Propage la parole Godverdommique.<br>✅ Et surtout… attends-toi à être Godverdommisé.</p>
+        <p> Parce qu’ici, tout peut basculer à chaque instant.<br> Bienvenue dans le chaos.</p>
+        <h2>Définitions :</h2>
 
-<p><strong>Godverdommium : (nom masculin – substance révolutionnaire)</strong><br>
-🔹 Élément fictif et hautement instable, l’essence pure de l’esprit Godverdomme, à la fois catalyseur de chaos et matière première de la subversion.<br>
-🔹 "Cette musique est chargée à 100% en Godverdommium, impossible d’en sortir indemne."<br>
-🔹 "Le Godverdommium pur alimente les dissidences artistiques et brûle les dogmes culturels."<br>
-🔹 "Trop exposé au Godverdommium, un individu lambda devient un godverdommien convaincu."<br>
-🔹 Effets secondaires : Dérèglement du bon goût, pensée critique accrue, tendance à exploser les cases et à rire sous pression.
-</p>
+        <p><strong>Godverdommien : (nom & adjectif)</strong><br>
+         Définition : Individu adhérant à l’esprit System Godverdomme, animé par une révolte artistique et une volonté de déconstruire les normes établies. Un agent du chaos maîtrisé, oscillant entre satire et insurrection créative.<br>
+         Nom commun : Un godverdommien est quelqu’un qui refuse le formatage et utilise l’art comme un pavé dans la vitrine du conformisme.<br>
+         Adjectif : Une œuvre godverdommienne brise les codes, mélange les genres et impose un regard critique sur la société.<br>
+         Synonymes : Hérétique culturel, hacker des genres, dissident sonore, architecte du chaos.
+        </p>
 
-<p><strong>Godverdommique (adjectif)</strong><br>
-🔹 Qualifie toute œuvre, action ou pensée imprégnée de l’esprit Godverdomme : subversive, irrévérencieuse, incontrôlable, mais toujours chargée de sens sous le chaos apparent.<br>
-🔹 "Cette satire est purement godverdommique : absurde, brutale, mais terriblement lucide."<br>
-🔹 "On va leur balancer une campagne godverdommique qui va pulvériser leur storytelling bien-pensant."<br>
-🔹 "Le Godverdommium en fusion produit des effets godverdommiques imprévisibles."<br>
-🔹 Synonymes : Iconoclaste, explosif, inclassable, anti-formatage, disruptif.
-</p>
+        <p><strong>Godverdommium : (nom masculin – substance révolutionnaire)</strong><br>
+         Élément fictif et hautement instable, l’essence pure de l’esprit Godverdomme, à la fois catalyseur de chaos et matière première de la subversion.<br>
+         "Cette musique est chargée à 100% en Godverdommium, impossible d’en sortir indemne."<br>
+         "Le Godverdommium pur alimente les dissidences artistiques et brûle les dogmes culturels."<br>
+         "Trop exposé au Godverdommium, un individu lambda devient un godverdommien convaincu."<br>
+         Effets secondaires : Dérèglement du bon goût, pensée critique accrue, tendance à exploser les cases et à rire sous pression.
+        </p>
 
-<p><strong>Godverdommisé (adjectif & participe passé)</strong><br>
-🔹 Se dit de quelqu’un ou quelque chose ayant subi une exposition trop intense au Godverdommium, provoquant une transformation radicale, une prise de conscience irréversible ou une incapacité chronique à rentrer dans les cases.<br>
-🔹 "Désolé, mais après avoir écouté ça, je suis complètement godverdommisé."<br>
-🔹 "Son clip a été godverdommisé : il est passé d’un projet formaté à un OVNI subversif."<br>
-🔹 Symptômes : Répulsion spontanée envers le consensus mou, volonté inexpliquée de détourner la propagande dominante, jouissance irrationnelle à voir des dogmes s’effondrer sous leur propre absurdité.
-</p>
+        <p><strong>Godverdommique (adjectif)</strong><br>
+         Qualifie toute œuvre, action ou pensée imprégnée de l’esprit Godverdomme : subversive, irrévérencieuse, incontrôlable, mais toujours chargée de sens sous le chaos apparent.<br>
+         "Cette satire est purement godverdommique : absurde, brutale, mais terriblement lucide."<br>
+         "On va leur balancer une campagne godverdommique qui va pulvériser leur storytelling bien-pensant."<br>
+         "Le Godverdommium en fusion produit des effets godverdommiques imprévisibles."<br>
+         Synonymes : Iconoclaste, explosif, inclassable, anti-formatage, disruptif.
+        </p>
 
-<section class="listen-section">
-  <h2>🎧 Écouter "Vous n’aurez pas ma b!te"</h2>
-  <div class="platform-links">
-    <a href="https://open.spotify.com/intl-fr/album/0oPeZjNe1Wzx3TC2gWzb9G?si=j-EDQbUzRbm_1Zc1yAoVMg" target="_blank">Spotify</a>
-    <a href="https://music.apple.com/us/album/vous-naurez-pas-ma-b-te-single/1803413487" target="_blank">Apple Music</a>
-    <a href="https://dzr.page.link/RwtSTj2X6wqruLnJ9" target="_blank">Deezer</a>
-    <a href="https://music.youtube.com/search?q=vous+n%27aurez+pas+ma+b!te" target="_blank">YouTube Music</a>
-    <a href="https://music.amazon.com/albums/B0F22HFJH6?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR" target="_blank">Amazon Music</a>
-    <a href="https://soundcloud.com/system-godverdomme/vous-naurez-pas-ma-b-te" target="_blank">SoundCloud</a>
-    <a href="https://systemgodverdomme.bandcamp.com/track/vous-naurez-pas-ma-bite" target="_blank">Bandcamp</a>
-  </div>
-</section>
+        <p><strong>Godverdommisé (adjectif & participe passé)</strong><br>
+         Se dit de quelqu’un ou quelque chose ayant subi une exposition trop intense au Godverdommium, provoquant une transformation radicale, une prise de conscience irréversible ou une incapacité chronique à rentrer dans les cases.<br>
+         "Désolé, mais après avoir écouté ça, je suis complètement godverdommisé."<br>
+         "Son clip a été godverdommisé : il est passé d’un projet formaté à un OVNI subversif."<br>
+         Symptômes : Répulsion spontanée envers le consensus mou, volonté inexpliquée de détourner la propagande dominante, jouissance irrationnelle à voir des dogmes s’effondrer sous leur propre absurdité.
+        </p>
 
-<section class="social-follow">
-  <button onclick="togglePopup()">🔗 Suis System Godverdomme</button>
-</section>
-</main>
+        <section class="listen-section">
+            <h2> Écouter "Vous n’aurez pas ma b!te"</h2>
+            <div class="platform-links">
+                <a href="https://open.spotify.com/intl-fr/album/0oPeZjNe1Wzx3TC2gWzb9G?si=j-EDQbUzRbm_1Zc1yAoVMg" target="_blank">Spotify</a>
+                <a href="https://music.apple.com/us/album/vous-naurez-pas-ma-b-te-single/1803413487" target="_blank">Apple Music</a>
+                <a href="https://dzr.page.link/RwtSTj2X6wqruLnJ9" target="_blank">Deezer</a>
+                <a href="https://music.youtube.com/search?q=vous+n%27aurez+pas+ma+b!te" target="_blank">YouTube Music</a>
+                <a href="https://music.amazon.com/albums/B0F22HFJH6?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR" target="_blank">Amazon Music</a>
+                <a href="https://soundcloud.com/system-godverdomme/vous-naurez-pas-ma-b-te" target="_blank">SoundCloud</a>
+                <a href="https://systemgodverdomme.bandcamp.com/track/vous-naurez-pas-ma-bite" target="_blank">Bandcamp</a>
+            </div>
+        </section>
 
-<div class="popup-follow" id="popup-follow">
-  <div class="popup-content">
-    <h4>Retrouve-nous ici :</h4>
-    <a href="https://x.com/SGodverdomme" target="_blank">Twitter / X</a>
-    <a href="https://www.youtube.com/@SystemGodverdomme" target="_blank">YouTube</a>
-    <a href="https://www.instagram.com/systemgodverdomme/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@systemgodverdomme" target="_blank">TikTok</a>
-    <button onclick="togglePopup()">Fermer</button>
-  </div>
-</div>
+        <section class="social-follow">
+            <button onclick="togglePopup()"> Suis System Godverdomme</button>
+        </section>
+    </main>
+
+    <div class="popup-follow" id="popup-follow">
+        <div class="popup-content">
+            <h4>Retrouve-nous ici :</h4>
+            <a href="https://x.com/SGodverdomme" target="_blank">Twitter / X</a>
+            <a href="https://www.youtube.com/@SystemGodverdomme" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/systemgodverdomme/" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@systemgodverdomme" target="_blank">TikTok</a>
+            <button onclick="togglePopup()">Fermer</button>
+        </div>
+    </div>
 </body>
 </html>
