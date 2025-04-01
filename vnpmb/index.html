@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>System Godverdomme – Accueil</title>
+  <title>VNPMB - Transmission pirate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
@@ -11,101 +11,96 @@
       padding: 0;
       background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: white;
       font-family: 'Courier New', Courier, monospace;
-      min-height: 100vh;
+      color: #eee;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      backdrop-filter: blur(2px);
+      min-height: 100vh;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       color: red;
-      text-shadow: 0 0 10px red;
+      text-shadow: 0 0 8px red;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin-bottom: 2rem;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
+    .warning {
+      font-size: 1.1rem;
       color: #ccc;
       max-width: 600px;
-      margin-bottom: 40px;
-      text-shadow: 0 0 6px black;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
-    nav {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-
-    nav a {
-      text-decoration: none;
-      background: rgba(255, 0, 0, 0.9);
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: all 0.2s ease-in-out;
-    }
-
-    nav a:hover {
+    .stream-btn {
       background: white;
-      color: red;
-      text-shadow: 0 0 3px red;
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      transition: 0.2s ease-in-out;
     }
 
-    .socials {
+    .stream-btn:hover {
+      background: red;
+      color: white;
+      text-shadow: 0 0 3px black;
+    }
+
+    .qr {
+      margin: 2rem 0;
+    }
+
+    .platforms {
       display: flex;
-      gap: 1rem;
-      margin: 30px 0;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
-    .socials a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 1.1rem;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 0.4rem 1rem;
-      border-radius: 4px;
-      transition: all 0.2s ease-in-out;
+    .platforms a {
+      background: rgba(0,0,0,0.6);
+      color: white;
       font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.2s;
     }
 
-    .socials a:hover {
-      color: red;
-      background: rgba(255, 255, 255, 0.1);
-      text-shadow: 0 0 4px red;
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 1rem;
-      font-size: 0.8rem;
-      color: #888;
+    .platforms a:hover {
+      background: red;
+      color: white;
+      text-shadow: 0 0 4px black;
     }
   </style>
 </head>
 <body>
-  <h1>System Godverdomme</h1>
-  <p class="subtitle">Bienvenue dans le Système. Ici, la norme est un bug.<br>Les lignes bougent, la vérité se tord. Ce site est une anomalie artistique sous surveillance.</p>
+  <h1>VOUS N’AUREZ PAS MA BITE</h1>
+  <p class="warning">
+    Erreur 404 : Morale non trouvée.<br>
+    Ce fichier a été censuré par le Conseil de la Propreté Sonore.<br>
+    Transmission pirate initiée...
+  </p>
 
-  <nav>
-    <a href="/titres/">🎶 Les Chansons</a>
-    <a href="/manifeste.html">📡 Le Manifeste</a>
-    <a href="mailto:contact@systemgodverdomme.com">✉️ Contact</a>
-  </nav>
+  <a class="stream-btn" href="https://open.spotify.com/intl-fr/album/0oPeZjNe1Wzx3TC2gWzb9G?si=j-EDQbUzRbm_1Zc1yAoVMg" target="_blank">
+    ▶️ ÉCOUTER MAINTENANT
+  </a>
 
-  <div class="socials">
+  <div class="qr">
+    <img src="/assets/qr-vnpmb.png" alt="QR Spotify VNPMB">
+  </div>
+
+  <div class="platforms">
     <a href="https://open.spotify.com/intl-fr/album/0oPeZjNe1Wzx3TC2gWzb9G?si=j-EDQbUzRbm_1Zc1yAoVMg" target="_blank">Spotify</a>
     <a href="https://music.apple.com/us/album/vous-naurez-pas-ma-b-te-single/1803413487" target="_blank">Apple Music</a>
     <a href="https://dzr.page.link/RwtSTj2X6wqruLnJ9" target="_blank">Deezer</a>
@@ -114,18 +109,5 @@
     <a href="https://soundcloud.com/system-godverdomme/vous-naurez-pas-ma-b-te" target="_blank">SoundCloud</a>
     <a href="https://systemgodverdomme.bandcamp.com/track/vous-naurez-pas-ma-bite" target="_blank">Bandcamp</a>
   </div>
-
-  <section class="streaming-vnpmb" style="margin-top: 3rem; text-align: center;">
-    <h2 style="color: red; text-shadow: 0 0 5px red;">▶️ Écouter "Vous n’aurez pas ma bite"</h2>
-    <div class="socials">
-      <a href="https://open.spotify.com/intl-fr/album/0oPeZjNe1Wzx3TC2gWzb9G?si=j-EDQbUzRbm_1Zc1yAoVMg" target="_blank">Spotify</a>
-      <a href="https://music.apple.com/us/album/vous-naurez-pas-ma-b-te-single/1803413487" target="_blank">Apple Music</a>
-      <a href="https://dzr.page.link/RwtSTj2X6wqruLnJ9" target="_blank">Deezer</a>
-      <a href="https://music.youtube.com/search?q=vous+n%27aurez+pas+ma+b!te" target="_blank">YouTube Music</a>
-      <a href="https://music.amazon.com/albums/B0F22HFJH6?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_Zzj1lhfPJwSvMuEiktPhSRdZB" target="_blank">Amazon Music</a>
-      <a href="https://soundcloud.com/system-godverdomme/vous-naurez-pas-ma-b-te" target="_blank">SoundCloud</a>
-      <a href="https://systemgodverdomme.bandcamp.com/track/vous-naurez-pas-ma-bite" target="_blank">Bandcamp</a>
-    </div>
-  </section>
 </body>
 </html>
