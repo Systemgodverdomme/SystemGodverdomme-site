@@ -1,59 +1,87 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>System Godverdomme – Manifeste</title>
+  <title>System Godverdomme – Accueil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
     body {
-      background: #111;
-      color: #eee;
-      font-family: sans-serif;
-      line-height: 1.6;
-      padding-bottom: 4rem;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h1, h2 {
-      color: #ff4444;
-    }
-    .top-links {
-      text-align: center;
-      margin-bottom: 2rem;
+      margin: 0;
+      padding: 0;
+      background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: red;
+      text-shadow: 0 0 10px red;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 600px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 6px black;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 30px;
     }
-    .top-links a {
-      background: #222;
-      color: #eee;
+
+    nav a {
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      margin: 0.5rem;
-      transition: background 0.2s;
-    }
-    .top-links a:hover {
-      background: red;
+      background: rgba(255, 0, 0, 0.9);
       color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+      background: white;
+      color: red;
+      text-shadow: 0 0 3px red;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
+  <h1>System Godverdomme</h1>
+  <p class="subtitle">Bienvenue dans le Système. Ici, la norme est un bug.<br>Les lignes bougent, la vérité se tord. Ce site est une anomalie artistique sous surveillance.</p>
 
-  <div class="top-links">
+  <nav>
     <a href="/titres/">🎶 Les Chansons</a>
-  </div>
+    <a href="/manifeste.html">📡 Le Manifeste</a>
+    <a href="mailto:contact@systemgodverdomme.com">✉️ Contact</a>
+  </nav>
 
-  <main>
-    <h1>System Godverdomme</h1>
-    <p>Bienvenue sur le site officiel. Ceci est un manifeste en constante évolution. Les lignes bougent. La vérité se tord.</p>
-    <p>D'autres sections seront bientôt disponibles.</p>
-  </main>
-
+  <footer>
+    © 2025 – Transmission Godverdommienne active.
+  </footer>
 </body>
 </html>
