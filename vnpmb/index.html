@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VNPMB - System Godverdomme</title>
+  <link rel="icon" type="image/x-icon" href="favicon_vnpmb.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black url('vnpmb_background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, red, white, red);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 5px red);
+      animation: glitch 1.5s infinite;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red; }
+      20% { text-shadow: -2px 0 white; }
+      40% { text-shadow: 2px 2px red; }
+      60% { text-shadow: -2px -2px white; }
+      80% { text-shadow: 2px -2px red; }
+      100% { text-shadow: -2px 2px white; }
+    }
+    .button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      background: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: red;
+      color: white;
+    }
+    .transmission {
+      max-width: 600px;
+      font-size: 0.95rem;
+      margin-top: 40px;
+      color: #ccc;
+      text-shadow: 0 0 5px rgba(255,0,0,0.3);
+    }
+    .qr {
+      margin-top: 30px;
+    }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>VOUS N’AUREZ PAS MA BITE</h1>
+  <a class="button" href="https://open.spotify.com/track/3TvAaxUx3utnQviJ8Pvlgk?si=fde4efb028004cf4" target="_blank">ÉCOUTER MAINTENANT</a>
+  <div class="transmission">
+    <p>Erreur 404 : Morale non trouvée.<br>
+    Ce fichier a été censuré par le Conseil de la Propreté Sonore.<br>
+    Transmission pirate initiée...</p>
+  </div>
+  <div class="qr">
+    <img src="qr_code_spotify_vnpmb.png" alt="QR Spotify VNPMB" width="120">
+  </div>
+  <footer>
+    <a href="https://systemgodverdomme.com">systemgodverdomme.com</a>
+  </footer>
+</body>
+</html>
