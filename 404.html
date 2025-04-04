@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>⚠️ 404 – Transmission corrompue | System Godverdomme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background: black url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ff4444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      animation: shake 0.25s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(0px, 0px); }
+      25% { transform: translate(1px, -2px); }
+      50% { transform: translate(-2px, 1px); }
+      75% { transform: translate(2px, 2px); }
+      100% { transform: translate(-1px, -1px); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px red, 0 0 20px black;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #ddd;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 4px #000;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      background: red;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-shadow: 0 0 4px black;
+      transition: 0.2s ease-in-out;
+    }
+
+    a:hover {
+      background: white;
+      color: red;
+      box-shadow: 0 0 8px red;
+    }
+
+    .glitch {
+      font-size: 1.2rem;
+      color: #ff4444;
+      animation: glitch 1s infinite;
+      margin-top: 1rem;
+    }
+
+    @keyframes glitch {
+      0% { opacity: 0.8; transform: skewX(0deg); }
+      20% { opacity: 1; transform: skewX(10deg); }
+      40% { opacity: 0.7; transform: skewX(-5deg); }
+      60% { opacity: 1; transform: skewX(5deg); }
+      80% { opacity: 0.9; transform: skewX(-8deg); }
+      100% { opacity: 1; transform: skewX(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>💥 ERREUR 404 : Réalité non localisée</h1>
+    <p>Cette page a été débranchée du réseau Godverdommien.<br>
+       Les autorités simulacrales l'ont classée comme "trop déviante pour subsister".<br>
+       Vous venez de tomber sur une faille dans le système.
+    </p>
+    <a href="/">↩ Retour au site principal</a>
+    <div class="glitch">[ code : SYS-GOD404 / MATRICIEL-BREAK ]</div>
+  </div>
+</body>
+</html>
