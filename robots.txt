@@ -1,10 +1,15 @@
 # robots.txt – System Godverdomme
+# Dernière mise à jour : avril 2025
 
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Sitemap officiel
 Sitemap: https://systemgodverdomme.com/sitemap.xml
 
-# Simulation : on autorise les bots à se perdre dans la matrice
-# Glitch détecté ? Trop tard, vous êtes déjà dedans.
+# Notes pour les crawlers (et les éveillés)
+# Simulation activée : les bots sont les bienvenus pour se perdre dans la matrice.
+# Glitch détecté ? Trop tard, vous êtes déjà godverdommisés.
+
+# Zones spéciales
+# (rien à interdire pour le moment, tout l'univers est ouvert à l'exploration)
