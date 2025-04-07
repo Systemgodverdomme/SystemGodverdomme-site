@@ -18,6 +18,7 @@
       font-family: 'Courier New', monospace;
       color: white;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
     h1 {
       text-align: center;
@@ -37,10 +38,17 @@
       color: #ff8888;
       font-weight: bold;
       margin-top: 1rem;
+      scroll-margin-top: 80px;
+      animation: fadeIn 0.6s ease-in-out;
     }
     dd {
       margin-left: 1rem;
       margin-bottom: 1rem;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     .back-home {
       text-align: center;
@@ -103,13 +111,54 @@
     .teaser-manifeste a:hover {
       text-decoration: underline;
     }
+    #search-bar {
+      max-width: 500px;
+      margin: 1rem auto 2rem;
+      display: block;
+      padding: 0.6rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+    }
+    .alphabet-nav {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .alphabet-nav a {
+      color: #ff8888;
+      margin: 0 0.3rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .alphabet-nav a:hover {
+      color: red;
+      text-shadow: 0 0 4px red;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('search-bar');
+      input.addEventListener('input', () => {
+        const filter = input.value.toLowerCase();
+        document.querySelectorAll('dt').forEach(dt => {
+          const dd = dt.nextElementSibling;
+          const text = dt.textContent + ' ' + dd.textContent;
+          const match = text.toLowerCase().includes(filter);
+          dt.style.display = dd.style.display = match ? '' : 'none';
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <h1>Lexique de la Godverdommisation</h1>
+  <input type="text" id="search-bar" placeholder="Rechercher un terme...">
+  <div class="alphabet-nav">
+    <a href="#G">G</a> <a href="#M">M</a> <a href="#S">S</a>
+  </div>
   <section>
     <dl>
-      <dt>Godverdommiser</dt><dd>Transformer quelque chose en chaos absurde et irrévérencieux.</dd>
+      <dt id="G">Godverdommiser</dt><dd>Transformer quelque chose en chaos absurde et irrévérencieux.</dd>
       <dt>Godverdommisation</dt><dd>Processus d’absurdité et d’insolence poussé à son paroxysme.</dd>
       <dt>Godverdommique</dt><dd>Qui relève du chaos stylisé et de la satire ultime.</dd>
       <dt>Godverdommement</dt><dd>D'une manière outrageusement irrévérencieuse et cynique.</dd>
@@ -171,23 +220,17 @@
       <dt>Godverdommavirus</dt><dd>Idée tellement contagieuse qu’elle s’impose dans la culture populaire.</dd>
     </dl>
   </section>
-  <div class="teaser-simulation">
-    👁 Et si tout ça n’était qu’une simulation ? <a href="/simulation.html">Plongez dans les failles du réel</a> et explorez la matrice.
-  </div>
-  <div class="teaser-manifeste">
-    🧠 Envie de comprendre d’où vient ce chaos organisé ? <a href="/manifeste.html">Lisez le Manifeste Godverdommien</a> et entrez dans la révolte poétique.
-  </div>
   <div class="back-home">
     <a href="/">↯ Retour au site principal</a>
   </div>
-  <div class="seo-note">
-    <p>
-      Le <strong>Dictionnaire Godverdommien</strong> vous plonge dans un univers de satire, de chaos organisé et de subversion poétique. <br>
-      Découvrez la richesse lexicale d’un projet artistique qui dynamite les conventions avec humour et lucidité.
-    </p>
+  <div class="teaser-manifeste">
+    🧠 Vous avez le glitch ? L’étincelle ? Plongez dans notre <a href="/manifeste.html">Manifeste Godverdommien</a> : chaos, satire, art et subversion à haute dose.
   </div>
-  <footer>
-    © 2025 – Dictionnaire Godverdommien compilé par la résistance absurde.
-  </footer>
+  <div class="teaser-simulation">
+    👁 Vous croyez encore à la réalité ? Laissez tomber. Découvrez la <a href="/simulation.html">théorie de la simulation</a> et laissez la matrice bugger pour de bon.
+  </div>
+  <div class="seo-note">
+    Ce dictionnaire regroupe les fondements lexicaux du projet System Godverdomme : absurdités assumées, satire en cascade, et dérèglement sémantique généralisé.
+  </div>
 </body>
 </html>
