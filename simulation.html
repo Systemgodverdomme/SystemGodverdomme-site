@@ -73,40 +73,35 @@
     .seo-note a:hover {
       text-decoration: underline;
     }
-    .teaser-vnpmb {
-      margin-top: 4rem;
-      background: rgba(255, 255, 255, 0.06);
-      color: #eee;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      border-top: 1px solid #ff4444;
-      border-bottom: 1px solid #ff4444;
-      font-size: 0.95rem;
-    }
-    .teaser-vnpmb a {
-      color: red;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .teaser-vnpmb a:hover {
-      text-decoration: underline;
-    }
-    .teaser-imdone {
+    .teaser-vnpmb, .teaser-imdone, .teaser-manifeste {
       margin-top: 2rem;
       background: rgba(255, 255, 255, 0.06);
       color: #eee;
       padding: 1rem 1.5rem;
       text-align: center;
-      border-top: 1px solid orange;
-      border-bottom: 1px solid orange;
       font-size: 0.95rem;
+      border-top: 1px solid #ff4444;
+      border-bottom: 1px solid #ff4444;
     }
-    .teaser-imdone a {
-      color: orange;
+    .teaser-imdone {
+      border-color: orange;
+    }
+    .teaser-manifeste {
+      border-color: cyan;
+    }
+    .teaser-vnpmb a,
+    .teaser-imdone a,
+    .teaser-manifeste a {
       font-weight: bold;
       text-decoration: none;
     }
-    .teaser-imdone a:hover {
+    .teaser-vnpmb a { color: red; }
+    .teaser-imdone a { color: orange; }
+    .teaser-manifeste a { color: cyan; }
+
+    .teaser-vnpmb a:hover,
+    .teaser-imdone a:hover,
+    .teaser-manifeste a:hover {
       text-decoration: underline;
     }
   </style>
@@ -157,6 +152,10 @@
 
   <div class="teaser-imdone">
     🛵 Parfois, fuir est le seul glitch valide. Jetez un œil à <a href="/imdone/">I'm Done</a>, une ballade soul désabusée venue d'une autre couche de réalité.
+  </div>
+
+  <div class="teaser-manifeste">
+    📖 Envie de comprendre l’origine du glitch ? Plongez dans le <a href="/manifeste.html">Manifeste Godverdommien</a> : satire, chaos artistique et révolte stylisée.
   </div>
 
   <div class="seo-note">
