@@ -21,7 +21,9 @@
       text-align: center;
       overflow: hidden;
       animation: shake 0.25s infinite;
+      cursor: crosshair;
     }
+
     @keyframes shake {
       0% { transform: translate(0px, 0px); }
       25% { transform: translate(1px, -2px); }
@@ -29,11 +31,13 @@
       75% { transform: translate(2px, 2px); }
       100% { transform: translate(-1px, -1px); }
     }
+
     h1 {
       font-size: 3rem;
       text-shadow: 0 0 10px red, 0 0 20px black;
       margin-bottom: 1rem;
     }
+
     p {
       font-size: 1.1rem;
       color: #ddd;
@@ -41,6 +45,7 @@
       margin-bottom: 2rem;
       text-shadow: 0 0 4px #000;
     }
+
     a {
       text-decoration: none;
       color: black;
@@ -51,17 +56,27 @@
       text-shadow: 0 0 4px black;
       transition: 0.2s ease-in-out;
     }
+
     a:hover {
       background: white;
       color: red;
       box-shadow: 0 0 8px red;
     }
+
     .glitch {
       font-size: 1.2rem;
       color: #ff4444;
       animation: glitch 1s infinite;
       margin-top: 1rem;
     }
+
+    .click-sound {
+      font-size: 0.9rem;
+      color: #ff8888;
+      margin-top: 2rem;
+      text-shadow: 0 0 4px black;
+    }
+
     @keyframes glitch {
       0% { opacity: 0.8; transform: skewX(0deg); }
       20% { opacity: 1; transform: skewX(10deg); }
@@ -76,21 +91,22 @@
   <div>
     <h1>ERREUR 404 : Réalité non localisée</h1>
     <p>Cette page a été débranchée du réseau Godverdommien.<br>
-       Les autorités simulacrales l'ont classée comme "trop déviante pour subsister".<br>
-       Vous venez de tomber sur une faille dans le système.
+      Les autorités simulacrales l'ont classée comme "trop déviante pour subsister".<br>
+      Vous venez de tomber sur une faille dans le système.
     </p>
     <a href="/">↩ Retour au site principal</a>
     <div class="glitch">[ code : SYS-GOD404 / MATRICIEL-BREAK ]</div>
+    <div class="click-sound">🔊 Clique n’importe où pour entendre le bourdonnement de la faille...</div>
   </div>
 
   <script>
-    window.addEventListener('load', () => {
-      const audio = new Audio('https://systemgodverdomme.com/assets/tesla_buzz_glitch.mp3');
+    const playSound = () => {
+      const audio = new Audio("https://systemgodverdomme.com/assets/tesla_buzz_glitch.mp3");
       audio.volume = 0.7;
-      audio.play().catch(() => {
-        console.warn('Autoplay bloqué : interaction utilisateur requise.');
-      });
-    });
+      audio.play().catch(e => console.log("⚠️ Son bloqué :", e));
+      document.removeEventListener("click", playSound); // une seule fois
+    };
+    document.addEventListener("click", playSound);
   </script>
 </body>
 </html>
