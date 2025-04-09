@@ -22,6 +22,12 @@
   </url>
   <url>
     <loc>https://systemgodverdomme.com/manifeste/</loc>
+    <url>
+  <loc>https://systemgodverdomme.com/dictionnaire/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
 
 
     <changefreq>monthly</changefreq>
