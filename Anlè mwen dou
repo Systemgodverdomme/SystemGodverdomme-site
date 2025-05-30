@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anlèv Mwen Dou | System Godverdomme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Titre zouk love doux et sensuel en créole martiniquais. Anlèv Mwen Dou célèbre le désir tendre, la captation affective, et l'élan du corps vers l'autre." />
+  <meta name="keywords" content="System Godverdomme, Anlèv Mwen Dou, zouk, konpa, créole, musique antillaise, chanson d'amour, slow caribéen, ambiance sensuelle" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://systemgodverdomme.com/anlevmwendou/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anlèv Mwen Dou – System Godverdomme" />
+  <meta property="og:description" content="Un slow zouk/konpa sensuel et créole. Entre douceur, amour et désir." />
+  <meta property="og:image" content="https://systemgodverdomme.com/assets/og-anlevmwendou.jpg" />
+  <meta property="og:url" content="https://systemgodverdomme.com/anlevmwendou/" />
+  <meta property="og:type" content="music.song" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anlèv Mwen Dou – System Godverdomme" />
+  <meta name="twitter:description" content="Une chanson d'amour créole lente et sensuelle. Zouk love modernisé." />
+  <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-anlevmwendou.jpg" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KRTPN359');</script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Courier New', Courier, monospace;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+    h1 { font-size: 2.5rem; color: pink; text-shadow: 0 0 8px pink; letter-spacing: 2px; margin-bottom: 1rem; }
+    h2 { color: #ffb6c1; text-shadow: 0 0 4px pink; margin-top: 0; }
+    .warning { font-size: 1.1rem; color: #ccc; max-width: 600px; margin-bottom: 2rem; line-height: 1.6; }
+    .stream-btn { background: white; color: black; font-weight: bold; border: none; padding: 1rem 2rem; font-size: 1rem; cursor: pointer; margin-bottom: 2rem; transition: 0.2s ease-in-out; }
+    .stream-btn:hover { background: pink; color: black; text-shadow: 0 0 3px black; }
+    .qr { margin: 2rem 0; }
+    .qr img { width: 180px; height: auto; }
+    .platforms { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    .platforms a { background: rgba(0,0,0,0.6); color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; transition: 0.2s; }
+    .platforms a:hover { background: pink; color: black; text-shadow: 0 0 4px black; }
+    .back-home { margin-top: 3rem; }
+    .back-home a { color: pink; font-weight: bold; text-decoration: none; }
+    .back-home a:hover { text-decoration: underline; }
+    footer { margin-top: 2rem; font-size: 0.8rem; color: #777; }
+    .seo-note { font-size: 0.75rem; color: #999; max-width: 700px; margin: 3rem auto 2rem; text-align: center; line-height: 1.4; }
+  </style>
+</head>
+
+<body>
+  <h1>Anlèv Mwen Dou</h1>
+  <h2>Lent, chaud, en créole. Love mode on.</h2>
+
+  <p class="warning">
+    Une chanson d'amour sensuelle chantée en créole martiniquais.<br>
+    Rythmes zouk et konpa pour déclarer, danser, ou se perdre à deux.<br>
+    Slow antillais moderne. À consommer à feu doux.
+  </p>
+
+  <a class="stream-btn" href="https://open.spotify.com/intl-fr/track/5owN1FIqaYHwPxb8AbMHk4?si=e111da2e73704838" target="_blank">
+    ▶️ ÉCOUTER LE MORCEAU
+  </a>
+
+  <div class="qr">
+    <img src="/assets/qr-anlevmwendou.png" alt="QR code pour Anlèv Mwen Dou">
+  </div>
+
+  <div class="platforms">
+    <a href="https://open.spotify.com/intl-fr/track/5owN1FIqaYHwPxb8AbMHk4?si=e111da2e73704838" target="_blank">Spotify</a>
+    <a href="https://music.apple.com/fr/song/anl%C3%A8v-mwen-dou/1815682212" target="_blank">Apple Music</a>
+    <a href="https://dzr.page.link/NH7TWeu5N47sT3hw6" target="_blank">Deezer</a>
+    <a href="https://youtu.be/x8UfxsigXsY?si=eKzKxyKdj6VH9zSG" target="_blank">YouTube Music</a>
+    <a href="https://music.amazon.fr/albums/B0F9F8L4VP?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_8mgkTXoGkGEG3yXQI2DUtc76o&trackAsin=B0F9F7P3MB" target="_blank">Amazon Music</a>
+    <a href="https://soundcloud.com/system-godverdomme/anlev-mwen-dou-wav?si=02abe0791af6415aafed51977c2a84f2&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">SoundCloud</a>
+    <a href="https://systemgodverdomme.bandcamp.com/track/anlev-mwen-dou" target="_blank">Bandcamp</a>
+    <a href="https://open.qobuz.com/album/o9t7qygbjkdyc" target="_blank">Qobuz</a>
+    <a href="https://tidal.com/browse/track/437240657" target="_blank">Tidal</a>
+  </div>
+
+  <div class="back-home">
+    <a href="/">← Retour au site principal</a>
+  </div>
+
+  <footer>
+    © 2025 – Douceur transmise.
+  </footer>
+
+  <footer class="seo-note">
+    <p>
+      <small>
+        <strong>"Anlèv Mwen Dou"</strong> est un morceau zouk/konpa chanté en créole martiniquais. Une ode sensuelle à l'amour, au toucher et à l'émotion lente.
+        Disponible sur Spotify, Apple Music, Deezer, YouTube Music, Amazon Music, SoundCloud, Bandcamp, Qobuz et Tidal.
+      </small>
+    </p>
+  </footer>
+</body>
+</html>
