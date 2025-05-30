@@ -91,6 +91,36 @@
     .teaser-vnpmb a:hover, .teaser-imdone a:hover, .teaser-manifeste a:hover, .teaser-dictionnaire a:hover {
       text-decoration: underline;
     }
+    .video-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 2rem 0 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .video-carousel iframe {
+      flex: 0 0 90%;
+      max-width: 560px;
+      scroll-snap-align: start;
+      border: 2px solid red;
+      border-radius: 10px;
+      background: black;
+    }
+    .video-caption {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    .video-block {
+      flex-shrink: 0;
+      width: 90%;
+    }
+    @media (min-width: 700px) {
+      .video-block {
+        width: 560px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -129,8 +159,18 @@
   </section>
 
   <section id="videos">
-    <h2>📺 Vidéos à venir</h2>
-    <p>Compilation de glitchs, extraits de conférences, interviews d'experts et anomalies détectées dans notre quotidien.</p>
+    <h2>📺 Journal de la Matrice</h2>
+    <p>Compilation de glitchs, extraits de conférences, interviews d'experts et anomalies détectées dans notre quotidien. Dans cette série, la simulation parle... à travers l'actualité.</p>
+
+    <div class="video-carousel">
+      <div class="video-block">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/P-nXCNFXFig" title="Simulation #36 – Avatar instable ?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-caption">
+          🔴 <strong>Simulation #36</strong><br>
+          Le système l’expose. Le système le sacrifie. Peut-être parce qu’il est… l’avatar de trop.
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="teaser-vnpmb">
