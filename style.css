@@ -121,3 +121,71 @@ footer {
 .content {
   margin-left: 100px;
 }
+
+/* === NAVIGATION SGVD — rouge/noir + glow === */
+.sgvd-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:24px 0;
+  padding:8px 12px;
+  background: rgba(0,0,0,.35);
+  border-radius:10px;
+  border:1px solid #2a2a2a;
+  backdrop-filter: blur(2px);
+}
+
+.sgvd-nav a{
+  --sgvd-red:#ff1e1e;
+  --sgvd-fg:#fff;
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--sgvd-fg);
+  background: var(--sgvd-red);
+  font-family:'Share Tech Mono', monospace;
+  font-weight:700;
+  letter-spacing:.4px;
+  box-shadow: 0 0 8px rgba(255,30,30,.45);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  position:relative;
+}
+
+.sgvd-nav a:hover{
+  background:#ffffff;
+  color:#000;
+  box-shadow:
+    0 0 12px rgba(255,30,30,.75),
+    0 0 28px rgba(255,30,30,.55);
+  transform: translateY(-2px);
+  text-shadow: 0 0 4px #ff1e1e;
+}
+
+/* “Transmission activée” — léger jitter au survol */
+@keyframes sgvd-jitter {
+  0%{ transform:translate(0,0) }
+  25%{ transform:translate(1px,-1px) }
+  50%{ transform:translate(-1px,1px) }
+  75%{ transform:translate(1px,1px) }
+  100%{ transform:translate(0,0) }
+}
+.sgvd-nav a:hover{ animation: sgvd-jitter .3s steps(2,start) infinite; }
+@media (prefers-reduced-motion: reduce){
+  .sgvd-nav a{ transition: none; }
+  .sgvd-nav a:hover{ animation:none; }
+}
+
+/* état actif / focus accessible */
+.sgvd-nav a:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:2px;
+  box-shadow: 0 0 0 3px rgba(255,30,30,.65), inset 0 0 0 1px #000;
+}
+
+/* responsive */
+@media (max-width:600px){
+  .sgvd-nav{ gap:10px; padding:8px; }
+  .sgvd-nav a{ padding:9px 14px; font-size:.95rem; }
+}
