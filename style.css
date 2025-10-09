@@ -189,3 +189,34 @@ footer {
   .sgvd-nav{ gap:10px; padding:8px; }
   .sgvd-nav a{ padding:9px 14px; font-size:.95rem; }
 }
+
+/* === Lien retour vers l'accueil (style SGVD) === */
+.return-home {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.btn-return {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  background: #ff1e1e;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 8px rgba(255, 30, 30, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-return:hover {
+  background: #fff;
+  color: #000;
+  box-shadow:
+    0 0 12px rgba(255, 30, 30, 0.75),
+    0 0 28px rgba(255, 30, 30, 0.55);
+  transform: translateY(-2px);
+  text-shadow: 0 0 4px #ff1e1e;
+}
+
