@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System Godverdomme — Toutes les vidéos YouTube</title>
+  <meta name="description" content="Toutes les vidéos publiées sur la chaîne YouTube de System Godverdomme (SGVD)." />
+  <style>
+    :root{
+      --bg:#0b0b0d;--fg:#eaeaf0;--muted:#a1a1b3;--card:#15151a;--accent:#ff2a6d;--stroke:#25252d;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .title{font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:.2px}
+    .sub{color:var(--muted);font-size:14px}
+    .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .input{background:var(--card);border:1px solid var(--stroke);border-radius:12px;padding:10px 12px;color:var(--fg);min-width:220px}
+    .btn{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:600}
+    .btn[disabled]{opacity:.5;cursor:default}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .12s ease}
+    .card:hover{transform:translateY(-2px)}
+    .thumb{aspect-ratio:16/9;background:#111 center/cover no-repeat}
+    .meta{padding:12px}
+    .ttl{font-weight:700;font-size:15px;line-height:1.35;margin:0 0 6px}
+    .row{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:#1d1d25;border:1px solid var(--stroke);padding:4px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .footer{display:flex;justify-content:center;margin:22px 0 12px}
+    .helper{background:#0f0f14;border:1px dashed var(--stroke);border-radius:12px;padding:14px;color:var(--muted);font-size:14px;margin-top:18px}
+    iframe{width:100%;height:60vh;border:0;border-radius:16px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <!--
+    COMMENT INSTALLER
+    1) Remplacez CHANNEL_ID ci-dessous par l'ID de votre chaîne YouTube (forme "UC........").
+       Pour SGVD, ouvrez la page de chaîne YouTube > À propos > copier l'identifiant.
+    2) (Optionnel mais recommandé) Ajoutez votre clé API YouTube Data v3 dans YT_API_KEY pour un rendu en grille dynamique.
+       - Créez une clé dans Google Cloud > APIs & Services > Credentials.
+       - Activez "YouTube Data API v3" pour votre projet.
+    3) Sans clé API : la page bascule automatiquement sur un lecteur Playlist (iframe) des "Mises en ligne".
+
+    INTÉGRATION
+    - Sauvegardez ce fichier comme /videos/index.html (ou /videos.html) sur systemgodverdomme.com.
+    - Vous pouvez intégrer ce bloc dans votre template existant (header/footer de votre site) si besoin.
+  -->
+
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="title">System Godverdomme — Toutes les vidéos</div>
+        <div class="sub">Liste auto des uploads YouTube de SGVD (recherche + pagination). Fallback playlist si l'API n'est pas configurée.</div>
+      </div>
+      <div class="controls">
+        <input id="q" class="input" type="search" placeholder="Rechercher une vidéo… (titre)" />
+        <button id="btn-more" class="btn" disabled>Charger plus</button>
+      </div>
+    </header>
+
+    <div id="api-grid" class="grid"></div>
+    <div class="footer"><span id="count" class="sub"></span></div>
+
+    <div id="fallback" class="helper hidden">
+      <p><strong>Mode simplifié :</strong> affichage de la playlist des mises en ligne (aucune clé API requise).</p>
+      <iframe id="fallback-frame" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <p class="sub">Astuce : ajoutez une clé API pour bénéficier de la grille, de la recherche locale et de la pagination.</p>
+    </div>
+  </div>
+
+  <script>
+    // —————— CONFIG ——————
+    const CHANNEL_ID = "UCVvuvQB-Dz-ZTkhNzWpQeZQ"; // SGVD channel // ⬅️ Remplacer par l'ID de la chaîne SGVD (commence par UC)
+    const YT_API_KEY = "AIzaSyDzbeQ-gDdv1QykXwFfACr0hAEnsvWRH40"; // ⬅️ Colle ici ta clé YouTube Data API v3 pour activer la grille (recherche + pagination) — restreins la clé par Referer !
+
+    // —————— LOGIQUE ——————
+    const state = {
+      uploadsPlaylistId: null,
+      nextPageToken: null,
+      items: [],
+      filtered: [],
+    };
+
+    const elGrid = document.getElementById('api-grid');
+    const elMore = document.getElementById('btn-more');
+    const elCount = document.getElementById('count');
+    const elQ = document.getElementById('q');
+    const elFallback = document.getElementById('fallback');
+    const elFallbackFrame = document.getElementById('fallback-frame');
+
+    function fmtDate(iso){
+      try{ return new Date(iso).toLocaleDateString('fr-FR',{ year:'numeric', month:'short', day:'numeric' }); }catch(e){ return '' }
+    }
+
+    function computeUploadsId(channelId){
+      if(!channelId || !channelId.startsWith('UC')) return null;
+      return 'UU' + channelId.substring(2);
+    }
+
+    function render(){
+      const q = (elQ.value||'').trim().toLowerCase();
+      state.filtered = !q ? state.items : state.items.filter(v => v.snippet.title.toLowerCase().includes(q));
+      elGrid.innerHTML = state.filtered.map(toCardHTML).join('');
+      elCount.textContent = state.filtered.length ? `${state.filtered.length} vidéo(s) affichée(s)` : '';
+      elMore.disabled = !state.nextPageToken;
+    }
+
+    function toCardHTML(it){
+      const id = it.contentDetails?.videoId || it.snippet?.resourceId?.videoId || '';
+      const s = it.snippet || {};
+      const ttl = s.title || 'Sans titre';
+      const dt = s.publishedAt ? fmtDate(s.publishedAt) : '';
+      const thumb = s.thumbnails?.maxres?.url || s.thumbnails?.high?.url || s.thumbnails?.medium?.url || '';
+      const url = `https://www.youtube.com/watch?v=${id}`;
+      return `
+        <a class="card" href="${url}" target="_blank" rel="noopener noreferrer">
+          <div class="thumb" style="background-image:url('${thumb}')"></div>
+          <div class="meta">
+            <h3 class="ttl">${escapeHTML(ttl)}</h3>
+            <div class="row">
+              <span class="chip">${dt}</span>
+              <span class="chip">YouTube</span>
+            </div>
+          </div>
+        </a>`;
+    }
+
+    function escapeHTML(str){
+      return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m]));
+    }
+
+    async function fetchPage(){
+      const params = new URLSearchParams({
+        key: YT_API_KEY,
+        part: 'snippet,contentDetails',
+        maxResults: '24',
+        playlistId: state.uploadsPlaylistId,
+      });
+      if(state.nextPageToken) params.set('pageToken', state.nextPageToken);
+      const url = `https://www.googleapis.com/youtube/v3/playlistItems?${params.toString()}`;
+      const res = await fetch(url);
+      if(!res.ok){ throw new Error('YouTube API error ' + res.status); }
+      const data = await res.json();
+      state.items.push(...(data.items||[]));
+      state.nextPageToken = data.nextPageToken || null;
+      render();
+    }
+
+    function enableGridMode(){
+      document.querySelector('header .sub').textContent = 'Liste auto des uploads YouTube (grille dynamique activée).';
+      elFallback.classList.add('hidden');
+      elGrid.classList.remove('hidden');
+      elMore.disabled = true;
+      elMore.addEventListener('click', () => fetchPage().catch(onFail));
+      elQ.addEventListener('input', render);
+    }
+
+    function enableFallbackMode(){
+      elGrid.classList.add('hidden');
+      elMore.setAttribute('disabled','');
+      elQ.setAttribute('disabled','');
+      elFallback.classList.remove('hidden');
+      const uploadsId = state.uploadsPlaylistId;
+      const src = `https://www.youtube.com/embed?listType=playlist&list=${encodeURIComponent(uploadsId)}`;
+      elFallbackFrame.src = src;
+    }
+
+    function onFail(err){
+      console.warn(err);
+      // Si l'API échoue, on bascule sur le fallback
+      enableFallbackMode();
+    }
+
+    (async function init(){
+      state.uploadsPlaylistId = computeUploadsId(CHANNEL_ID);
+      if(!state.uploadsPlaylistId){
+        document.querySelector('header .sub').textContent = "⚠️ CHANNEL_ID invalide. Veuillez renseigner l'identifiant de chaîne (UC...).";
+        return;
+      }
+
+      if(YT_API_KEY && YT_API_KEY.trim().length > 10){
+        // Mode API
+        enableGridMode();
+        try{ await fetchPage(); }catch(e){ onFail(e); }
+      } else {
+        // Mode fallback playlist
+        enableFallbackMode();
+      }
+    })();
+  </script>
+</body>
+</html>
 
