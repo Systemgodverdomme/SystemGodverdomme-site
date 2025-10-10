@@ -247,23 +247,6 @@ footer {
   box-shadow:0 0 10px rgba(255,30,30,.5);
   transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.sim-toggle:hover{ transform:translateY(-2px); box-shadow:0 0 16px rgba(255,30,30,.7); }
-.sim-toggle:active{ transform:translateY(0); }
 
-/* Effet global "Simulation" (léger, sûr, réversible) */
-body.sim-on{
-  /* pas de mix-blend ni d’overlay qui blanchit : juste un gain subtil */
-  filter: saturate(1.12) contrast(1.05) brightness(1.02);
-}
 
-/* Petites lueurs rouges sur titres/liens en mode Simulation */
-body.sim-on h1, body.sim-on h2, body.sim-on h3,
-body.sim-on a:hover{
-  text-shadow: 0 0 6px rgba(255,30,30,.45);
-}
-
-/* Accessibilité : réduit les animations si demandé */
-@media (prefers-reduced-motion: reduce){
-  .sim-toggle{ transition:none }
-}
 
