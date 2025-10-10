@@ -188,9 +188,29 @@
   }, 4000);
 })();
 </script>
+<button id="simToggle" class="sim-toggle" aria-pressed="false">🧪 Mode Simulation</button>
+<script>
+  (function () {
+    const key = 'sgvd_sim_on';
+    const btn = document.getElementById('simToggle');
+    const on = localStorage.getItem(key) === '1';
+    if (on) {
+      document.body.classList.add('sim-on');
+      btn.setAttribute('aria-pressed','true');
+      btn.textContent = '🧪 Simulation ON';
+    }
+    btn.addEventListener('click', () => {
+      const enabled = document.body.classList.toggle('sim-on');
+      btn.setAttribute('aria-pressed', String(enabled));
+      btn.textContent = enabled ? '🧪 Simulation ON' : '🧪 Mode Simulation';
+      localStorage.setItem(key, enabled ? '1' : '0');
+    });
+  })();
+</script>
 
 </body>
 </html>
+
 
 
 
