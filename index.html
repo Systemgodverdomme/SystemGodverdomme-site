@@ -188,28 +188,60 @@
   }, 4000);
 })();
 </script>
+<!-- Toggle Simulation — autonome -->
 <button id="simToggle" class="sim-toggle" aria-pressed="false">🧪 Mode Simulation</button>
 <script>
-  (function () {
-    const key = 'sgvd_sim_on';
-    const btn = document.getElementById('simToggle');
-    const on = localStorage.getItem(key) === '1';
-    if (on) {
-      document.body.classList.add('sim-on');
-      btn.setAttribute('aria-pressed','true');
-      btn.textContent = '🧪 Simulation ON';
-    }
-    btn.addEventListener('click', () => {
-      const enabled = document.body.classList.toggle('sim-on');
-      btn.setAttribute('aria-pressed', String(enabled));
-      btn.textContent = enabled ? '🧪 Simulation ON' : '🧪 Mode Simulation';
-      localStorage.setItem(key, enabled ? '1' : '0');
-    });
-  })();
+(function () {
+  // 1) CSS auto-injecté (si absent)
+  const css = `
+  .sim-toggle{
+    position:fixed; right:16px; bottom:16px; z-index:2147483000;
+    background:#ff1e1e; color:#fff; border:0;
+    font-family:'Share Tech Mono', monospace; font-weight:700;
+    padding:10px 14px; border-radius:8px; cursor:pointer;
+    box-shadow:0 0 10px rgba(255,30,30,.5);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .sim-toggle:hover{ transform:translateY(-2px); box-shadow:0 0 16px rgba(255,30,30,.7) }
+
+  :root{ --sim-sat:1.12; --sim-ctr:1.05; --sim-br:1.02 }
+  html[data-sim="on"] body{
+    filter: saturate(var(--sim-sat)) contrast(var(--sim-ctr)) brightness(var(--sim-br));
+    transition: filter .2s ease;
+  }
+  html[data-sim="on"] h1, html[data-sim="on"] h2, html[data-sim="on"] h3,
+  html[data-sim="on"] a:hover{
+    text-shadow: 0 0 6px rgba(255,30,30,.45);
+  }`;
+  if (!document.getElementById('sim-css')) {
+    const s = document.createElement('style'); s.id = 'sim-css'; s.textContent = css; document.head.appendChild(s);
+  }
+
+  // 2) Logique du bouton
+  const key = 'sgvd_sim_on';
+  const btn = document.getElementById('simToggle');
+  const applyUI = () => {
+    const on = document.documentElement.getAttribute('data-sim') === 'on';
+    btn.textContent = on ? '🧪 Simulation ON' : '🧪 Mode Simulation';
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    localStorage.setItem(key, on ? '1' : '0');
+  };
+  // état initial (restauré)
+  if (localStorage.getItem(key) === '1') document.documentElement.setAttribute('data-sim','on');
+  applyUI();
+
+  btn.addEventListener('click', () => {
+    const on = document.documentElement.getAttribute('data-sim') === 'on';
+    if (on) document.documentElement.removeAttribute('data-sim');
+    else document.documentElement.setAttribute('data-sim','on');
+    applyUI();
+  });
+})();
 </script>
 
 </body>
 </html>
+
 
 
 
