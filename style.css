@@ -219,4 +219,24 @@ footer {
   transform: translateY(-2px);
   text-shadow: 0 0 4px #ff1e1e;
 }
+/* === Bandeau Transmission (SGVD) === */
+.sgvd-transmission-wrap{
+  display:flex;
+  justify-content:center;
+  margin:24px 0 8px;
+}
+.sgvd-transmission{
+  color:#ff1e1e;
+  font-family:'Share Tech Mono', monospace;
+  font-weight:700;
+  letter-spacing:.5px;
+  text-shadow:0 0 6px #ff1e1e;
+  animation: tx-flicker 4s ease-in-out infinite;
+}
+@keyframes tx-flicker{
+  0%,100%{opacity:.9; filter:none}
+  50%{opacity:1; filter:brightness(1.2) contrast(1.05)}
+}
+
+
 
