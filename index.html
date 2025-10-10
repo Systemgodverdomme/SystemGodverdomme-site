@@ -167,8 +167,29 @@
   <p id="sgvd-tx" class="sgvd-transmission">[ Transmission en cours… ]</p>
 </div>
   </footer>
+  <script>
+(function(){
+  const el = document.getElementById('sgvd-tx');
+  if(!el) return;
+  const phrases = [
+    "[ Signal instable ]",
+    "[ Source : JMT.BRG.404 not found ]",
+    "[ Transmission partielle ]",
+    "[ Ce monde n'existe pas ]",
+    "[ Tu ne décides pas. Tu ne fais que valider. ]",
+    "[ Simulation : statut > instable ]"
+  ];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % phrases.length;
+    el.textContent = phrases[i];
+  }, 4000);
+})();
+</script>
+
 </body>
 </html>
+
 
 
 
