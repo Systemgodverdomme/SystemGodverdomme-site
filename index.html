@@ -451,9 +451,29 @@
   });
 })();
 </script>
+<script>
+(function(){
+  // Les éléments à masquer en mode Simulation
+  const nodes = document.querySelectorAll('.seo-note, footer');
+  if (!nodes.length) return;
+
+  function apply() {
+    const simOn = document.documentElement.getAttribute('data-sim') === 'on';
+    nodes.forEach(n => { n.style.display = simOn ? 'none' : ''; });
+  }
+
+  // Au chargement (si Simulation déjà ON via localStorage)
+  apply();
+
+  // Sur clic du bouton "Simulation"
+  const btn = document.getElementById('simToggle');
+  if (btn) btn.addEventListener('click', () => setTimeout(apply, 0));
+})();
+</script>
 
 </body>
 </html>
+
 
 
 
