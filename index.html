@@ -119,28 +119,6 @@
       line-height: 1.5;
     }
   </style>
- <style>
-  /* Scanlines SGVD — version très douce et stable */
-  :root { --scan-alpha: 0.05; --scan-speed: 5s; }
-  body::after{
-    content:"";
-    position:fixed; inset:0; pointer-events:none;
-    z-index:2147483000;
-    /* lignes fines, pas de vignette, pas de mix-blend agressif */
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(255,30,30,var(--scan-alpha)) 0px,
-      rgba(255,30,30,var(--scan-alpha)) 1px,
-      transparent 2px,
-      transparent 4px
-    );
-    opacity:.35;                 /* lumière globale très modérée */
-    animation: sgvdScan var(--scan-speed) linear infinite;
-    will-change: background-position;
-  }
-  @keyframes sgvdScan { from{background-position:0 0} to{background-position:0 120px} }
-  @media (prefers-reduced-motion: reduce){ body::after{ animation:none } }
-</style>
 
 </head>
 
@@ -213,6 +191,7 @@
 
 </body>
 </html>
+
 
 
 
