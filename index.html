@@ -118,6 +118,46 @@
       line-height: 1.5;
     }
   </style>
+  <style id="sgvd-scanlines">
+  /* === SGVD Scanlines overlay — inline (prioritaire) === */
+  :root{
+    --scanlines-alpha: 0.16;   /* augmente ou baisse pour régler l’intensité */
+    --scan-speed: 3s;
+  }
+  body::after{
+    content:"" !important;               /* on force l’existence du pseudo-élément */
+    position: fixed !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    z-index: 2147483000 !important;      /* tout en haut */
+    background:
+      /* lignes rouges */
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255,30,30,var(--scanlines-alpha)) 0px,
+        rgba(255,30,30,var(--scanlines-alpha)) 1px,
+        transparent 2px,
+        transparent 4px
+      ),
+      /* vignette sombre légère */
+      radial-gradient(ellipse at center,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) 60%,
+        rgba(0,0,0,.22) 100%
+      ) !important;
+    mix-blend-mode: normal !important;
+    animation: sgvd-scan var(--scan-speed) linear infinite !important;
+    opacity: 1 !important;
+  }
+  @keyframes sgvd-scan{
+    from { background-position: 0 0, center; }
+    to   { background-position: 0 120px, center; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    body::after{ animation: none !important; }
+  }
+</style>
+
 </head>
 
 <body>
@@ -189,6 +229,7 @@
 
 </body>
 </html>
+
 
 
 
