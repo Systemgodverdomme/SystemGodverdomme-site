@@ -260,6 +260,17 @@ html[data-sim="on"] footer {
   visibility: hidden;
   transition: opacity 0.8s ease;
 }
+/* === Mode Simulation : masquage total des infos SEO et du footer === */
+html[data-sim="on"] .seo-note,
+html[data-sim="on"] .seo-note *,
+html[data-sim="on"] footer,
+html[data-sim="on"] footer * {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+
 
 
 
