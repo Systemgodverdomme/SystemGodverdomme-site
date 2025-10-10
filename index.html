@@ -266,9 +266,103 @@
   });
 })();
 </script>
+<!-- ===== SGVD MATRIX RAIN — branché sur le bouton "Simulation" ===== -->
+<script>
+(function () {
+  // 1) Canvas + CSS injectés
+  const css = `
+    #sgvd-matrix {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; /* derrière le contenu */
+      display: none; /* visible seulement en Simulation ON */
+    }
+    html[data-sim="on"] #sgvd-matrix{ display:block; }
+  `;
+  const style = document.createElement('style');
+  style.id = 'sgvd-matrix-css';
+  style.textContent = css;
+  document.head.appendChild(style);
+
+  const canvas = document.createElement('canvas');
+  canvas.id = 'sgvd-matrix';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+
+  // 2) Paramètres visuels (touche SGVD : rouge sombre au lieu de vert fluo)
+  let W = 0, H = 0, cols = 0, drops = [];
+  const fontSize = 16;        // taille du “code”
+  const speedMin = 2, speedMax = 6; // vitesse verticale (px/frame)
+  const glyphs = '01░▒▓█ø∆§/\\<>-=+•†‡∎☣☢'; // tu peux changer/rajouter
+  const color = 'rgba(255,30,30,0.85)';     // rouge SGVD
+  const trail = 'rgba(0,0,0,0.08)';         // "trainée" sombre
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    cols = Math.floor(W / fontSize);
+    drops = Array.from({length: cols}, () => ({
+      y: Math.random() * H,
+      speed: speedMin + Math.random() * (speedMax - speedMin)
+    }));
+    ctx.font = fontSize + "px 'Share Tech Mono', monospace";
+  }
+  window.addEventListener('resize', resize);
+
+  let raf = null;
+  function frame() {
+    // voile noir semi-transparent pour la trail
+    ctx.fillStyle = trail;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = color;
+    for (let i = 0; i < cols; i++) {
+      const g = glyphs[Math.floor(Math.random() * glyphs.length)];
+      const x = i * fontSize;
+      const y = drops[i].y;
+
+      ctx.fillText(g, x, y);
+
+      drops[i].y += drops[i].speed;
+      if (drops[i].y > H + fontSize * 4 || Math.random() > 0.985) {
+        // reset aléatoire pour éviter l’uniformité
+        drops[i].y = -Math.random() * 200;
+        drops[i].speed = speedMin + Math.random() * (speedMax - speedMin);
+      }
+    }
+    raf = requestAnimationFrame(frame);
+  }
+
+  // 3) Start/Stop selon l’état de la Simulation (ton bouton existe déjà)
+  function start() {
+    resize();
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(frame);
+  }
+  function stop() {
+    cancelAnimationFrame(raf);
+    // efface proprement le canvas
+    ctx.clearRect(0, 0, W, H);
+  }
+
+  const isOn = () => document.documentElement.getAttribute('data-sim') === 'on';
+  if (isOn()) start();
+
+  // Quand tu cliques le bouton Simulation (déjà en place), on bascule l’anim
+  const btn = document.getElementById('simToggle');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      setTimeout(() => (isOn() ? start() : stop()), 0);
+    });
+  }
+
+  // Sécurité : si l’état change autrement (localStorage restauré), on s’adapte au chargement
+  document.addEventListener('DOMContentLoaded', () => { if (isOn()) start(); });
+})();
+</script>
 
 </body>
 </html>
+
 
 
 
