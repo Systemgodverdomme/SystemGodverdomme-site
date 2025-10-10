@@ -23,32 +23,7 @@
   <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
 
   <style>
-    <script>
-(function () {
-  // crée l'overlay plein écran
-  const o = document.createElement('div');
-  o.id = 'sgvd-overlay';
-  o.style.cssText = [
-    'position:fixed',
-    'inset:0',
-    'pointer-events:none',
-    'z-index:2147483000',
-    // lignes rouges + légère vignette sombre
-    'background:' +
-      'repeating-linear-gradient(to bottom, rgba(255,30,30,0.16) 0px, rgba(255,30,30,0.16) 1px, transparent 2px, transparent 4px),' +
-      'radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.22) 100%)',
-    'mix-blend-mode:normal',
-    'animation:sgvdScan 3s linear infinite'
-  ].join(';');
-  document.body.appendChild(o);
-
-  // ajoute la keyframes si absente
-  const s = document.createElement('style');
-  s.textContent = '@keyframes sgvdScan{from{background-position:0 0,center}to{background-position:0 120px,center}}';
-  document.head.appendChild(s);
-})();
-</script>
-
+    
     body {
       margin: 0;
       padding: 0;
@@ -255,6 +230,7 @@
 
 </body>
 </html>
+
 
 
 
