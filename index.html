@@ -359,9 +359,102 @@
   document.addEventListener('DOMContentLoaded', () => { if (isOn()) start(); });
 })();
 </script>
+<script>
+/* --- SGVD HUM AUDIO (WebAudio) --- */
+(function () {
+  const BTN = document.getElementById('simToggle');
+  if (!BTN) return;
+
+  let ctx, master, osc1, noise, noiseNode, lp, isReady = false;
+  const VOL = 0.12;        // volume global (0 → 1) – ajuste si besoin
+  const FADE = 0.6;        // durée du fondu (secondes)
+
+  function makeBrownNoise(context) {
+    // Brown noise (grave, “souffle” profond)
+    const bufferSize = 2 * context.sampleRate;
+    const noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    let lastOut = 0.0;
+    for (let i = 0; i < bufferSize; i++) {
+      const white = Math.random() * 2 - 1;
+      output[i] = (lastOut + 0.02 * white) / 1.02;
+      lastOut = output[i];
+      output[i] *= 3.5; // boost léger
+    }
+    const node = context.createBufferSource();
+    node.buffer = noiseBuffer;
+    node.loop = true;
+    return node;
+  }
+
+  function setup() {
+    if (isReady) return;
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+
+    // Sine grave (40 Hz) + brown noise filtré
+    osc1 = ctx.createOscillator(); osc1.type = 'sine'; osc1.frequency.value = 40; // rumble
+    noiseNode = makeBrownNoise(ctx);
+    lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 220; // coupe les aigus
+
+    // Gains individuels
+    const g1 = ctx.createGain(); g1.gain.value = 0.5;   // oscillateur
+    const g2 = ctx.createGain(); g2.gain.value = 0.35;  // bruit brun
+
+    // Chaînage
+    osc1.connect(g1).connect(master);
+    noiseNode.connect(lp).connect(g2).connect(master);
+
+    osc1.start();
+    noiseNode.start(0);
+
+    isReady = true;
+  }
+
+  function isSimOn() {
+    return document.documentElement.getAttribute('data-sim') === 'on';
+  }
+
+  function fadeTo(target) {
+    if (!isReady) return;
+    const t = ctx.currentTime;
+    master.gain.cancelScheduledValues(t);
+    master.gain.setValueAtTime(master.gain.value, t);
+    master.gain.linearRampToValueAtTime(target, t + FADE);
+  }
+
+  function startHum() {
+    if (!isReady) setup();
+    if (ctx.state === 'suspended') ctx.resume();
+    fadeTo(VOL);
+  }
+
+  function stopHum() {
+    if (!isReady) return;
+    fadeTo(0);
+  }
+
+  // État au chargement (si Simulation déjà ON)
+  if (isSimOn()) {
+    // déverrouille audio au 1er clic utilisateur (policy navigateur)
+    window.addEventListener('click', function once() {
+      setup(); startHum(); window.removeEventListener('click', once);
+    });
+  }
+
+  // Sur clic du bouton existant
+  BTN.addEventListener('click', () => {
+    // 1er clic : crée le contexte audio
+    if (!isReady) setup();
+    // Laisse le toggle changer data-sim, puis applique son
+    setTimeout(() => { isSimOn() ? startHum() : stopHum(); }, 0);
+  });
+})();
+</script>
 
 </body>
 </html>
+
 
 
 
