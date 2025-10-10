@@ -237,3 +237,33 @@ footer {
   0%,100%{opacity:.9; filter:none}
   50%{opacity:1; filter:brightness(1.2) contrast(1.05)}
 }
+/* Bouton flottant */
+.sim-toggle{
+  position:fixed; right:16px; bottom:16px;
+  z-index:2147483000;
+  background:#ff1e1e; color:#fff; border:0;
+  font-family:'Share Tech Mono', monospace; font-weight:700;
+  padding:10px 14px; border-radius:8px; cursor:pointer;
+  box-shadow:0 0 10px rgba(255,30,30,.5);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.sim-toggle:hover{ transform:translateY(-2px); box-shadow:0 0 16px rgba(255,30,30,.7); }
+.sim-toggle:active{ transform:translateY(0); }
+
+/* Effet global "Simulation" (léger, sûr, réversible) */
+body.sim-on{
+  /* pas de mix-blend ni d’overlay qui blanchit : juste un gain subtil */
+  filter: saturate(1.12) contrast(1.05) brightness(1.02);
+}
+
+/* Petites lueurs rouges sur titres/liens en mode Simulation */
+body.sim-on h1, body.sim-on h2, body.sim-on h3,
+body.sim-on a:hover{
+  text-shadow: 0 0 6px rgba(255,30,30,.45);
+}
+
+/* Accessibilité : réduit les animations si demandé */
+@media (prefers-reduced-motion: reduce){
+  .sim-toggle{ transition:none }
+}
+
