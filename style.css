@@ -237,6 +237,45 @@ footer {
   0%,100%{opacity:.9; filter:none}
   50%{opacity:1; filter:brightness(1.2) contrast(1.05)}
 }
+/* === Effet "scanlines / surveillance" SGVD (léger, non intrusif) === */
+:root{
+  /* Intensité réglable (0.00 à 0.20) */
+  --scanlines-alpha: 0.06;
+  --scan-speed: 4s; /* vitesse de balayage */
+}
+
+/* Surcouche sur tout le site */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;           /* ne bloque jamais les clics */
+  z-index: 999;                   /* au-dessus, mais sous tes modales si tu en as */
+  background:
+    /* fines lignes horizontales */
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,0,0,var(--scanlines-alpha)) 0px,
+      rgba(255,0,0,var(--scanlines-alpha)) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  mix-blend-mode: screen;         /* se marie avec ton fond sombre */
+  animation: sgvd-scan var(--scan-speed) linear infinite;
+}
+
+/* Animation de balayage (légère) */
+@keyframes sgvd-scan{
+  from { background-position: 0 0; }
+  to   { background-position: 0 100px; }
+}
+
+/* Accessibilité : si l’utilisateur préfère moins d’animations, on fige */
+@media (prefers-reduced-motion: reduce){
+  body::after{ animation: none; }
+}
+
+
 
 
 
