@@ -269,6 +269,26 @@ html[data-sim="on"] footer * {
   visibility: hidden !important;
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
+<style>
+  /* Cible les éléments qui doivent bouger (ajoute .sgvd-wobble où tu veux) */
+  .sgvd-wobble{
+    will-change: transform, text-shadow, filter;
+    transition: transform .06s linear, text-shadow .06s linear, filter .06s linear;
+  }
+
+  /* Intensité plus forte quand Simulation ON (facultatif) */
+  html[data-sim="on"] .sgvd-wobble{
+    /* un chouïa plus de glow en mode simulation */
+    text-shadow: 0 0 4px rgba(255,30,30,.25);
+  }
+
+  /* Accessibilité : si l’utilisateur préfère peu d’animations */
+  @media (prefers-reduced-motion: reduce){
+    .sgvd-wobble{ transition: none !important; }
+  }
+</style>
+
+
 
 
 
