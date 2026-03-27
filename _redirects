@@ -13,3 +13,7 @@ http://www.systemgodverdomme.com/*  https://systemgodverdomme.com/:splat  301!
 
 # Rituels
 /rituels/face-b      /rituels/face-b.html      301
+
+# Sécurisation casse (song pages)
+/anlevmwendou/*    /Anlevmwendou/:splat    301
+/sansunbruit/*     /Sansunbruit/:splat     301

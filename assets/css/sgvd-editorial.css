@@ -1,0 +1,71 @@
+/*
+  SGVD – Editorial base (minimal)
+  Usage: for new editorial pages only. Keep this file short and stable.
+*/
+
+:root {
+  --sgvd-bg: #060606;
+  --sgvd-fg: #eaeaea;
+  --sgvd-muted: #9d9d9d;
+  --sgvd-accent: #ff2b2b;
+  --sgvd-border: rgba(255, 43, 43, 0.35);
+  --sgvd-content-width: 820px;
+}
+
+body.sgvd-editorial {
+  margin: 0;
+  color: var(--sgvd-fg);
+  background: var(--sgvd-bg);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+}
+
+.sgvd-container {
+  width: min(var(--sgvd-content-width), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.sgvd-title {
+  margin: 0 0 0.5rem;
+  color: var(--sgvd-accent);
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 43, 43, 0.45);
+}
+
+.sgvd-subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--sgvd-muted);
+}
+
+.sgvd-block {
+  border: 1px solid var(--sgvd-border);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.sgvd-button {
+  display: inline-block;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--sgvd-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.sgvd-button:hover {
+  background: var(--sgvd-accent);
+  color: #000;
+}
+
+.sgvd-back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--sgvd-muted);
+  text-decoration: none;
+}
+
+.sgvd-back-link:hover {
+  color: var(--sgvd-accent);
+}
