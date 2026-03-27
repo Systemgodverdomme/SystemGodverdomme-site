@@ -9,3 +9,7 @@ http://www.systemgodverdomme.com/*  https://systemgodverdomme.com/:splat  301!
 /manifeste.html      /manifeste      301
 /simulation.html     /simulation     301
 /dictionnaire.html   /dictionnaire   301
+
+# Sécurisation casse (song pages)
+/anlevmwendou/*    /Anlevmwendou/:splat    301
+/sansunbruit/*     /Sansunbruit/:splat     301
