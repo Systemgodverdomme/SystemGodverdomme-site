@@ -144,8 +144,10 @@
     }
 
     async function fetchPage(){
+      const playlistId = state.uploadsPlaylistId || computeUploadsId(CHANNEL_ID);
+      if(!playlistId){ throw new Error('Missing uploads playlistId'); }
       const params = new URLSearchParams({
-        playlistId: state.uploadsPlaylistId,
+        playlistId,
       });
       if(state.nextPageToken) params.set('pageToken', state.nextPageToken);
       const res = await fetch(`${YT_FUNCTION_URL}?${params.toString()}`);
@@ -198,5 +200,4 @@
 </div>
 </body>
 </html>
-
 
