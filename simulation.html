@@ -4,217 +4,348 @@
   <meta charset="UTF-8">
   <title>Simulation ? – System Godverdomme</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Plongez dans la théorie de la simulation avec System Godverdomme. Preuves, anomalies, glitchs et paradoxes : explorez la matrice.">
+  <meta name="description" content="Plongez dans la théorie de la simulation avec System Godverdomme. Indices, anomalies, glitchs et paradoxes : explorez la matrice.">
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="canonical" href="https://systemgodverdomme.com/simulation.html">
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css">
   <style>
     body {
       margin: 0;
-      padding: 2rem;
+      padding: 2rem 1rem 3rem;
       background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Courier New', monospace;
-      color: white;
-      line-height: 1.6;
+      color: var(--sgvd-fg-main);
+      line-height: 1.68;
     }
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: red;
-      text-shadow: 0 0 6px red;
+
+    .sim-wrap {
+      width: min(980px, 100%);
+      margin: 0 auto;
     }
-    nav {
-      margin: 2rem auto;
-      text-align: center;
-    }
-    nav a {
-      margin: 0.5rem;
-      color: #ff8888;
-      text-decoration: none;
-      font-weight: bold;
-      background: rgba(0,0,0,0.5);
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      transition: 0.2s;
-    }
-    nav a:hover {
-      background: red;
-      color: white;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 12px;
-    }
-    footer {
-      margin-top: 3rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
+
+    .sim-hero,
+    .sim-panel,
+    .sim-traffic,
     .seo-note {
-      font-size: 0.75rem;
-      color: #aaa;
-      max-width: 800px;
-      margin: 4rem auto 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
+      border-radius: 12px;
+      padding: 1.3rem 1.2rem;
+      margin: 0 auto 1.25rem;
+    }
+
+    .sim-hero {
       text-align: center;
     }
-    .seo-note a {
-      color: #ff4444;
-      font-weight: bold;
-      text-decoration: none;
+
+    .sim-badge {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      padding: 0.22rem 0.58rem;
+      border: 1px solid rgba(255, 79, 85, 0.5);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: #ffd1d3;
+      text-transform: uppercase;
+      background: rgba(215, 38, 46, 0.14);
     }
-    .seo-note a:hover {
-      text-decoration: underline;
-    }
-    .teaser-vnpmb, .teaser-imdone, .teaser-manifeste, .teaser-dictionnaire {
-      margin-top: 2.5rem;
-      background: rgba(255, 255, 255, 0.06);
-      color: #eee;
-      padding: 1rem 1.5rem;
+
+    h1 {
+      margin: 0.12rem 0 0.5rem;
       text-align: center;
-      border-top: 1px solid #ff4444;
-      border-bottom: 1px solid #ff4444;
-      font-size: 0.95rem;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: #f7f7f7;
+      letter-spacing: 1.6px;
     }
-    .teaser-vnpmb a, .teaser-imdone a, .teaser-manifeste a, .teaser-dictionnaire a {
-      color: #ff4444;
-      font-weight: bold;
-      text-decoration: none;
+
+    .sim-lead {
+      margin: 0 auto;
+      max-width: 70ch;
+      color: var(--sgvd-fg-soft);
+      font-size: 1.03rem;
     }
-    .teaser-vnpmb a:hover, .teaser-imdone a:hover, .teaser-manifeste a:hover, .teaser-dictionnaire a:hover {
-      text-decoration: underline;
+
+    nav {
+      margin: 1.2rem auto 1.8rem;
+      padding: 1rem;
     }
+
+    .sim-nav {
+      gap: 0.65rem;
+    }
+
+    .sim-layout {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+
+    .sim-panel h2 {
+      margin: 0 0 0.72rem;
+      font-size: 1.34rem;
+      color: #f6dede;
+      letter-spacing: 0.02em;
+    }
+
+    .sim-panel p,
+    .sim-panel li {
+      color: var(--sgvd-fg-soft);
+      margin: 0.35rem 0;
+    }
+
+    .sim-panel ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .sim-highlight {
+      margin-top: 0.86rem;
+      padding: 0.8rem 0.86rem;
+      border-left: 2px solid rgba(255, 79, 85, 0.62);
+      background: rgba(255, 79, 85, 0.08);
+      color: #f4e8e8;
+      font-size: 0.94rem;
+    }
+
     .video-carousel {
       display: flex;
       overflow-x: auto;
-      gap: 2rem;
-      padding: 2rem 0 1rem;
+      gap: 1.2rem;
+      padding: 1rem 0 0.8rem;
       scroll-snap-type: x mandatory;
     }
-    .video-carousel iframe {
+
+    .video-block {
       flex: 0 0 90%;
-      max-width: 560px;
+      width: 90%;
       scroll-snap-align: start;
-      border: 2px solid red;
+    }
+
+    .video-carousel iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(255, 79, 85, 0.5);
       border-radius: 10px;
       background: black;
     }
+
     .video-caption {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--sgvd-fg-soft);
+      margin-top: 0.62rem;
+      line-height: 1.6;
+    }
+
+    .sim-traffic h2 {
+      margin: 0 0 0.8rem;
+      font-size: 1.18rem;
+      color: #ffe6e6;
       text-align: center;
     }
-    .video-block {
-      flex-shrink: 0;
-      width: 90%;
+
+    .sim-traffic-grid {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    @media (min-width: 700px) {
+
+    .sim-traffic-card {
+      border-radius: 10px;
+      padding: 0.8rem;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sim-traffic-card h3 {
+      margin: 0 0 0.42rem;
+      color: #f8d6d6;
+      font-size: 1rem;
+    }
+
+    .sim-traffic-card p {
+      margin: 0;
+      color: var(--sgvd-fg-soft);
+      font-size: 0.92rem;
+    }
+
+    .teaser-vnpmb,
+    .teaser-imdone,
+    .teaser-manifeste,
+    .teaser-dictionnaire {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: #eee;
+      padding: 0.95rem 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 79, 85, 0.7);
+      border-bottom: 1px solid rgba(255, 79, 85, 0.7);
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+
+    .teaser-vnpmb a,
+    .teaser-imdone a,
+    .teaser-manifeste a,
+    .teaser-dictionnaire a,
+    .sim-panel a,
+    .seo-note a,
+    .sim-traffic a {
+      color: #ffdede;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 79, 85, 0.45);
+    }
+
+    .teaser-vnpmb a:hover,
+    .teaser-imdone a:hover,
+    .teaser-manifeste a:hover,
+    .teaser-dictionnaire a:hover,
+    .sim-panel a:hover,
+    .seo-note a:hover,
+    .sim-traffic a:hover {
+      color: #fff;
+      border-bottom-color: var(--sgvd-red-soft);
+    }
+
+    footer {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+
+    .seo-note {
+      font-size: 0.78rem;
+      color: #b5b5be;
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+
+    @media (min-width: 760px) {
+      body {
+        padding: 2.2rem 1.5rem 3.6rem;
+      }
+
+      .sim-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sim-layout .sim-panel:first-child,
+      .sim-layout .sim-panel:last-child {
+        grid-column: 1 / -1;
+      }
+
       .video-block {
-        width: 560px;
+        width: min(560px, 90%);
       }
     }
   </style>
 </head>
-<body>
-  <h1>La Théorie de la Simulation</h1>
+<body class="sgvd-shell">
+  <main class="sim-wrap" aria-labelledby="simulation-title">
+    <header class="sim-hero sgvd-panel">
+      <p class="sim-badge">Dossier SGVD // anomalie théorique</p>
+      <h1 id="simulation-title" class="sgvd-title">La Théorie de la Simulation</h1>
+      <p class="sim-lead">Ici, le doute devient méthode : science, perception, culture et glitch se croisent pour poser une seule question — et si le réel n’était qu’une interface ?</p>
+    </header>
 
-  <nav>
-    <a href="#intro">🌀 Introduction</a>
-    <a href="#preuves">📡 Indices</a>
-    <a href="#glitchs">⚠️ Glitchs</a>
-    <a href="#biblio">📚 Bibliographie</a>
-    <a href="#videos">📺 Vidéos</a>
-  </nav>
+    <nav class="sgvd-panel sgvd-nav sim-nav" aria-label="Navigation interne de la page simulation">
+      <a href="#intro">🌀 Introduction</a>
+      <a href="#indices">📡 Indices</a>
+      <a href="#glitchs">⚠️ Glitchs</a>
+      <a href="#biblio">📚 Bibliographie</a>
+      <a href="#videos">📺 Journal</a>
+    </nav>
 
-  <section id="intro">
-    <h2>🌀 Introduction</h2>
-    <p>Et si la réalité n’était qu’un programme ? Une illusion, une matrice simulée par une entité inconnue ? La théorie de la simulation propose une réécriture totale de notre rapport au monde, à la conscience, et au sens.</p>
-  </section>
+    <section class="sim-layout" aria-label="Parcours principal">
+      <article id="intro" class="sim-panel sgvd-panel">
+        <h2>🌀 Introduction</h2>
+        <p>Et si la réalité n’était qu’un programme ? Une illusion exécutée par une entité inconnue, ou par une logique qui nous dépasse ? La théorie de la simulation ne vend pas une certitude : elle force un déplacement du regard.</p>
+        <p>Chez SGVD, cette hypothèse devient un terrain d’expérimentation artistique : dissocier le vrai du plausible, observer les boucles, écouter les failles.</p>
+      </article>
 
-  <section id="preuves">
-    <h2>📡 Indices troublants</h2>
-    <p>Lois physiques quantiques floues, synchronicités, univers mathématique, impossibilité de prouver la réalité... Des penseurs comme Nick Bostrom, Rizwan Virk ou Donald Hoffman défendent cette hypothèse avec sérieux.</p>
-  </section>
+      <article id="indices" class="sim-panel sgvd-panel">
+        <h2>📡 Indices troublants</h2>
+        <p>Lois quantiques instables, univers mathématique, synchronicités, limites de la perception : plusieurs chercheurs et penseurs traitent cette hypothèse sans folklore.</p>
+        <p>Nick Bostrom, Rizwan Virk ou Donald Hoffman posent des cadres différents, mais convergent vers une même tension : notre certitude du réel repose peut-être sur un protocole incomplet.</p>
+        <div class="sim-highlight">Hypothèse SGVD : plus la réalité semble lisse, plus il faut inspecter les zones de friction.</div>
+      </article>
 
-  <section id="glitchs">
-    <h2>⚠️ Glitchs & anomalies</h2>
-    <p>Phénomènes étranges, bugs visuels, comportements absurdes ou répétitifs... L’univers glitché de System Godverdomme vous les compile bientôt dans cette rubrique vidéo 🧠.</p>
-  </section>
+      <article id="glitchs" class="sim-panel sgvd-panel">
+        <h2>⚠️ Glitchs & anomalies</h2>
+        <p>Bug visuel, répétition absurde, impression de décor copié-collé, sensation de script social trop parfait : les glitchs n’expliquent rien à eux seuls, mais ils perturbent les automatismes.</p>
+        <p>Cette rubrique alimente le <a href="#videos">Journal de la Matrice</a> : une archive vivante d’indices culturels, scientifiques et narratifs.</p>
+      </article>
 
-  <section id="biblio">
-    <h2>📚 Bibliographie</h2>
-    <ul>
-      <li>"The Simulation Hypothesis" – Rizwan Virk</li>
-      <li>"The Case Against Reality" – Donald Hoffman</li>
-      <li>"Are You Living in a Computer Simulation?" – Nick Bostrom</li>
-    </ul>
-  </section>
+      <article id="biblio" class="sim-panel sgvd-panel">
+        <h2>📚 Bibliographie minimale</h2>
+        <ul>
+          <li><em>The Simulation Hypothesis</em> — Rizwan Virk</li>
+          <li><em>The Case Against Reality</em> — Donald Hoffman</li>
+          <li><em>Are You Living in a Computer Simulation?</em> — Nick Bostrom</li>
+        </ul>
+      </article>
 
-  <section id="videos">
-  <h2>📺 Journal de la Matrice</h2>
-  <p>Compilation de glitchs, extraits de conférences, interviews d'experts et anomalies détectées dans notre quotidien. Dans cette série, la simulation parle... à travers l'actualité, la science et les figures qui façonnent la matrice.</p>
+      <article id="videos" class="sim-panel sgvd-panel">
+        <h2>📺 Journal de la Matrice</h2>
+        <p>Compilation de glitchs, extraits de conférences et anomalies du quotidien. Ici, la simulation parle à travers les figures médiatiques, la science et les ratés du réel.</p>
 
-<div class="video-carousel">
+        <div class="video-carousel">
+          <div class="video-block">
+            <iframe src="https://www.youtube.com/embed/P-nXCNFXFig" title="ELON MUSK pense que nous VIVONS dans un jeu vidéo !" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-caption">
+              🎮 <strong>Simulation #01</strong><br>
+              Elon Musk pense que nous vivons dans une simulation… et il a peut-être raison. Entre philosophie, mathématiques et bug cosmique, ce premier épisode remet les compteurs à zéro.
+            </div>
+          </div>
 
-  <!-- VIDÉO 1 : Elon Musk -->
-  <div class="video-block">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/P-nXCNFXFig" title="ELON MUSK pense que nous VIVONS dans un jeu vidéo !" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="video-caption">
-      🎮 <strong>Simulation #01</strong><br>
-      Elon Musk pense que nous vivons dans une simulation… et il a peut-être raison.<br>
-      Entre philosophie, mathématiques et bug cosmique, que cache vraiment cette théorie ?<br>
-      👁️ Un épisode d’introduction pour tout remettre en doute.
+          <div class="video-block">
+            <iframe src="https://www.youtube.com/embed/7UX_HjzouzU" title="Vivons-nous dans une réalité simulée ?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-caption">
+              🧠 <strong>Simulation #02</strong><br>
+              Sommes-nous incarnés dans de la matière… ou dans un scénario ? Une exploration entre perception, conscience et architecture du faux réel.
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="sim-traffic sgvd-panel" aria-label="Continuer l'exploration SGVD">
+      <h2>Continuer l’exploration SGVD</h2>
+      <div class="sim-traffic-grid">
+        <article class="sim-traffic-card">
+          <h3>📡 Manifeste</h3>
+          <p>Le socle idéologique du projet : satire, chaos, art et subversion. <a href="/manifeste.html">Entrer</a>.</p>
+        </article>
+        <article class="sim-traffic-card">
+          <h3>📖 Dictionnaire</h3>
+          <p>Déchiffrer les termes du bug et du langage SGVD. <a href="/dictionnaire.html">Consulter</a>.</p>
+        </article>
+        <article class="sim-traffic-card">
+          <h3>🎶 Titres</h3>
+          <p>La théorie en version sonore : morceaux, textes, fractures. <a href="/titres/">Écouter</a>.</p>
+        </article>
+        <article class="sim-traffic-card">
+          <h3>📺 Vidéos</h3>
+          <p>Transmission visuelle, rituels et capsules d’anomalie. <a href="/videos/">Regarder</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="teaser-vnpmb">📢 Vous aimez remettre la réalité en question ? Découvrez <a href="/vnpmb/">le morceau interdit : VNPMB</a>, une transmission pirate depuis les failles du système.</div>
+
+    <div class="teaser-imdone">🛵 Parfois, fuir est le seul glitch valide. Jetez un œil à <a href="/imdone/">I'm Done</a>, une ballade soul désabusée venue d'une autre couche de réalité.</div>
+
+    <div class="teaser-manifeste">🧠 Vous avez le glitch ? L’étincelle ? Plongez dans notre <a href="/manifeste.html">Manifeste Godverdommien</a> : chaos, satire, art et subversion à haute dose.</div>
+
+    <div class="teaser-dictionnaire">📖 Besoin de déchiffrer les bugs du système ? Plongez dans le <a href="/dictionnaire.html">Dictionnaire Godverdommien</a> et apprenez à parler glitch.</div>
+
+    <div class="seo-note sgvd-panel">
+      <p><strong>System Godverdomme</strong> explore la <strong>théorie de la simulation</strong> à travers l’art, la musique et les bugs du réel.<br>Vous pensez que cette page est réelle ? <a href="/">Retournez au portail</a> avant que le programme ne plante.</p>
     </div>
-  </div>
+  </main>
 
-  <!-- VIDÉO 2 : Sommes-nous dans une réalité simulée ? -->
-  <div class="video-block">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/7UX_HjzouzU" title="Vivons-nous dans une réalité simulée ?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="video-caption">
-      🧠 <strong>Simulation #02</strong><br>
-      Vivons-nous dans une réalité simulée ? Sommes-nous véritablement incarnés dans une carcasse faite de chair…<br>
-      …ou ne sommes-nous qu’un amas de 1 et de 0 ? Et surtout… souhaitez-vous vraiment connaître la vérité ?
-    </div>
-  </div>
-
-</div>
-
-</section>
-
-
-  <div class="teaser-vnpmb">
-    📢 Vous aimez remettre la réalité en question ? Découvrez <a href="/vnpmb/">le morceau interdit : VNPMB</a>, une transmission pirate depuis les failles du système.
-  </div>
-
-  <div class="teaser-imdone">
-    🛵 Parfois, fuir est le seul glitch valide. Jetez un œil à <a href="/imdone/">I'm Done</a>, une ballade soul désabusée venue d'une autre couche de réalité.
-  </div>
-
-  <div class="teaser-manifeste">
-    🧠 Vous avez le glitch ? L’étincelle ? Plongez dans notre <a href="/manifeste.html">Manifeste Godverdommien</a> : chaos, satire, art et subversion à haute dose.
-  </div>
-
-  <div class="teaser-dictionnaire">
-    📖 Besoin de déchiffrer les bugs du système ? Plongez dans le <a href="/dictionnaire.html">Dictionnaire Godverdommien</a> et apprenez à parler glitch.
-  </div>
-
-  <div class="seo-note">
-    <p>
-      <strong>System Godverdomme</strong> explore la <strong>théorie de la simulation</strong> à travers l'art, la musique, et les bugs du réel. <br>
-      Vous pensez que cette page est réelle ? <a href="/">Retournez au portail</a> avant que le programme ne plante.
-    </p>
-  </div>
-
-  <footer>
-    © 2025 – Transmission Godverdommienne active. Simulation non garantie.
-  </footer>
+  <footer>© 2025 – Transmission Godverdommienne active. Simulation non garantie.</footer>
 </body>
 </html>
