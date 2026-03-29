@@ -52,10 +52,8 @@
     COMMENT INSTALLER
     1) Remplacez CHANNEL_ID ci-dessous par l'ID de votre chaîne YouTube (forme "UC........").
        Pour SGVD, ouvrez la page de chaîne YouTube > À propos > copier l'identifiant.
-    2) (Optionnel mais recommandé) Ajoutez votre clé API YouTube Data v3 dans YT_API_KEY pour un rendu en grille dynamique.
-       - Créez une clé dans Google Cloud > APIs & Services > Credentials.
-       - Activez "YouTube Data API v3" pour votre projet.
-    3) Sans clé API : la page bascule automatiquement sur un lecteur Playlist (iframe) des "Mises en ligne".
+    2) Configurez la Netlify Function avec la variable d'environnement YOUTUBE_API_KEY.
+    3) Si la Function/API échoue : la page bascule automatiquement sur un lecteur Playlist (iframe) des "Mises en ligne".
 
     INTÉGRATION
     - Sauvegardez ce fichier comme /videos/index.html (ou /videos.html) sur systemgodverdomme.com.
@@ -80,14 +78,14 @@
     <div id="fallback" class="helper hidden">
       <p><strong>Mode simplifié :</strong> affichage de la playlist des mises en ligne (aucune clé API requise).</p>
       <iframe id="fallback-frame" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      <p class="sub">Astuce : ajoutez une clé API pour bénéficier de la grille, de la recherche locale et de la pagination.</p>
+      <p class="sub">Astuce : configurez YOUTUBE_API_KEY côté Netlify pour bénéficier de la grille, de la recherche locale et de la pagination.</p>
     </div>
   </div>
 
   <script>
     // —————— CONFIG ——————
     const CHANNEL_ID = "UCVvuvQB-Dz-ZTkhNzWpQeZQ"; // SGVD channel // ⬅️ Remplacer par l'ID de la chaîne SGVD (commence par UC)
-    const YT_API_KEY = "AIzaSyD6DBGQShimMm5K380iYkAkm9RBldUf-Gk"; // ⬅️ Colle ici ta clé YouTube Data API v3 pour activer la grille (recherche + pagination) — restreins la clé par Referer !
+    const YT_FUNCTION_URL = "/.netlify/functions/youtube-videos";
 
     // —————— LOGIQUE ——————
     const state = {
@@ -147,15 +145,11 @@
 
     async function fetchPage(){
       const params = new URLSearchParams({
-        key: YT_API_KEY,
-        part: 'snippet,contentDetails',
-        maxResults: '24',
         playlistId: state.uploadsPlaylistId,
       });
       if(state.nextPageToken) params.set('pageToken', state.nextPageToken);
-      const url = `https://www.googleapis.com/youtube/v3/playlistItems?${params.toString()}`;
-      const res = await fetch(url);
-      if(!res.ok){ throw new Error('YouTube API error ' + res.status); }
+      const res = await fetch(`${YT_FUNCTION_URL}?${params.toString()}`);
+      if(!res.ok){ throw new Error('YouTube proxy error ' + res.status); }
       const data = await res.json();
       state.items.push(...(data.items||[]));
       state.nextPageToken = data.nextPageToken || null;
@@ -194,14 +188,9 @@
         return;
       }
 
-      if(YT_API_KEY && YT_API_KEY.trim().length > 10){
-        // Mode API
-        enableGridMode();
-        try{ await fetchPage(); }catch(e){ onFail(e); }
-      } else {
-        // Mode fallback playlist
-        enableFallbackMode();
-      }
+      // Mode API via Netlify Function
+      enableGridMode();
+      try{ await fetchPage(); }catch(e){ onFail(e); }
     })();
   </script>
 <div class="return-home">
