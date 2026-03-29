@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Les Titres – System Godverdomme</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Découvrez le catalogue musical de System Godverdomme : morceaux glitchés, satiriques et subversifs. Chaque titre est une anomalie contrôlée.">
+  <meta name="description" content="Hub discographique de System Godverdomme : morceaux, projets et archives actives. Naviguez dans le catalogue musical SGVD.">
   <link rel="canonical" href="https://systemgodverdomme.com/titres/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <style>
@@ -17,9 +17,16 @@
       flex-direction: column;
       align-items: center;
       padding: 40px 20px;
+      line-height: 1.45;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 760px;
     }
 
     h1 {
+      margin: 0;
       text-transform: uppercase;
       font-size: 2rem;
       letter-spacing: 2px;
@@ -27,59 +34,148 @@
       text-shadow: 0 0 5px red;
     }
 
+    .intro {
+      margin: 16px 0 28px;
+      color: #d8d8d8;
+      font-size: 1rem;
+      max-width: 64ch;
+    }
+
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ff6f6f;
+    }
+
     ul {
       list-style: none;
       padding: 0;
-      margin-top: 30px;
+      margin: 0;
     }
 
     li {
-      margin: 15px 0;
-      font-size: 1.1rem;
+      margin: 0 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1f1f1f;
     }
 
-    a {
+    .entry-link {
+      display: inline-block;
       color: white;
       text-decoration: none;
       border-bottom: 1px solid red;
       transition: all 0.2s ease-in-out;
     }
 
-    a:hover {
+    .entry-link:hover {
       color: red;
       text-shadow: 0 0 3px white;
     }
 
-    .back {
-      margin-top: 40px;
+    .badge {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 0.72rem;
+      color: #ff9a9a;
+      border: 1px solid #6b1b1b;
+      padding: 1px 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .note {
+      margin: 6px 0 0;
+      color: #a8a8a8;
+      font-size: 0.92rem;
+    }
+
+    .orient {
+      margin-top: 34px;
+      padding-top: 14px;
+      border-top: 1px dashed #3a3a3a;
+      color: #bdbdbd;
       font-size: 0.9rem;
-      color: #777;
     }
 
+    .orient a,
     .back a {
-      color: #777;
+      color: #bdbdbd;
       text-decoration: none;
+      border-bottom: 1px dotted #6c6c6c;
     }
 
+    .orient a:hover,
     .back a:hover {
       color: red;
+      border-bottom-color: red;
+    }
+
+    .back {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Catalogue Godverdommien</h1>
+  <main class="wrap">
+    <h1>Catalogue Godverdommien</h1>
+    <p class="intro">
+      Hub musical SGVD : morceaux publiés, pages dédiées et archives en mouvement.
+      Une porte d’entrée pour naviguer vite dans les anomalies contrôlées.
+    </p>
 
-  <ul>
-    <li><a href="/vnpmb/">📡 Vous n’aurez pas ma bite</a></li>
-    <li><a href="/imdone/">🏍️ I’m Done!</a></li>
-    <li><a href="/Anlevmwendou/">💘 Anlèv Mwen Dou</a></li>
-    <li><a href="/Sansunbruit/">💀 Sans un bruit</a></li>
-    <li><a href="/candaceowens/">🧬 The Resuscitation of Candace Owens</a></li>
-    <li><a href="/rituels/">🧸 Rituels pour petits humains</a></li>
-  </ul>
+    <h2>Morceaux avec page dédiée</h2>
+    <ul>
+      <li>
+        <a class="entry-link" href="/vnpmb/">📡 Vous n’aurez pas ma bite</a>
+        <span class="badge">Page dédiée</span>
+        <p class="note">Signal brut, frontal, sans demande de permission.</p>
+      </li>
+      <li>
+        <a class="entry-link" href="/imdone/">🏍️ I’m Done!</a>
+        <span class="badge">Page dédiée</span>
+        <p class="note">Rupture nette et vitesse assumée.</p>
+      </li>
+      <li>
+        <a class="entry-link" href="/Anlevmwendou/">💘 Anlèv Mwen Dou</a>
+        <span class="badge">Page dédiée</span>
+        <p class="note">Tension émotionnelle en terrain instable.</p>
+      </li>
+      <li>
+        <a class="entry-link" href="/Sansunbruit/">💀 Sans un bruit</a>
+        <span class="badge">Page dédiée</span>
+        <p class="note">Présence basse fréquence, impact discret.</p>
+      </li>
+      <li>
+        <a class="entry-link" href="/candaceowens/">🧬 The Resuscitation of Candace Owens</a>
+        <span class="badge">Page dédiée</span>
+        <p class="note">Satire chirurgicale, collision politique et pop culture.</p>
+      </li>
+    </ul>
 
-  <div class="back">
-    <p><a href="/">Retour au site principal</a></p>
-  </div>
+    <h2>Projets / collections</h2>
+    <ul>
+      <li>
+        <a class="entry-link" href="/rituels/">🧸 Rituels pour petits humains</a>
+        <span class="badge">Section</span>
+        <p class="note">Entrée parallèle : formats, gestes et fragments SGVD.</p>
+      </li>
+    </ul>
+
+    <div class="orient">
+      <p>
+        Orientation rapide : <a href="/videos/">Vidéos</a> ·
+        <a href="/manifeste.html">Manifeste</a> ·
+        <a href="/dictionnaire.html">Dictionnaire</a>
+      </p>
+    </div>
+
+    <div class="back">
+      <p><a href="/">Retour au site principal</a></p>
+    </div>
+  </main>
 </body>
 </html>
