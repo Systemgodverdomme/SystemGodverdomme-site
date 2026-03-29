@@ -7,36 +7,37 @@
   <meta name="description" content="Hub discographique de System Godverdomme : morceaux, projets et archives actives. Naviguez dans le catalogue musical SGVD.">
   <link rel="canonical" href="https://systemgodverdomme.com/titres/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css">
   <style>
     body {
       margin: 0;
-      background-color: black;
-      color: white;
+      background-color: #050506;
+      color: var(--sgvd-fg-main);
       font-family: monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
-      line-height: 1.45;
+      padding: 42px 20px;
+      line-height: 1.52;
     }
 
     .wrap {
       width: 100%;
       max-width: 760px;
+      padding: 1.2rem 1.2rem 1rem;
+      border-radius: 12px;
     }
 
     h1 {
-      margin: 0;
+      margin: 0.2rem 0 0;
       text-transform: uppercase;
-      font-size: 2rem;
+      font-size: 2.1rem;
       letter-spacing: 2px;
-      color: red;
-      text-shadow: 0 0 5px red;
     }
 
     .subtitle {
       margin: 8px 0 0;
-      color: #ff9a9a;
+      color: var(--sgvd-fg-soft);
       font-size: 0.95rem;
       letter-spacing: 0.8px;
       text-transform: uppercase;
@@ -44,17 +45,17 @@
 
     .intro {
       margin: 16px 0 28px;
-      color: #d8d8d8;
+      color: var(--sgvd-fg-soft);
       font-size: 1rem;
       max-width: 64ch;
     }
 
     h2 {
-      margin: 28px 0 12px;
+      margin: 30px 0 12px;
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #ff6f6f;
+      color: #f0b2b2;
     }
 
     ul {
@@ -65,21 +66,13 @@
 
     li {
       margin: 0 0 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #1f1f1f;
+      padding: 0.3rem 0 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .entry-link {
       display: inline-block;
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid red;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .entry-link:hover {
-      color: red;
-      text-shadow: 0 0 3px white;
+      margin-bottom: 0.1rem;
     }
 
     .badge {
@@ -95,41 +88,33 @@
 
     .note {
       margin: 6px 0 0;
-      color: #a8a8a8;
+      color: var(--sgvd-fg-muted);
       font-size: 0.92rem;
     }
 
     .orient {
       margin-top: 34px;
-      padding-top: 14px;
-      border-top: 1px dashed #3a3a3a;
-      color: #bdbdbd;
+      padding: 14px 0 0;
+      border-top: 1px dashed rgba(255, 255, 255, 0.2);
+      color: var(--sgvd-fg-soft);
       font-size: 0.9rem;
     }
 
     .orient a,
     .back a {
-      color: #bdbdbd;
-      text-decoration: none;
-      border-bottom: 1px dotted #6c6c6c;
-    }
-
-    .orient a:hover,
-    .back a:hover {
-      color: red;
-      border-bottom-color: red;
+      color: var(--sgvd-fg-soft);
     }
 
     .back {
       margin-top: 20px;
       font-size: 0.9rem;
-      color: #777;
+      color: #8d8d95;
     }
   </style>
 </head>
-<body>
-  <main class="wrap">
-    <h1>Les Chansons</h1>
+<body class="sgvd-shell">
+  <main class="wrap sgvd-panel">
+    <h1 class="sgvd-title">Les Chansons</h1>
     <p class="subtitle">Salle des anomalies sonores</p>
     <p class="intro">
       Hub musical SGVD : morceaux publiés, pages dédiées et archives en mouvement.
@@ -139,23 +124,23 @@
     <h2>Morceaux</h2>
     <ul>
       <li>
-        <a class="entry-link" href="/vnpmb/">📡 Vous n’aurez pas ma bite</a>
+        <a class="entry-link sgvd-link" href="/vnpmb/">📡 Vous n’aurez pas ma bite</a>
         <p class="note">Signal brut, frontal, sans demande de permission.</p>
       </li>
       <li>
-        <a class="entry-link" href="/imdone/">🏍️ I’m Done!</a>
+        <a class="entry-link sgvd-link" href="/imdone/">🏍️ I’m Done!</a>
         <p class="note">Rupture nette et vitesse assumée.</p>
       </li>
       <li>
-        <a class="entry-link" href="/Anlevmwendou/">💘 Anlèv Mwen Dou</a>
+        <a class="entry-link sgvd-link" href="/Anlevmwendou/">💘 Anlèv Mwen Dou</a>
         <p class="note">Tension émotionnelle en terrain instable.</p>
       </li>
       <li>
-        <a class="entry-link" href="/Sansunbruit/">💀 Sans un bruit</a>
+        <a class="entry-link sgvd-link" href="/Sansunbruit/">💀 Sans un bruit</a>
         <p class="note">Présence basse fréquence, impact discret.</p>
       </li>
       <li>
-        <a class="entry-link" href="/candaceowens/">🧬 The Resuscitation of Candace Owens</a>
+        <a class="entry-link sgvd-link" href="/candaceowens/">🧬 The Resuscitation of Candace Owens</a>
         <p class="note">Satire chirurgicale, collision politique et pop culture.</p>
       </li>
     </ul>
@@ -163,21 +148,21 @@
     <h2>Projets / collections</h2>
     <ul>
       <li>
-        <a class="entry-link" href="/rituels/">🧸 Rituels pour petits humains</a>
+        <a class="entry-link sgvd-link" href="/rituels/">🧸 Rituels pour petits humains</a>
         <p class="note">Entrée parallèle : formats, gestes et fragments SGVD.</p>
       </li>
     </ul>
 
     <div class="orient">
       <p>
-        Orientation rapide : <a href="/videos/">Vidéos</a> ·
-        <a href="/manifeste.html">Manifeste</a> ·
-        <a href="/dictionnaire.html">Dictionnaire</a>
+        Orientation rapide : <a class="sgvd-link" href="/videos/">Vidéos</a> ·
+        <a class="sgvd-link" href="/manifeste.html">Manifeste</a> ·
+        <a class="sgvd-link" href="/dictionnaire.html">Dictionnaire</a>
       </p>
     </div>
 
     <div class="back">
-      <p><a href="/">Retour au site principal</a></p>
+      <p><a class="sgvd-btn" href="/">Retour au site principal</a></p>
     </div>
   </main>
 </body>
