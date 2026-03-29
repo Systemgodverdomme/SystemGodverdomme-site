@@ -1,5 +1,6 @@
 exports.handler = async function handler(event) {
   const apiKey = process.env.YOUTUBE_API_KEY;
+  const defaultPlaylistId = process.env.YOUTUBE_UPLOADS_PLAYLIST_ID || 'UUVvuvQB-Dz-ZTkhNzWpQeZQ';
 
   if (!apiKey) {
     return {
@@ -9,7 +10,7 @@ exports.handler = async function handler(event) {
     };
   }
 
-  const playlistId = event.queryStringParameters?.playlistId;
+  const playlistId = event.queryStringParameters?.playlistId || defaultPlaylistId;
   const pageToken = event.queryStringParameters?.pageToken;
 
   if (!playlistId) {
