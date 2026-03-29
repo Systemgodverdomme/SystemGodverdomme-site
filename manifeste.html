@@ -9,114 +9,268 @@
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="canonical" href="https://systemgodverdomme.com/manifeste/">
-
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css">
 
   <style>
     body {
       margin: 0;
-      padding: 2rem;
+      padding: 2rem 1rem 3rem;
       background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Courier New', monospace;
-      color: white;
-      line-height: 1.6;
+      color: var(--sgvd-fg-main);
+      line-height: 1.7;
     }
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: red;
-      text-shadow: 0 0 6px red;
+
+    .manifest-wrap {
+      width: min(980px, 100%);
+      margin: 0 auto;
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
+
+    .manifest-hero,
+    .manifest-nav,
+    .manifest-panel,
+    .manifest-circulation,
+    .seo-note,
+    .back-home {
       border-radius: 12px;
+      padding: 1.25rem 1.1rem;
+      margin: 0 auto 1rem;
     }
-    p {
-      margin-bottom: 1.2rem;
+
+    .manifest-hero {
+      text-align: center;
+      padding: 1.35rem 1.2rem;
     }
+
+    .manifest-badge {
+      display: inline-block;
+      margin-bottom: 0.52rem;
+      padding: 0.2rem 0.62rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 79, 85, 0.56);
+      background: rgba(215, 38, 46, 0.15);
+      color: #ffd4d6;
+      font-size: 0.77rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.08rem 0 0.58rem;
+      font-size: clamp(2rem, 5.2vw, 3rem);
+      letter-spacing: 1.8px;
+      color: #f8f8f8;
+    }
+
+    .manifest-lead {
+      margin: 0.2rem auto 0;
+      max-width: 72ch;
+      color: var(--sgvd-fg-soft);
+      font-size: 1.02rem;
+    }
+
+    .manifest-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+    }
+
+    .manifest-panel {
+      padding: 1.2rem 1.1rem;
+    }
+
+    .manifest-panel h2 {
+      margin: 0 0 0.72rem;
+      color: #ffe5e5;
+      font-size: 1.28rem;
+      letter-spacing: 0.04em;
+    }
+
+    .manifest-panel p {
+      margin: 0 0 0.92rem;
+      color: var(--sgvd-fg-soft);
+    }
+
+    .manifest-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .manifest-sting {
+      margin-top: 0.92rem;
+      padding: 0.88rem 0.92rem;
+      border-left: 2px solid rgba(255, 79, 85, 0.68);
+      background: rgba(255, 79, 85, 0.1);
+      color: #f3e9e9;
+      font-size: 0.96rem;
+    }
+
+    .manifest-circulation h2 {
+      margin: 0 0 0.82rem;
+      font-size: 1.08rem;
+      text-align: center;
+      color: #ffe8e8;
+    }
+
+    .manifest-cards {
+      display: grid;
+      gap: 0.7rem;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+
+    .manifest-card {
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.78rem;
+    }
+
+    .manifest-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.98rem;
+      color: #ffd7d7;
+    }
+
+    .manifest-card p {
+      margin: 0;
+      color: var(--sgvd-fg-soft);
+      font-size: 0.91rem;
+    }
+
+    .manifest-card a,
+    .manifest-panel a,
+    .seo-note a,
+    .back-home a {
+      color: #f6f1f1;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 79, 85, 0.45);
+    }
+
+    .manifest-card a:hover,
+    .manifest-panel a:hover,
+    .seo-note a:hover,
+    .back-home a:hover {
+      color: #fff;
+      border-bottom-color: var(--sgvd-red-soft);
+      text-shadow: 0 0 10px rgba(215, 38, 46, 0.35);
+    }
+
     .back-home {
       text-align: center;
-      margin-top: 2rem;
+      font-size: 0.98rem;
     }
-    .back-home a {
-      color: red;
-      font-weight: bold;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      border: 1px solid red;
-      transition: 0.2s;
-    }
-    .back-home a:hover {
-      background: red;
-      color: black;
-      text-shadow: 0 0 4px black;
-    }
+
     .seo-note {
-      font-size: 0.75rem;
-      color: #aaa;
-      max-width: 800px;
-      margin: 4rem auto 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
+      font-size: 0.78rem;
+      color: #b5b5be;
       text-align: center;
+      margin-top: 0.2rem;
     }
-    .teaser-simulation {
-      margin: 3rem auto 2rem;
-      background: rgba(255, 255, 255, 0.06);
-      color: #eee;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      border-top: 1px solid #00ffff;
-      border-bottom: 1px solid #00ffff;
-      font-size: 0.95rem;
-      max-width: 800px;
-      border-radius: 10px;
-    }
-    .teaser-simulation a {
-      color: cyan;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .teaser-simulation a:hover {
-      text-decoration: underline;
+
+    @media (min-width: 760px) {
+      body {
+        padding: 2.3rem 1.5rem 3.4rem;
+      }
+
+      .manifest-hero,
+      .manifest-nav,
+      .manifest-panel,
+      .manifest-circulation,
+      .seo-note,
+      .back-home {
+        padding-left: 1.35rem;
+        padding-right: 1.35rem;
+      }
+
+      .manifest-stack {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .manifest-stack .manifest-panel:first-child,
+      .manifest-stack .manifest-panel:last-child {
+        grid-column: 1 / -1;
+      }
     }
   </style>
 </head>
-<body>
-  <h1>Manifeste Godverdommien</h1>
-  <section>
-    <p>Bienvenue dans la zone de turbulence sémantique, là où les mots ne demandent plus la permission pour cogner. Ici, System Godverdomme ne propose pas. Il implose.</p>
+<body class="sgvd-shell">
+  <main class="manifest-wrap" aria-labelledby="manifest-title">
+    <header class="manifest-hero sgvd-panel">
+      <p class="manifest-badge">Noyau SGVD // page-forteresse</p>
+      <h1 id="manifest-title" class="sgvd-title">Manifeste Godverdommien</h1>
+      <p class="manifest-lead">Ici, System Godverdomme se nomme, se déplie et refuse le confort : une déclaration dense, lucide et instable, au point de friction entre art, satire et bug.</p>
+    </header>
 
-    <p><strong>System Godverdomme</strong> n’est pas un projet musical. C’est une entité frénétique, un bug sonique emballé dans du glitch émotionnel et de la dérision corrosive. Chaque note, chaque vers est un coup de genou dans la normalité, une pulsation qui réinitialise le cerveau par saturation contrôlée.</p>
+    <nav class="manifest-nav sgvd-panel sgvd-nav" aria-label="Navigation interne du manifeste">
+      <a href="#zone">Zone</a>
+      <a href="#entite">Entité</a>
+      <a href="#nom">Nom</a>
+      <a href="#son">Son</a>
+      <a href="#apres">Après</a>
+    </nav>
 
-    <p><strong>Pourquoi ce nom ?</strong> Parce qu’il claque. Parce qu’il dérange. Parce que « Godverdomme », c’est l’équivalent phonétique d’un doigt d’honneur en feu lancé au visage de la tiédeur culturelle. Et parce que dans « System », il y a la matrice à exploser, et dans « Godverdomme », le cri de révolte organique qui l’éparpille façon puzzle flamand.</p>
+    <div class="manifest-stack">
+      <section id="zone" class="manifest-panel sgvd-panel" aria-labelledby="manifest-zone-title">
+        <h2 id="manifest-zone-title">Zone de turbulence</h2>
+        <p>Bienvenue dans la zone de turbulence sémantique, là où les mots ne demandent plus la permission pour cogner. Ici, System Godverdomme ne propose pas. Il implose.</p>
+      </section>
 
-    <p><strong>Le son ?</strong> C’est tout. Ou plutôt c’est rien de ce que tu connais. Du métal doux, du rap symphonique, de la soul qui se tire une balle. C’est du bruit stylé, du groove abîmé, de la tendresse pixelisée. Le style ? C’est le non-style. Un chaos esthétique millimétré qui avance masqué sous le masque du chaos. Aucun genre. Que des glitchs organisés.</p>
+      <section id="entite" class="manifest-panel sgvd-panel" aria-labelledby="manifest-entite-title">
+        <h2 id="manifest-entite-title">L’entité</h2>
+        <p><strong>System Godverdomme</strong> n’est pas un projet musical. C’est une entité frénétique, un bug sonique emballé dans du glitch émotionnel et de la dérision corrosive. Chaque note, chaque vers est un coup de genou dans la normalité, une pulsation qui réinitialise le cerveau par saturation contrôlée.</p>
+      </section>
 
-    <p><strong>Et après ?</strong> Après, on recommence. Mais en pire. On déconstruit jusqu’à ce qu’il n’y ait plus de vis, plus de fondations, juste un magma artistique brûlant qui se nourrit de lui-même. System Godverdomme, c’est l’arrière-boutique de la réalité. C’est un cri d’amour jeté dans une rave post-apocalyptique. C’est un rire nerveux dans une salle d’attente du Jugement Dernier.</p>
+      <section id="nom" class="manifest-panel sgvd-panel" aria-labelledby="manifest-nom-title">
+        <h2 id="manifest-nom-title">Pourquoi ce nom</h2>
+        <p><strong>Pourquoi ce nom ?</strong> Parce qu’il claque. Parce qu’il dérange. Parce que « Godverdomme », c’est l’équivalent phonétique d’un doigt d’honneur en feu lancé au visage de la tiédeur culturelle. Et parce que dans « System », il y a la matrice à exploser, et dans « Godverdomme », le cri de révolte organique qui l’éparpille façon puzzle flamand.</p>
+      </section>
 
-    <p><em>Tu crois que t’as pigé ? C’est que t’as rien pigé.</em></p>
-  </section>
+      <section id="son" class="manifest-panel sgvd-panel" aria-labelledby="manifest-son-title">
+        <h2 id="manifest-son-title">Le son</h2>
+        <p><strong>Le son ?</strong> C’est tout. Ou plutôt c’est rien de ce que tu connais. Du métal doux, du rap symphonique, de la soul qui se tire une balle. C’est du bruit stylé, du groove abîmé, de la tendresse pixelisée. Le style ? C’est le non-style. Un chaos esthétique millimétré qui avance masqué sous le masque du chaos. Aucun genre. Que des glitchs organisés.</p>
+      </section>
 
-  <div class="teaser-simulation">
-    👁 Tu as aimé ce manifeste ? Vas encore plus loin dans la faille avec la <a href="/simulation.html">rubrique Simulation</a> : hypothèses, anomalies, théorie quantique et bugs de la matrice t’y attendent.
-  </div>
+      <section id="apres" class="manifest-panel sgvd-panel" aria-labelledby="manifest-apres-title">
+        <h2 id="manifest-apres-title">Et après</h2>
+        <p><strong>Et après ?</strong> Après, on recommence. Mais en pire. On déconstruit jusqu’à ce qu’il n’y ait plus de vis, plus de fondations, juste un magma artistique brûlant qui se nourrit de lui-même. System Godverdomme, c’est l’arrière-boutique de la réalité. C’est un cri d’amour jeté dans une rave post-apocalyptique. C’est un rire nerveux dans une salle d’attente du Jugement Dernier.</p>
+        <p class="manifest-sting"><em>Tu crois que t’as pigé ? C’est que t’as rien pigé.</em></p>
+      </section>
+    </div>
 
-  <div class="back-home">
-    <a href="/">↯ Retour au site principal</a>
-  </div>
+    <aside class="manifest-circulation sgvd-panel" aria-labelledby="manifest-circulation-title">
+      <h2 id="manifest-circulation-title">Continuer la contamination</h2>
+      <div class="manifest-cards">
+        <article class="manifest-card">
+          <h3>Simulation</h3>
+          <p>Version théorique de la faille : <a href="/simulation.html">entrer dans la matrice</a>.</p>
+        </article>
+        <article class="manifest-card">
+          <h3>Dictionnaire</h3>
+          <p>Le lexique des anomalies : <a href="/dictionnaire.html">consulter les termes SGVD</a>.</p>
+        </article>
+        <article class="manifest-card">
+          <h3>Titres</h3>
+          <p>La doctrine en fréquence : <a href="/titres/">écouter les morceaux</a>.</p>
+        </article>
+        <article class="manifest-card">
+          <h3>Vidéos</h3>
+          <p>Journal visuel des crashs : <a href="/videos/">voir les capsules</a>.</p>
+        </article>
+      </div>
+    </aside>
 
-  <div class="seo-note">
-    Ce manifeste subversif et chaotique explore l’univers de System Godverdomme : satire, art sonore, absurdité contrôlée et rébellion artistique permanente.
-  </div>
-  <!-- Alias doux pour moteurs de recherche -->
+    <div class="back-home sgvd-panel">
+      <a href="/">↯ Retour au site principal</a>
+    </div>
 
-
+    <footer class="seo-note sgvd-panel">
+      Ce manifeste subversif et chaotique explore l’univers de System Godverdomme : satire, art sonore, absurdité contrôlée et rébellion artistique permanente.
+    </footer>
+    <!-- Alias doux pour moteurs de recherche -->
+  </main>
 </body>
 </html>
