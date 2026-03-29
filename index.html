@@ -21,6 +21,7 @@
   <meta name="twitter:title" content="System Godverdomme" />
   <meta name="twitter:description" content="Un projet musical qui remet la réalité en question. Bienvenue dans la matrice glitchée." />
   <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
 
   <style>
     body {
@@ -28,7 +29,7 @@
       padding: 0;
       background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: white;
+      color: var(--sgvd-fg-main);
       font-family: 'Courier New', Courier, monospace;
       min-height: 100vh;
       display: flex;
@@ -36,71 +37,58 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(1.6px);
+      position: relative;
     }
 
     h1 {
       font-size: 2.8rem;
-      color: red;
-      text-shadow: 0 0 10px red;
+      color: #f8f8f8;
       letter-spacing: 2px;
-      margin-bottom: 10px;
+      margin: 0.3rem 0 0.5rem;
     }
 
     h2 {
       font-size: 1.2rem;
-      color: #ccc;
+      color: var(--sgvd-fg-soft);
       max-width: 600px;
       margin-bottom: 40px;
-      text-shadow: 0 0 6px black;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
     }
 
     nav {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
       margin-bottom: 30px;
-    }
-
-    nav a {
-      text-decoration: none;
-      background: rgba(255, 0, 0, 0.9);
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: all 0.2s ease-in-out;
-    }
-
-    nav a:hover {
-      background: white;
-      color: red;
-      text-shadow: 0 0 3px red;
+      width: min(900px, calc(100% - 2rem));
+      padding: 1rem;
+      border-radius: 12px;
     }
 
     .socials {
       display: flex;
       gap: 1rem;
-      margin: 30px 0;
+      margin: 20px 0;
       flex-wrap: wrap;
       justify-content: center;
+      width: min(900px, calc(100% - 2rem));
+      padding: 1rem;
+      border-radius: 12px;
     }
 
     .socials a {
-      color: #ccc;
+      color: var(--sgvd-fg-soft);
       text-decoration: none;
-      font-size: 1.1rem;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 0.4rem 1rem;
-      border-radius: 4px;
-      transition: all 0.2s ease-in-out;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      transition: all 0.16s ease-in-out;
     }
 
     .socials a:hover {
-      color: red;
-      background: rgba(255, 255, 255, 0.1);
-      text-shadow: 0 0 4px red;
+      color: white;
+      border-color: rgba(255, 79, 85, 0.6);
+      text-shadow: 0 0 8px rgba(215, 38, 46, 0.4);
     }
 
     footer {
@@ -112,30 +100,54 @@
 
     .seo-note {
       font-size: 0.75rem;
-      color: #aaa;
+      color: #9f9fa8;
       text-align: center;
       margin-top: 1.5rem;
       line-height: 1.5;
     }
 
     .start-here {
-      margin: 0 1rem 2rem;
+      margin: 0 1rem 1.4rem;
+      padding: 1rem 1.1rem 1.1rem;
       max-width: 760px;
-      color: #d5d5d5;
-      line-height: 1.6;
+      color: var(--sgvd-fg-soft);
+      line-height: 1.62;
       font-size: 1rem;
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
     }
 
     .start-here a {
       color: #fff;
       font-weight: bold;
-      text-decoration: underline;
-      text-underline-offset: 2px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 79, 85, 0.45);
     }
 
     .start-here a:hover {
-      color: #ff4b4b;
+      color: #fff;
+      border-bottom-color: #ff4b4b;
+      text-shadow: 0 0 8px rgba(215, 38, 46, 0.35);
+    }
+
+    #contact {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      width: min(760px, calc(100% - 2rem));
+      padding: 1rem 1.1rem 1.2rem;
+      border-radius: 10px;
+    }
+
+    #contact h3 {
+      margin: 0.2rem 0 0.6rem;
+      color: #f2e8e8;
+      text-shadow: 0 0 10px rgba(215, 38, 46, 0.44);
+    }
+
+    #contact p {
+      font-size: 1rem;
+      color: var(--sgvd-fg-soft);
+      font-family: monospace;
     }
   </style>
 
@@ -168,12 +180,12 @@
   </style>
 </head>
 
-<body>
+<body class="sgvd-shell">
   <!-- 🟣 titres avec wobble -->
-  <h1 class="sgvd-wobble">System Godverdomme</h1>
-  <h2 class="sgvd-wobble">Projet musical subversif et glitché. Une anomalie artistique sous surveillance.</h2>
+  <h1 class="sgvd-wobble sgvd-title">System Godverdomme</h1>
+  <h2 class="sgvd-wobble sgvd-subtitle">Projet musical subversif et glitché. Une anomalie artistique sous surveillance.</h2>
 
-  <nav class="sgvd-nav">
+  <nav class="sgvd-nav sgvd-panel">
     <a href="/titres/">🎶&nbsp;Les Chansons</a>
     <a href="/rituels/">🧸&nbsp;Rituels</a>
     <a href="/videos/">📺&nbsp;Vidéos</a>
@@ -182,7 +194,7 @@
     <a href="/dictionnaire.html">📖&nbsp;Dictionnaire</a>
   </nav>
 
-  <section class="start-here" aria-labelledby="par-ou-commencer">
+  <section class="start-here sgvd-panel" aria-labelledby="par-ou-commencer">
     <h3 id="par-ou-commencer">Par où commencer</h3>
     <p>
       Pour entrer dans l’anomalie sans te perdre, commence par
@@ -194,7 +206,7 @@
     </p>
   </section>
 
-  <div class="socials">
+  <div class="socials sgvd-panel">
     <a href="https://open.spotify.com/intl-fr/artist/5UulbiFA76NN7SEbmNmkvd?si=SI9km3mKSU2p2zmmdD0lUA" target="_blank">Spotify</a>
     <a href="https://music.apple.com/fr/artist/system-godverdomme/1802644752" target="_blank">Apple Music</a>
     <a href="https://dzr.page.link/qDRR9H33H8L5YWMe8" target="_blank">Deezer</a>
@@ -206,11 +218,11 @@
   </div>
 
   <!-- 🔥 SECTION CONTACT -->
-  <section id="contact" style="margin-top: 3rem; text-align: center;">
-    <h3 class="sgvd-wobble" style="color: red; text-shadow: 0 0 5px red;">📡 Tu veux parler au bug ?</h3>
-    <p style="font-size: 1rem; color: #ccc; font-family: monospace;">
+  <section id="contact" class="sgvd-panel" style="text-align: center;">
+    <h3 class="sgvd-wobble">📡 Tu veux parler au bug ?</h3>
+    <p>
       Pour toute collaboration, glitch sonore, ou dissonance artistique :<br>
-      <a href="mailto:systemgodverdomme@gmail.com" style="color: white; font-weight: bold;">
+      <a href="mailto:systemgodverdomme@gmail.com" class="sgvd-link" style="font-weight: bold;">
         ✉️ systemgodverdomme@gmail.com
       </a><br>
       <span style="font-size: 0.8rem; color: #888;">(réponse non garantie si l’algorithme est en PLS)</span>

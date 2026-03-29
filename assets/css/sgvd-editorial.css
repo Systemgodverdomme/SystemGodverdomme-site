@@ -5,9 +5,11 @@
 
 :root {
   --sgvd-bg: #060606;
+  --sgvd-bg-elev: #101014;
   --sgvd-fg: #eaeaea;
   --sgvd-muted: #9d9d9d;
-  --sgvd-accent: #ff2b2b;
+  --sgvd-accent: #d7262e;
+  --sgvd-accent-soft: #ff4f55;
   --sgvd-border: rgba(255, 43, 43, 0.35);
   --sgvd-content-width: 820px;
 }
@@ -28,9 +30,9 @@ body.sgvd-editorial {
 
 .sgvd-title {
   margin: 0 0 0.5rem;
-  color: var(--sgvd-accent);
+  color: #f4f4f4;
   letter-spacing: 1px;
-  text-shadow: 0 0 8px rgba(255, 43, 43, 0.45);
+  text-shadow: 0 0 8px rgba(215, 38, 46, 0.38);
 }
 
 .sgvd-subtitle {
@@ -39,24 +41,29 @@ body.sgvd-editorial {
 }
 
 .sgvd-block {
-  border: 1px solid var(--sgvd-border);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(16, 16, 20, 0.82), rgba(12, 12, 16, 0.68));
   padding: 1rem;
   margin: 1rem 0;
+  border-radius: 8px;
 }
 
 .sgvd-button {
   display: inline-block;
-  padding: 0.55rem 0.95rem;
+  padding: 0.6rem 1rem;
   border: 1px solid var(--sgvd-accent);
   color: #fff;
   text-decoration: none;
   font-weight: 700;
+  border-radius: 7px;
+  background: linear-gradient(180deg, rgba(215, 38, 46, 0.22), rgba(215, 38, 46, 0.08));
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
 }
 
 .sgvd-button:hover {
-  background: var(--sgvd-accent);
-  color: #000;
+  border-color: var(--sgvd-accent-soft);
+  box-shadow: 0 0 20px rgba(215, 38, 46, 0.28);
+  transform: translateY(-1px);
 }
 
 .sgvd-back-link {
@@ -68,4 +75,10 @@ body.sgvd-editorial {
 
 .sgvd-back-link:hover {
   color: var(--sgvd-accent);
+}
+
+.sgvd-button:focus-visible,
+.sgvd-back-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
