@@ -11,155 +11,452 @@
   <link rel="canonical" href="https://systemgodverdomme.com/dictionnaire/">
 
   <style>
-    body {
-      margin: 0;
-      padding: 2rem;
-      background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Courier New', monospace;
-      color: white;
-      line-height: 1.6;
+    :root {
+      --bg-panel: rgba(7, 7, 9, 0.84);
+      --bg-soft: rgba(255, 255, 255, 0.04);
+      --border-soft: rgba(255, 115, 115, 0.2);
+      --accent: #ff4f55;
+      --accent-2: #ff9f7e;
+      --text-main: #f4f4f4;
+      --text-muted: #b6b6b6;
+      --container-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
+
+    body {
+      margin: 0;
+      color: var(--text-main);
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.6;
+      background: radial-gradient(circle at top, rgba(100, 0, 0, 0.18), transparent 45%),
+        url('/assets/bruit_glitch_fond.jpg') center/cover fixed;
+      padding: 1.4rem;
+    }
+
+    .lexique-wrap {
+      width: min(var(--container-width), 100%);
+      margin: 0 auto;
+    }
+
+    .lexique-hero {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: clamp(1.2rem, 2.5vw, 2rem);
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(1px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
+    }
+
     h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: red;
-      text-shadow: 0 0 6px red;
-      margin-bottom: 2rem;
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: 0.03em;
+      color: #ffdede;
+      text-shadow: 0 0 14px rgba(255, 47, 47, 0.45);
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      border-radius: 12px;
+
+    .hero-intro {
+      margin: 0.8rem 0 0;
+      max-width: 75ch;
+      color: #ffd7d7;
     }
-    dt {
-      color: #ff8888;
-      font-weight: bold;
-      margin-top: 1rem;
-      scroll-margin-top: 80px;
-      animation: fadeIn 0.6s ease-in-out;
-    }
-    dd {
-      margin-left: 1rem;
-      margin-bottom: 1rem;
-      animation: fadeIn 0.6s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    .back-home {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .back-home a {
-      color: red;
-      font-weight: bold;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      border: 1px solid red;
-      transition: 0.2s;
-    }
-    .back-home a:hover {
-      background: red;
-      color: black;
-      text-shadow: 0 0 4px black;
-    }
-    .seo-note {
-      font-size: 0.75rem;
-      color: #aaa;
-      max-width: 800px;
-      margin: 4rem auto 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .teaser-simulation, .teaser-manifeste {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      text-align: center;
+
+    .hero-meta {
+      margin: 1rem 0 0;
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
-    .teaser-simulation {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #ff4444;
+
+    .tools-panel,
+    .entries-panel,
+    .orbit-panel,
+    .seo-note {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 1rem;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.33);
     }
-    .teaser-simulation a {
-      color: #ff4444;
-      text-decoration: none;
-      font-weight: bold;
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.8rem;
+      align-items: end;
     }
-    .teaser-simulation a:hover {
-      text-decoration: underline;
-    }
-    .teaser-manifeste {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid orange;
-    }
-    .teaser-manifeste a {
-      color: orange;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .teaser-manifeste a:hover {
-      text-decoration: underline;
-    }
-    #search-bar {
-      max-width: 500px;
-      margin: 1rem auto 2rem;
+
+    label {
       display: block;
-      padding: 0.6rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    #search-bar {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
       font-size: 1rem;
-      border: none;
-      border-radius: 6px;
+      font-family: inherit;
+      color: var(--text-main);
+      background: rgba(0, 0, 0, 0.35);
     }
+
+    #search-bar:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
     .alphabet-nav {
-      text-align: center;
-      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
     }
+
     .alphabet-nav a {
-      color: #ff8888;
-      margin: 0 0.3rem;
       text-decoration: none;
-      font-weight: bold;
+      color: #ffd0d1;
+      border: 1px solid rgba(255, 121, 121, 0.26);
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.88rem;
+      transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
     }
-    .alphabet-nav a:hover {
-      color: red;
-      text-shadow: 0 0 4px red;
+
+    .alphabet-nav a:hover,
+    .alphabet-nav a:focus-visible {
+      border-color: var(--accent);
+      background: rgba(255, 79, 85, 0.12);
+      color: #fff;
+      outline: none;
+    }
+
+    .entries-panel {
+      padding: 1rem;
+    }
+
+    .entries-header {
+      margin: 0 0 1rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .letter-group {
+      margin: 0 0 1.5rem;
+      scroll-margin-top: 90px;
+    }
+
+    .letter-title {
+      margin: 0 0 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 1rem;
+      color: #ffe8e8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .letter-title::before {
+      content: "◉";
+      font-size: 0.7rem;
+      color: var(--accent-2);
+    }
+
+    .entries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .entry-card {
+      margin: 0;
+      background: var(--bg-soft);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 10px;
+      padding: 0.8rem;
+      min-height: 100%;
+    }
+
+    .entry-card dt {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.35;
+      color: #ffc9c9;
+    }
+
+    .entry-card dd {
+      margin: 0.45rem 0 0;
+      color: #ececec;
+      font-size: 0.95rem;
+    }
+
+    .entry-card[hidden],
+    .letter-group[hidden],
+    .empty-state[hidden] {
+      display: none;
+    }
+
+    .entry-card mark {
+      background: rgba(255, 159, 126, 0.4);
+      color: #fff;
+      padding: 0.02rem 0.15rem;
+      border-radius: 2px;
+    }
+
+    .empty-state {
+      margin: 0;
+      padding: 0.8rem;
+      border-radius: 8px;
+      background: rgba(255, 79, 85, 0.08);
+      border: 1px dashed rgba(255, 79, 85, 0.44);
+      color: #ffd2d2;
+    }
+
+    .orbit-panel {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .orbit-title {
+      margin: 0;
+      color: #ffdfdf;
+    }
+
+    .orbit-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .orbit-links a,
+    .back-home a {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      background: rgba(255, 79, 85, 0.1);
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .orbit-links a:hover,
+    .back-home a:hover,
+    .orbit-links a:focus-visible,
+    .back-home a:focus-visible {
+      background: rgba(255, 79, 85, 0.2);
+      box-shadow: 0 0 0 2px rgba(255, 79, 85, 0.22);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .back-home {
+      text-align: center;
+      margin: 1.2rem 0;
+    }
+
+    .seo-note {
+      font-size: 0.82rem;
+      color: #bebebe;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1rem;
+      }
+
+      .entries-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const input = document.getElementById('search-bar');
-      input.addEventListener('input', () => {
-        const filter = input.value.toLowerCase();
-        document.querySelectorAll('dt').forEach(dt => {
-          const dd = dt.nextElementSibling;
-          const text = dt.textContent + ' ' + dd.textContent;
-          const match = text.toLowerCase().includes(filter);
-          dt.style.display = dd.style.display = match ? '' : 'none';
-        });
+      const sourceDl = document.getElementById('dictionary-source');
+      const entriesRoot = document.getElementById('entries-root');
+      const alphabetNav = document.getElementById('alphabet-nav');
+      const searchInput = document.getElementById('search-bar');
+      const emptyState = document.getElementById('empty-state');
+      const countLabel = document.getElementById('entry-count');
+
+      const terms = [];
+      sourceDl.querySelectorAll('dt').forEach((dt, idx) => {
+        const dd = dt.nextElementSibling;
+        if (!dd || dd.tagName !== 'DD') return;
+
+        const cleanTerm = dt.textContent.trim();
+        const cleanDef = dd.textContent.trim();
+        terms.push({ id: `entry-${idx + 1}`, term: cleanTerm, definition: cleanDef });
       });
+
+      const groups = terms.reduce((acc, item) => {
+        const letter = (item.term[0] || '#').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+        if (!acc[letter]) acc[letter] = [];
+        acc[letter].push(item);
+        return acc;
+      }, {});
+
+      const sortedLetters = Object.keys(groups).sort((a, b) => a.localeCompare(b, 'fr'));
+
+      sortedLetters.forEach(letter => {
+        const anchor = document.createElement('a');
+        anchor.href = `#letter-${letter}`;
+        anchor.textContent = letter;
+        alphabetNav.appendChild(anchor);
+
+        const groupSection = document.createElement('section');
+        groupSection.className = 'letter-group';
+        groupSection.id = `letter-${letter}`;
+
+        const title = document.createElement('h2');
+        title.className = 'letter-title';
+        title.textContent = `Entrées ${letter}`;
+
+        const grid = document.createElement('div');
+        grid.className = 'entries-grid';
+
+        groups[letter].forEach(entry => {
+          const card = document.createElement('article');
+          card.className = 'entry-card';
+          card.dataset.term = entry.term.toLowerCase();
+          card.dataset.definition = entry.definition.toLowerCase();
+
+          const dl = document.createElement('dl');
+          const dt = document.createElement('dt');
+          const dd = document.createElement('dd');
+
+          dt.id = entry.id;
+          dt.textContent = entry.term;
+          dd.textContent = entry.definition;
+
+          dl.appendChild(dt);
+          dl.appendChild(dd);
+          card.appendChild(dl);
+          grid.appendChild(card);
+        });
+
+        groupSection.appendChild(title);
+        groupSection.appendChild(grid);
+        entriesRoot.appendChild(groupSection);
+      });
+
+      const cards = () => Array.from(document.querySelectorAll('.entry-card'));
+      const groupsSections = () => Array.from(document.querySelectorAll('.letter-group'));
+      const totalCount = terms.length;
+      countLabel.textContent = `${totalCount} entrées actives`;
+
+      const highlightText = (text, query) => {
+        if (!query) return text;
+        const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escaped})`, 'ig');
+        return text.replace(regex, '<mark>$1</mark>');
+      };
+
+      const applyFilter = () => {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        cards().forEach(card => {
+          const dt = card.querySelector('dt');
+          const dd = card.querySelector('dd');
+          const term = dt.textContent;
+          const def = dd.textContent;
+          const isMatch = !query || `${term} ${def}`.toLowerCase().includes(query);
+
+          card.hidden = !isMatch;
+          if (isMatch) {
+            visibleCount += 1;
+            dt.innerHTML = highlightText(term, query);
+            dd.innerHTML = highlightText(def, query);
+          } else {
+            dt.textContent = term;
+            dd.textContent = def;
+          }
+        });
+
+        groupsSections().forEach(group => {
+          const hasVisibleCard = !!group.querySelector('.entry-card:not([hidden])');
+          group.hidden = !hasVisibleCard;
+        });
+
+        emptyState.hidden = visibleCount > 0;
+        countLabel.textContent = query
+          ? `${visibleCount} résultat${visibleCount > 1 ? 's' : ''}`
+          : `${totalCount} entrées actives`;
+      };
+
+      searchInput.addEventListener('input', applyFilter);
+      applyFilter();
     });
   </script>
 </head>
 <body>
-  <h1>Lexique de la Godverdommisation</h1>
-  <input type="text" id="search-bar" placeholder="Rechercher un terme...">
-  <div class="alphabet-nav">
-    <a href="#G">G</a> <a href="#M">M</a> <a href="#S">S</a>
-  </div>
-  <section>
-    <dl>
-      <dt id="G">Godverdommiser</dt><dd>Transformer quelque chose en chaos absurde et irrévérencieux.</dd>
+  <main class="lexique-wrap">
+    <header class="lexique-hero">
+      <h1>Dictionnaire Godverdommien</h1>
+      <p class="hero-intro">
+        Ceci n’est pas un glossaire poli. C’est la table de décodage SGVD : les mots qui vrillent, les formes qui contaminent,
+        et les signaux qui permettent de lire le projet sans neutraliser son chaos.
+      </p>
+      <p class="hero-meta">
+        Mode d’emploi : scannez, filtrez, revenez. Chaque entrée est une balise dans l’univers System Godverdomme.
+      </p>
+    </header>
+
+    <section class="tools-panel" aria-label="Outils de consultation du lexique">
+      <div class="tools-grid">
+        <div>
+          <label for="search-bar">Filtre par terme ou définition</label>
+          <input type="text" id="search-bar" placeholder="Ex. godverdommisation, satire, chaos..." autocomplete="off">
+        </div>
+        <div>
+          <label>Repérage alphabétique</label>
+          <nav id="alphabet-nav" class="alphabet-nav" aria-label="Navigation par lettre"></nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="entries-panel" aria-label="Entrées du dictionnaire">
+      <p class="entries-header"><span id="entry-count"></span> · Lexique vivant, perturbé, consultable.</p>
+      <div id="entries-root"></div>
+      <p id="empty-state" class="empty-state" hidden>Aucune entrée trouvée. Essayez un autre signal.</p>
+    </section>
+
+    <aside class="orbit-panel" aria-label="Passerelles SGVD">
+      <h2 class="orbit-title">Passerelles SGVD</h2>
+      <p style="margin:0;color:var(--text-muted);">Pour relier les mots aux systèmes, aux thèses et aux morceaux.</p>
+      <div class="orbit-links">
+        <a href="/simulation.html">Simulation</a>
+        <a href="/manifeste.html">Manifeste</a>
+        <a href="/titres/">Titres</a>
+        <a href="/videos/">Vidéos</a>
+      </div>
+    </aside>
+
+    <div class="back-home">
+      <a href="/">↯ Retour au site principal</a>
+    </div>
+
+    <p class="seo-note">
+      Ce dictionnaire regroupe les fondements lexicaux du projet System Godverdomme : absurdités assumées, satire en cascade,
+      et dérèglement sémantique généralisé.
+    </p>
+
+    <dl id="dictionary-source" hidden aria-hidden="true">
+      <dt>Godverdommiser</dt><dd>Transformer quelque chose en chaos absurde et irrévérencieux.</dd>
       <dt>Godverdommisation</dt><dd>Processus d’absurdité et d’insolence poussé à son paroxysme.</dd>
       <dt>Godverdommique</dt><dd>Qui relève du chaos stylisé et de la satire ultime.</dd>
       <dt>Godverdommement</dt><dd>D'une manière outrageusement irrévérencieuse et cynique.</dd>
@@ -220,18 +517,6 @@
       <dt>Godverdommulation</dt><dd>Propagation incontrôlée d’une idée subversive.</dd>
       <dt>Godverdommavirus</dt><dd>Idée tellement contagieuse qu’elle s’impose dans la culture populaire.</dd>
     </dl>
-  </section>
-  <div class="back-home">
-    <a href="/">↯ Retour au site principal</a>
-  </div>
-  <div class="teaser-manifeste">
-    🧠 Vous avez le glitch ? L’étincelle ? Plongez dans notre <a href="/manifeste.html">Manifeste Godverdommien</a> : chaos, satire, art et subversion à haute dose.
-  </div>
-  <div class="teaser-simulation">
-    👁 Vous croyez encore à la réalité ? Laissez tomber. Découvrez la <a href="/simulation.html">théorie de la simulation</a> et laissez la matrice bugger pour de bon.
-  </div>
-  <div class="seo-note">
-    Ce dictionnaire regroupe les fondements lexicaux du projet System Godverdomme : absurdités assumées, satire en cascade, et dérèglement sémantique généralisé.
-  </div>
+  </main>
 </body>
 </html>
