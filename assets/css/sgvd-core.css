@@ -105,3 +105,116 @@
     text-align: center;
   }
 }
+
+.sgvd-track-page {
+  --track-accent: var(--sgvd-red-soft);
+  margin: 0;
+  min-height: 100vh;
+  padding: 44px 20px 56px;
+  display: flex;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+}
+
+.sgvd-track-wrap {
+  width: 100%;
+  max-width: 820px;
+  text-align: center;
+}
+
+.sgvd-track-panel {
+  padding: 1.5rem 1.3rem;
+  border-radius: 12px;
+}
+
+.sgvd-track-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.65rem);
+  letter-spacing: 1.8px;
+  color: var(--track-accent);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--track-accent), transparent 35%);
+}
+
+.sgvd-track-subtitle {
+  margin: 0.65rem 0 0;
+  color: color-mix(in srgb, var(--track-accent), white 38%);
+  font-size: clamp(1rem, 2.5vw, 1.12rem);
+}
+
+.sgvd-track-lead {
+  margin: 1.4rem auto 0;
+  color: var(--sgvd-fg-soft);
+  max-width: 72ch;
+}
+
+.sgvd-platform-grid {
+  margin-top: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.72rem;
+  justify-content: center;
+}
+
+.sgvd-platform-grid a {
+  text-decoration: none;
+  color: var(--sgvd-fg-main);
+  border: 1px solid color-mix(in srgb, var(--track-accent), transparent 42%);
+  background: rgba(5, 5, 8, 0.65);
+  border-radius: 7px;
+  padding: 0.44rem 0.86rem;
+  font-size: 0.92rem;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sgvd-platform-grid a:hover {
+  border-color: var(--track-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.sgvd-track-cta {
+  margin-top: 1.4rem;
+}
+
+.sgvd-track-qr {
+  margin-top: 1.4rem;
+}
+
+.sgvd-track-qr img {
+  width: min(190px, 62vw);
+  height: auto;
+}
+
+.sgvd-track-analysis {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.sgvd-track-analysis h2 {
+  margin-top: 0;
+  text-align: center;
+  color: var(--track-accent);
+}
+
+.sgvd-track-back {
+  margin-top: 1.35rem;
+}
+
+.sgvd-track-back .sgvd-link {
+  color: color-mix(in srgb, var(--track-accent), white 25%);
+}
+
+.sgvd-track-meta {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--sgvd-fg-muted);
+}
+
+.sgvd-track-teaser {
+  margin-top: 1.2rem;
+  border-top: 1px solid color-mix(in srgb, var(--track-accent), transparent 38%);
+  border-bottom: 1px solid color-mix(in srgb, var(--track-accent), transparent 38%);
+  padding: 0.9rem 0.25rem;
+  color: var(--sgvd-fg-soft);
+}
