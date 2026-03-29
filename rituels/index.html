@@ -7,11 +7,12 @@
   <meta name="description" content="Rituels pour petits humains : un album utile et doux pour accompagner la journée en crèche, avec une lecture SGVD en profondeur.">
   <link rel="canonical" href="https://systemgodverdomme.com/rituels/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css">
   <style>
     body {
       margin: 0;
-      background-color: black;
-      color: white;
+      background-color: #050506;
+      color: var(--sgvd-fg-main);
       font-family: monospace;
       line-height: 1.6;
       padding: 40px 20px;
@@ -20,8 +21,8 @@
     }
 
     h1, h2 {
-      color: red;
-      text-shadow: 0 0 5px red;
+      color: #ffdada;
+      text-shadow: 0 0 9px rgba(215, 38, 46, 0.45);
       letter-spacing: 1px;
     }
 
@@ -37,48 +38,38 @@
     }
 
     .face {
-      border: 1px solid #333;
-      background: rgba(255, 255, 255, 0.03);
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    .face h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1.2rem;
+    }
+
+    .face p {
+      margin: 0;
+      color: var(--sgvd-fg-soft);
+    }
+
+    .face.sgvd-panel {
       padding: 16px;
     }
 
-    a {
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid red;
-    }
-
-    a:hover {
-      color: red;
-      text-shadow: 0 0 3px white;
-    }
-
     .cta {
-      margin-top: 24px;
+      margin-top: 16px;
       display: inline-block;
-      padding: 10px 14px;
-      border: 1px solid red;
     }
 
     .back {
       margin-top: 40px;
-      color: #777;
       font-size: 0.9rem;
-    }
-
-    .back a {
-      color: #777;
-      border-bottom: 1px solid #777;
-    }
-
-    .back a:hover {
-      color: red;
-      border-bottom-color: red;
     }
   </style>
 </head>
-<body>
-  <h1>Rituels pour petits humains</h1>
+<body class="sgvd-shell">
+  <p class="sgvd-kicker">Collection parallèle SGVD</p>
+  <h1 class="sgvd-title">Rituels pour petits humains</h1>
 
   <p class="intro">
     Un album pensé pour accompagner les temps forts d’une journée en crèche : l’arrivée, le passage,
@@ -92,7 +83,7 @@
   </p>
 
   <section class="faces" aria-label="Lecture en deux faces">
-    <article class="face">
+    <article class="face sgvd-panel">
       <h2>Face A — utile, douce, fonctionnelle</h2>
       <p>
         Des morceaux lisibles pour soutenir les transitions, calmer les tensions et donner des repères.
@@ -100,18 +91,18 @@
       </p>
     </article>
 
-    <article class="face">
+    <article class="face sgvd-panel">
       <h2>Face B — lecture SGVD</h2>
       <p>
         Une lecture plus froide, mélancolique et lucide de ces mêmes gestes : ce qu’ils protègent,
         ce qu’ils normalisent, ce qu’ils apprennent déjà de la séparation, du cadre et du collectif.
       </p>
-      <a class="cta" href="/rituels/face-b.html">Lire la Face B complète</a>
+      <a class="cta sgvd-btn" href="/rituels/face-b.html">Lire la Face B complète</a>
     </article>
   </section>
 
-  <div class="back">
-    <p><a href="/titres/">Retour au catalogue</a> · <a href="/">Retour à l’accueil</a></p>
+  <div class="back sgvd-divider">
+    <p><a class="sgvd-link" href="/titres/">Retour au catalogue</a> · <a class="sgvd-link" href="/">Retour à l’accueil</a></p>
   </div>
 </body>
 </html>
