@@ -152,8 +152,10 @@
       if(state.nextPageToken) params.set('pageToken', state.nextPageToken);
       const res = await fetch(`${YT_FUNCTION_URL}?${params.toString()}`);
       if(!res.ok){ throw new Error('YouTube proxy error ' + res.status); }
-      const data = await res.json();
-      state.items.push(...(data.items||[]));
+      const raw = await res.json();
+      const data = raw?.data && Array.isArray(raw.data.items) ? raw.data : raw;
+      if(!data || !Array.isArray(data.items)){ throw new Error('Unexpected youtube-videos payload'); }
+      state.items.push(...data.items);
       state.nextPageToken = data.nextPageToken || null;
       render();
     }
@@ -162,6 +164,7 @@
       document.querySelector('header .sub').textContent = 'Liste auto des uploads YouTube (grille dynamique activée).';
       elFallback.classList.add('hidden');
       elGrid.classList.remove('hidden');
+      elQ.removeAttribute('disabled');
       elMore.disabled = true;
       elMore.addEventListener('click', () => fetchPage().catch(onFail));
       elQ.addEventListener('input', render);
@@ -179,8 +182,8 @@
 
     function onFail(err){
       console.warn(err);
-      // Si l'API échoue, on bascule sur le fallback
-      enableFallbackMode();
+      // Si l'API échoue au chargement initial, on bascule sur le fallback
+      if(!state.items.length){ enableFallbackMode(); }
     }
 
     (async function init(){
@@ -200,4 +203,3 @@
 </div>
 </body>
 </html>
-
