@@ -9,6 +9,7 @@
   <meta name="robots" content="index, follow" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://systemgodverdomme.com/sansunbruit/" />
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Sans un bruit – System Godverdomme" />
@@ -32,66 +33,36 @@
   <!-- End Google Tag Manager -->
 
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Courier New', Courier, monospace;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 100vh;
-    }
-    h1 { font-size: 2.5rem; color: #ff4d4d; text-shadow: 0 0 8px #ff4d4d; letter-spacing: 2px; margin-bottom: 1rem; }
-    h2 { color: #ffaaaa; text-shadow: 0 0 4px #ff4d4d; margin-top: 0; }
-    .warning { font-size: 1.1rem; color: #ccc; max-width: 720px; margin-bottom: 2rem; line-height: 1.6; }
-    .stream-btn { background: white; color: black; font-weight: bold; border: none; padding: 1rem 2rem; font-size: 1rem; cursor: pointer; margin-bottom: 2rem; transition: 0.2s ease-in-out; }
-    .stream-btn:hover { background: #ff4d4d; color: black; text-shadow: 0 0 3px black; }
-
-    .qr { margin: 2rem 0; text-align: center; }
-    .qr img { width: 200px; height: auto; filter: drop-shadow(0 0 10px #ff4d4d); }
-
-    .platforms { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
-    .platforms a { background: rgba(0,0,0,0.6); color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; transition: 0.2s; }
-    .platforms a:hover { background: #ff4d4d; color: black; text-shadow: 0 0 4px black; }
-
-    .analysis { max-width: 780px; background: rgba(0, 0, 0, 0.6); border: 1px solid #ff4d4d; padding: 2rem; margin-top: 3rem; font-size: 0.95rem; line-height: 1.65; text-align: left; color: #eee; }
-    .analysis h2 { color: #ff4d4d; text-align: center; text-shadow: 0 0 4px #ff4d4d; }
-    .analysis p { margin: 1rem 0; }
-
-    .back-home { margin-top: 3rem; }
-    .back-home a { color: #ff4d4d; font-weight: bold; text-decoration: none; }
-    .back-home a:hover { text-decoration: underline; }
-    footer { margin-top: 2rem; font-size: 0.8rem; color: #777; }
-    .seo-note { font-size: 0.75rem; color: #999; max-width: 700px; margin: 3rem auto 2rem; text-align: center; line-height: 1.4; }
+    .sgvd-track-page { --track-accent: #ff5a6a; background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed; background-size: cover; }
+    .sgvd-track-qr img { filter: drop-shadow(0 0 10px #ff4d4d); }
   </style>
 </head>
 
-<body>
-  <h1>Sans un bruit</h1>
-  <h2>Le protocole d’extinction devient un service.</h2>
+<body class="sgvd-shell sgvd-track-page">
+  <main class="sgvd-track-wrap">
+    <section class="sgvd-panel sgvd-track-panel">
+  <h1 class="sgvd-track-title">Sans un bruit</h1>
+  <h2 class="sgvd-track-subtitle">Le protocole d’extinction devient un service.</h2>
 
-  <p class="warning">
+  <p class="sgvd-track-lead">
     Le système a trouvé mieux que le bruit : l’extinction assistée.<br>
     Loi du <strong>27 mai 2025</strong> — « droit de mourir dans la dignité » : une interface polie pour la mise hors-service.<br>
     Patch déployé : « extinction douce » <em>cochée par l’utilisateur</em>.<br>
     Promis, aucun crash : fermeture silencieuse.
   </p>
 
-  <a class="stream-btn" href="https://open.spotify.com/album/66VqsHpTGW3Cu4OU6GMw95?si=HjLrbvJTSXS1txT0fPgF3w" target="_blank" rel="noopener">
+  <div class="sgvd-track-cta">
+  <a class="sgvd-btn" href="https://open.spotify.com/album/66VqsHpTGW3Cu4OU6GMw95?si=HjLrbvJTSXS1txT0fPgF3w" target="_blank" rel="noopener">
     ▶️ ÉCOUTER MAINTENANT
   </a>
+  </div>
 
-  <div class="qr">
+  <div class="sgvd-track-qr">
     <img src="/assets/qr-sansunbruit.png" alt="QR code vers le morceau Sans un bruit">
     <p style="font-size:0.85rem; color:#999; margin-top:0.5rem;">Scannez pour ouvrir la page officielle</p>
   </div>
 
-  <div class="platforms">
+  <div class="sgvd-platform-grid">
     <a href="https://open.spotify.com/album/66VqsHpTGW3Cu4OU6GMw95?si=HjLrbvJTSXS1txT0fPgF3w" target="_blank" rel="noopener">Spotify</a>
     <a href="https://music.apple.com/us/song/sans-un-bruit/1843449985" target="_blank" rel="noopener">Apple Music</a>
     <a href="https://link.deezer.com/s/31fb20v1kP3OuViLbwqqn" target="_blank" rel="noopener">Deezer</a>
@@ -102,7 +73,7 @@
     <a href="https://systemgodverdomme.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
   </div>
 
-  <div class="analysis">
+  <div class="sgvd-panel sgvd-track-panel sgvd-track-analysis">
     <h2>🌀 Lecture Godverdommienne</h2>
 
     <p><strong>🎭 1. L’euthanasie comme protocole de mise hors-service</strong><br>
@@ -134,15 +105,15 @@
     SGVD ne célèbre pas ce confort : il l’expose comme la <strong>version bêta de la disparition administrée</strong>.</p>
   </div>
 
-  <div class="back-home">
-    <a href="/">← Retour au site principal</a>
+  <div class="sgvd-track-back">
+    <a class="sgvd-link" href="/titres/">← Retour aux titres</a>
   </div>
 
-  <footer>
+  <footer class="sgvd-track-meta">
     © 2025 – System Godverdomme. Transmission silencieuse en cours.
   </footer>
 
-  <footer class="seo-note">
+  <footer class="sgvd-track-meta">
     <p>
       <small>
         <strong>"Sans un bruit"</strong> est une ballade sombre, poétique et satirique de System Godverdomme.<br>
@@ -152,8 +123,10 @@
     </p>
   </footer>
 
-  <div class="teaser-simulation" style="margin-top: 3rem; background: rgba(255,255,255,0.06); padding: 1rem 1.5rem; text-align: center; border-top: 1px solid #ff4d4d; border-bottom: 1px solid #ff4d4d; font-size: 0.95rem;">
-  👁️ Ce morceau n’existe pas. Vous non plus. Explorez <a href="/simulation.html" style="color: #ff4d4d; font-weight: bold;">la rubrique Simulation</a> : bugs, législations et illusions de choix.
+  <div class="sgvd-track-teaser">
+  👁️ Ce morceau n’existe pas. Vous non plus. Explorez <a class="sgvd-link" href="/simulation.html">la rubrique Simulation</a> : bugs, législations et illusions de choix.
   </div>
+    </section>
+  </main>
 </body>
 </html>
