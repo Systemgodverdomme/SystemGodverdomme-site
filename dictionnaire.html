@@ -9,13 +9,14 @@
   <meta name="robots" content="index, follow">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="canonical" href="https://systemgodverdomme.com/dictionnaire/">
+  <link rel="stylesheet" href="/assets/css/sgvd-core.css">
 
   <style>
     :root {
       --bg-panel: rgba(7, 7, 9, 0.84);
       --bg-soft: rgba(255, 255, 255, 0.04);
       --border-soft: rgba(255, 115, 115, 0.2);
-      --accent: #ff4f55;
+      --accent: var(--sgvd-red-soft);
       --accent-2: #ff9f7e;
       --text-main: #f4f4f4;
       --text-muted: #b6b6b6;
@@ -241,25 +242,10 @@
       gap: 0.55rem;
     }
 
-    .orbit-links a,
-    .back-home a {
-      text-decoration: none;
-      color: #fff;
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      padding: 0.5rem 0.75rem;
-      background: rgba(255, 79, 85, 0.1);
-      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .orbit-links a:hover,
-    .back-home a:hover,
-    .orbit-links a:focus-visible,
-    .back-home a:focus-visible {
-      background: rgba(255, 79, 85, 0.2);
-      box-shadow: 0 0 0 2px rgba(255, 79, 85, 0.22);
-      transform: translateY(-1px);
-      outline: none;
+    .orbit-links .sgvd-btn,
+    .back-home .sgvd-btn {
+      font-size: 0.9rem;
+      padding: 0.48rem 0.78rem;
     }
 
     .back-home {
@@ -403,7 +389,7 @@
     });
   </script>
 </head>
-<body>
+<body class="sgvd-shell">
   <main class="lexique-wrap">
     <header class="lexique-hero">
       <h1>Dictionnaire Godverdommien</h1>
@@ -439,15 +425,15 @@
       <h2 class="orbit-title">Passerelles SGVD</h2>
       <p style="margin:0;color:var(--text-muted);">Pour relier les mots aux systèmes, aux thèses et aux morceaux.</p>
       <div class="orbit-links">
-        <a href="/simulation.html">Simulation</a>
-        <a href="/manifeste.html">Manifeste</a>
-        <a href="/titres/">Titres</a>
-        <a href="/videos/">Vidéos</a>
+        <a class="sgvd-btn" href="/simulation.html">Simulation</a>
+        <a class="sgvd-btn" href="/manifeste.html">Manifeste</a>
+        <a class="sgvd-btn" href="/titres/">Titres</a>
+        <a class="sgvd-btn" href="/videos/">Vidéos</a>
       </div>
     </aside>
 
     <div class="back-home">
-      <a href="/">↯ Retour au site principal</a>
+      <a class="sgvd-btn" href="/">↯ Retour au site principal</a>
     </div>
 
     <p class="seo-note">
