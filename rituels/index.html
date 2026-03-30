@@ -76,6 +76,43 @@
       margin-bottom: 0;
     }
 
+    .album-block {
+      margin: 22px 0 30px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(140px, 180px) 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .album-cover {
+      margin: 0;
+    }
+
+    .album-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .album-context {
+      margin: 0 0 0.85rem;
+      color: var(--sgvd-fg-soft);
+    }
+
+    @media (max-width: 620px) {
+      .album-block {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .album-cover {
+        max-width: 220px;
+        margin-inline: auto;
+      }
+    }
+
     .back {
       margin-top: 40px;
       font-size: 0.9rem;
@@ -111,6 +148,23 @@
       Le triptyque n’aligne pas simplement trois âges. Il observe trois formes successives
       d’encadrement. <strong>Rituels pour petits humains</strong> en est l’entrée&nbsp;: le premier sas.
     </p>
+  </section>
+
+  <section class="album-block sgvd-panel" aria-label="Album et extraits">
+    <figure class="album-cover">
+      <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de l’album Rituels pour petits humains">
+    </figure>
+    <div>
+      <p class="album-context">Pochette officielle · extraits disponibles</p>
+      <a
+        class="sgvd-btn"
+        href="https://distrokid.com/hyperfollow/systemgodverdomme/rituels-pour-petits-humains"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Écouter des extraits
+      </a>
+    </div>
   </section>
 
   <section class="faces" aria-label="Lecture en deux faces">
