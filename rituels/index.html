@@ -101,6 +101,32 @@
       color: var(--sgvd-fg-soft);
     }
 
+    .platforms {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .platforms-title {
+      margin: 0 0 0.45rem;
+      color: var(--sgvd-fg-soft);
+      font-size: 0.95rem;
+    }
+
+    .platform-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .platform-list li {
+      margin: 0;
+    }
+
     @media (max-width: 620px) {
       .album-block {
         grid-template-columns: 1fr;
@@ -150,20 +176,31 @@
     </p>
   </section>
 
-  <section class="album-block sgvd-panel" aria-label="Album et extraits">
+  <section class="album-block sgvd-panel" aria-label="Album disponible">
     <figure class="album-cover">
       <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de l’album Rituels pour petits humains">
     </figure>
     <div>
-      <p class="album-context">Premiers extraits du premier sas</p>
+      <p class="album-context">Le premier sas est désormais ouvert.</p>
       <a
         class="sgvd-btn"
-        href="https://distrokid.com/hyperfollow/systemgodverdomme/rituels-pour-petits-humains"
+        href="https://open.spotify.com/album/6poo84kwQvV2DIdH7gt1fT?si=HX2K_2twRGWQCtmD7nwVAQ"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Écouter des extraits
+        Écouter l’album
       </a>
+      <div class="platforms" aria-label="Plateformes d’écoute">
+        <p class="platforms-title">Disponible sur :</p>
+        <ul class="platform-list">
+          <li><a class="sgvd-link" href="https://www.youtube.com/playlist?list=OLAK5uy_k8LoLjrTVb1v65NOV2xx1Fo0Y15PmVgZw" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          <li><a class="sgvd-link" href="https://open.spotify.com/album/6poo84kwQvV2DIdH7gt1fT?si=HX2K_2twRGWQCtmD7nwVAQ" target="_blank" rel="noopener noreferrer">Spotify</a></li>
+          <li><a class="sgvd-link" href="https://link.deezer.com/s/32SKPNnU51B9fDvTC92XN" target="_blank" rel="noopener noreferrer">Deezer</a></li>
+          <li><a class="sgvd-link" href="https://music.apple.com/fr/album/rituels-pour-petits-humains/1889728394" target="_blank" rel="noopener noreferrer">Apple Music</a></li>
+          <li><a class="sgvd-link" href="https://music.amazon.fr/albums/B0GVK72TXJ?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_G8xBF21GcwMjoDrnp5NkyS1D2" target="_blank" rel="noopener noreferrer">Amazon Music</a></li>
+          <li><a class="sgvd-link" href="https://www.boomplay.com/albums/128808068?from=artists&srModel=COPYLINK&srList=WEB&share_content=album&share_channel=copylink&share_platform=web" target="_blank" rel="noopener noreferrer">Boomplay</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
