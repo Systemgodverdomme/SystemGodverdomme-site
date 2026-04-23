@@ -80,4 +80,10 @@
     <priority>0.75</priority>
   </url>
 
+  <url>
+    <loc>https://systemgodverdomme.com/lesfrouzbacks/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
 </urlset>
