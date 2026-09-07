@@ -258,6 +258,54 @@ html { scroll-behavior: smooth; }
   color: var(--sgvd-fg-soft);
 }
 
+/* Editorial V2: Manifeste / Simulation / Dictionnaire */
+.manifest-wrap,.sim-wrap,.lexique-wrap{position:relative}
+.manifest-hero,.sim-hero,.lexique-hero{
+  position:relative;
+  overflow:hidden;
+  border-color:rgba(255,255,255,.15)!important;
+  background:linear-gradient(135deg,rgba(20,20,25,.94),rgba(8,8,11,.9))!important;
+  box-shadow:0 34px 90px rgba(0,0,0,.48)!important;
+}
+.manifest-hero::after,.sim-hero::after,.lexique-hero::after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  right:-70px;top:-80px;
+  border:1px solid rgba(255,79,85,.22);
+  border-radius:50%;
+  box-shadow:0 0 70px rgba(215,38,46,.15) inset;
+  pointer-events:none;
+}
+.manifest-badge,.sim-badge{letter-spacing:.14em!important;font-size:.68rem!important;padding:.28rem .7rem!important;background:rgba(215,38,46,.1)!important}
+.manifest-hero h1,.sim-hero h1,.lexique-hero h1{font-size:clamp(2.5rem,6vw,4.8rem)!important;line-height:.98!important;letter-spacing:-.045em!important;text-transform:uppercase}
+.manifest-lead,.sim-lead,.hero-intro{font-size:clamp(1rem,1.8vw,1.14rem)!important;line-height:1.72!important;color:#c7c7cf!important}
+.manifest-nav,.sim-nav,.tools-panel{position:sticky;top:10px;z-index:20;backdrop-filter:blur(18px)!important;background:rgba(7,7,9,.84)!important}
+.manifest-panel,.sim-panel,.entries-panel,.orbit-panel,.manifest-circulation,.sim-traffic{
+  border-color:rgba(255,255,255,.1)!important;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.manifest-panel:hover,.sim-panel:hover,.entry-card:hover,.manifest-card:hover,.sim-traffic-card:hover{
+  border-color:rgba(255,79,85,.28)!important;
+  box-shadow:0 20px 40px rgba(0,0,0,.22);
+}
+.manifest-panel h2,.sim-panel h2,.orbit-title,.manifest-circulation h2,.sim-traffic h2{letter-spacing:-.02em!important;color:#f7f7f9!important}
+.manifest-sting,.sim-highlight{border-left:2px solid #ff5b61!important;background:linear-gradient(90deg,rgba(215,38,46,.13),rgba(215,38,46,.025))!important;border-radius:0 8px 8px 0}
+.manifest-card,.sim-traffic-card,.entry-card{background:linear-gradient(180deg,rgba(255,255,255,.038),rgba(255,255,255,.018))!important;border:1px solid rgba(255,255,255,.09)!important}
+.entry-card{transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.entry-card:hover{transform:translateY(-2px);background:rgba(255,255,255,.05)!important}
+.entry-card dt{font-size:1.03rem!important;color:#f5d4d5!important}
+.entry-card dd{color:#c7c7ce!important;line-height:1.6}
+#search-bar{min-height:46px!important;background:rgba(5,5,7,.76)!important;border-color:rgba(255,255,255,.13)!important}
+#search-bar:focus{border-color:rgba(255,79,85,.7)!important;box-shadow:0 0 0 3px rgba(215,38,46,.1)}
+.alphabet-nav a{background:rgba(255,255,255,.025)}
+.video-carousel{scrollbar-width:thin;scrollbar-color:#5f2427 transparent}
+.video-carousel iframe{box-shadow:0 22px 50px rgba(0,0,0,.4)}
+@media(max-width:720px){
+  .manifest-nav,.sim-nav,.tools-panel{position:relative;top:auto}
+  .manifest-hero h1,.sim-hero h1,.lexique-hero h1{font-size:clamp(2.2rem,12vw,3.6rem)!important}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
