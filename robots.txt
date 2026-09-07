@@ -1,5 +1,5 @@
 # robots.txt – System Godverdomme
-# Dernière mise à jour : avril 2025
+# Dernière mise à jour : septembre 2026
 
 User-agent: *
 Allow: /
@@ -10,6 +10,3 @@ Sitemap: https://systemgodverdomme.com/sitemap.xml
 # Notes pour les crawlers (et les éveillés)
 # Simulation activée : les bots sont les bienvenus pour se perdre dans la matrice.
 # Glitch détecté ? Trop tard, vous êtes déjà godverdommisés.
-
-# Zones spéciales
-# (rien à interdire pour le moment, tout l'univers est ouvert à l'exploration)
