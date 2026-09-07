@@ -7,6 +7,15 @@
   <meta name="description" content="Clips, transmissions et vidéos publiées par System Godverdomme." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://systemgodverdomme.com/videos/" />
+  <meta property="og:title" content="Vidéos — System Godverdomme" />
+  <meta property="og:description" content="Clips, transmissions, performances et extensions visuelles de l’univers SGVD." />
+  <meta property="og:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
+  <meta property="og:url" content="https://systemgodverdomme.com/videos/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vidéos — System Godverdomme" />
+  <meta name="twitter:description" content="Clips, transmissions, performances et extensions visuelles de l’univers SGVD." />
+  <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
   <style>
@@ -52,7 +61,7 @@
       <input id="q" class="input" type="search" placeholder="Rechercher dans les transmissions…" aria-label="Rechercher une vidéo" />
       <button id="btn-more" class="btn" disabled>Charger plus</button>
     </div>
-    <p id="count" class="status"></p>
+    <p id="count" class="status" aria-live="polite"></p>
 
     <div id="api-grid" class="grid"></div>
     <div id="fallback" class="fallback hidden">
