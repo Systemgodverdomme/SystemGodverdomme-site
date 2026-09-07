@@ -18,81 +18,33 @@
   <meta name="twitter:image" content="https://systemgodverdomme.com/assets/rituels-pour-petits-humains-cover.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="/assets/css/sgvd-core.css">
+  <link rel="stylesheet" href="/assets/css/sgvd-interactive.css">
   <style>
     body{margin:0;background:#050506;color:var(--sgvd-fg-main);font-family:"Courier New",monospace;line-height:1.65}
     .rituels{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:48px 0 72px}
     .hero{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:34px;align-items:center;padding:22px;border-radius:16px}
-    .cover{margin:0;position:relative}
-    .cover img{width:100%;display:block;border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+    .cover{margin:0;position:relative}.cover img{width:100%;display:block;border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
     .cover::after{content:"RPH_01 // SAS OUVERT";position:absolute;left:12px;right:12px;bottom:12px;padding:9px 10px;border:1px solid rgba(255,255,255,.12);background:rgba(5,5,6,.72);backdrop-filter:blur(10px);font-size:.67rem;letter-spacing:.12em;color:#d7d7dc}
-    .hero-copy{padding:10px clamp(0px,2vw,18px)}
-    .hero h1{font-size:clamp(2.5rem,5.8vw,5.5rem);line-height:.92;letter-spacing:-.055em;margin:.35rem 0 1rem}
-    .lead{color:#c1c1c8;font-size:clamp(.98rem,1.7vw,1.12rem);max-width:60ch}
-    .platforms{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
-    .platforms a{color:#d2d2d8;text-decoration:none;font-size:.75rem;border:1px solid rgba(255,255,255,.12);padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
-    .section{padding:66px 0 0}
-    .section-head{display:flex;justify-content:space-between;gap:22px;align-items:end;margin-bottom:18px}
-    .section h2{margin:0;font-size:clamp(1.8rem,3.5vw,3.2rem);letter-spacing:-.04em}
-    .section-head p{margin:0;color:#8c8c95;max-width:500px;font-size:.9rem}
-    .dual{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .face{min-height:290px;padding:24px;border-radius:14px;display:flex;flex-direction:column}
-    .face h3{font-size:1.55rem;margin:0 0 12px;letter-spacing:-.03em}
-    .face p{color:#b4b4bc;margin:0;max-width:50ch}
-    .face .sgvd-btn{margin-top:auto;align-self:flex-start}
-    .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .phase{padding:20px;border-radius:12px;min-height:180px}
-    .phase span{display:block;color:#777781;font-size:.68rem;letter-spacing:.13em;margin-bottom:28px}
-    .phase h3{margin:0 0 8px;font-size:1.18rem}
-    .phase p{margin:0;color:#a8a8b0;font-size:.88rem}
-    .phase.current{border-color:rgba(255,79,85,.45);box-shadow:0 20px 50px rgba(215,38,46,.08)}
-    .phase.future{opacity:.58}
-    .footer-nav{margin-top:54px;padding:18px;border-radius:12px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
-    .footer-nav p{margin:0;color:#92929b;font-size:.86rem}
+    .hero-copy{padding:10px clamp(0px,2vw,18px)}.hero h1{font-size:clamp(2.5rem,5.8vw,5.5rem);line-height:.92;letter-spacing:-.055em;margin:.35rem 0 1rem}.lead{color:#c1c1c8;font-size:clamp(.98rem,1.7vw,1.12rem);max-width:60ch}
+    .platforms{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.platforms a{color:#d2d2d8;text-decoration:none;font-size:.75rem;border:1px solid rgba(255,255,255,.12);padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+    .section{padding:66px 0 0}.section-head{display:flex;justify-content:space-between;gap:22px;align-items:end;margin-bottom:18px}.section h2{margin:0;font-size:clamp(1.8rem,3.5vw,3.2rem);letter-spacing:-.04em}.section-head p{margin:0;color:#8c8c95;max-width:500px;font-size:.9rem}
+    .dual{display:grid;grid-template-columns:1fr 1fr;gap:14px}.face{min-height:290px;padding:24px;border-radius:14px;display:flex;flex-direction:column}.face h3{font-size:1.55rem;margin:0 0 12px;letter-spacing:-.03em}.face p{color:#b4b4bc;margin:0;max-width:50ch}.face .sgvd-btn{margin-top:auto;align-self:flex-start}
+    .triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.phase{padding:20px;border-radius:12px;min-height:180px}.phase span{display:block;color:#777781;font-size:.68rem;letter-spacing:.13em;margin-bottom:28px}.phase h3{margin:0 0 8px;font-size:1.18rem}.phase p{margin:0;color:#a8a8b0;font-size:.88rem}.phase.current{border-color:rgba(255,79,85,.45);box-shadow:0 20px 50px rgba(215,38,46,.08)}.phase.future{opacity:.58}
+    .footer-nav{margin-top:54px;padding:18px;border-radius:12px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}.footer-nav p{margin:0;color:#92929b;font-size:.86rem}
     @media(max-width:800px){.hero{grid-template-columns:1fr}.cover{max-width:520px}.dual,.triptych{grid-template-columns:1fr}.rituels{width:min(100% - 22px,1120px);padding-top:28px}.section-head{display:block}.section-head p{margin-top:10px}}
   </style>
 </head>
 <body class="sgvd-shell">
-  <header class="sgvd-globalbar">
-    <a href="/">System Godverdomme</a>
-    <nav aria-label="Navigation principale"><a href="/titres/">Titres</a><a href="/videos/">Vidéos</a><a href="/manifeste">Manifeste</a><a href="/simulation">Simulation</a><a href="/dictionnaire">Dictionnaire</a><a href="/rituels/">Rituels</a></nav>
-  </header>
-
+  <header class="sgvd-globalbar"><a href="/">System Godverdomme</a><nav aria-label="Navigation principale"><a href="/titres/">Titres</a><a href="/videos/">Vidéos</a><a href="/manifeste">Manifeste</a><a href="/simulation">Simulation</a><a href="/dictionnaire">Dictionnaire</a><a href="/rituels/">Rituels</a></nav></header>
   <main class="rituels">
     <section class="hero sgvd-panel">
       <figure class="cover"><img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de l’album Rituels pour petits humains" decoding="async"></figure>
-      <div class="hero-copy">
-        <p class="sgvd-kicker">Collection parallèle / acte I</p>
-        <h1>Rituels pour petits humains</h1>
-        <p class="lead">Un album pensé pour accompagner les temps forts d’une journée en crèche — l’arrivée, le passage, l’apaisement, le repas, le départ — tout en observant ce que ces gestes racontent d’un monde organisé, cadré, administré.</p>
-        <p><a class="sgvd-btn" href="https://open.spotify.com/album/6poo84kwQvV2DIdH7gt1fT?si=HX2K_2twRGWQCtmD7nwVAQ" target="_blank" rel="noopener noreferrer">Écouter l’album</a></p>
-        <div class="platforms" aria-label="Plateformes d’écoute">
-          <a href="https://www.youtube.com/playlist?list=OLAK5uy_k8LoLjrTVb1v65NOV2xx1Fo0Y15PmVgZw" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a href="https://open.spotify.com/album/6poo84kwQvV2DIdH7gt1fT?si=HX2K_2twRGWQCtmD7nwVAQ" target="_blank" rel="noopener noreferrer">Spotify</a>
-          <a href="https://link.deezer.com/s/32SKPNnU51B9fDvTC92XN" target="_blank" rel="noopener noreferrer">Deezer</a>
-          <a href="https://music.apple.com/fr/album/rituels-pour-petits-humains/1889728394" target="_blank" rel="noopener noreferrer">Apple Music</a>
-          <a href="https://music.amazon.fr/albums/B0GVK72TXJ?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_G8xBF21GcwMjoDrnp5NkyS1D2" target="_blank" rel="noopener noreferrer">Amazon Music</a>
-        </div>
-      </div>
+      <div class="hero-copy"><p class="sgvd-kicker">Collection parallèle / acte I</p><h1>Rituels pour petits humains</h1><p class="lead">Un album pensé pour accompagner les temps forts d’une journée en crèche — l’arrivée, le passage, l’apaisement, le repas, le départ — tout en observant ce que ces gestes racontent d’un monde organisé, cadré, administré.</p><p><a class="sgvd-btn" href="https://open.spotify.com/album/6poo84kwQvV2DIdH7gt1fT?si=HX2K_2twRGWQCtmD7nwVAQ" target="_blank" rel="noopener noreferrer">Écouter l’album</a></p><div class="platforms" aria-label="Plateformes d’écoute"><a href="https://www.youtube.com/playlist?list=OLAK5uy_k8LoLjrTVb1v65NOV2xx1Fo0Y15PmVgZw" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://open.spotify.com/album/6poo84kwQvV2DIdH7gt1fT?si=HX2K_2twRGWQCtmD7nwVAQ" target="_blank" rel="noopener noreferrer">Spotify</a><a href="https://link.deezer.com/s/32SKPNnU51B9fDvTC92XN" target="_blank" rel="noopener noreferrer">Deezer</a><a href="https://music.apple.com/fr/album/rituels-pour-petits-humains/1889728394" target="_blank" rel="noopener noreferrer">Apple Music</a><a href="https://music.amazon.fr/albums/B0GVK72TXJ?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_G8xBF21GcwMjoDrnp5NkyS1D2" target="_blank" rel="noopener noreferrer">Amazon Music</a></div></div>
     </section>
-
-    <section class="section">
-      <div class="section-head"><div><p class="sgvd-kicker">Deux lectures</p><h2>La surface et le système</h2></div><p>Le projet fonctionne volontairement sur deux niveaux qui ne s’annulent pas.</p></div>
-      <div class="dual">
-        <article class="face sgvd-panel"><p class="sgvd-kicker">Face A</p><h3>Utile, douce, fonctionnelle</h3><p>Des morceaux lisibles pour soutenir les transitions, calmer les tensions et donner des repères. Une musique d’appui, au service des rythmes de la crèche et de la stabilité affective.</p></article>
-        <article class="face sgvd-panel"><p class="sgvd-kicker">Face B</p><h3>Lecture SGVD</h3><p>Une lecture plus froide, mélancolique et lucide des mêmes gestes : ce qu’ils protègent, ce qu’ils normalisent, ce qu’ils apprennent déjà de la séparation, du cadre et du collectif.</p><a class="sgvd-btn" href="/rituels/face-b.html">Lire la Face B complète</a></article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-head"><div><p class="sgvd-kicker">Triptyque</p><h2>La vie prise en charge</h2></div><p>Trois âges, trois formes d’encadrement. Rituels est le premier mouvement.</p></div>
-      <div class="triptych">
-        <article class="phase current sgvd-panel"><span>ACTE I // OUVERT</span><h3>La crèche</h3><p>Premiers gestes, premiers repères, premières séparations. Le premier sas.</p></article>
-        <article class="phase future sgvd-panel"><span>ACTE II // À VENIR</span><h3>L’école</h3><p>Socialisation pilotée, conformité rendue désirable, apprentissage du cadre.</p></article>
-        <article class="phase future sgvd-panel"><span>ACTE III // À VENIR</span><h3>La fin de parcours</h3><p>Accompagnement normalisé, dépendance administrée, disparition sous protocole.</p></article>
-      </div>
-    </section>
-
+    <section class="section"><div class="section-head"><div><p class="sgvd-kicker">Deux lectures</p><h2>La surface et le système</h2></div><p>Le projet fonctionne volontairement sur deux niveaux qui ne s’annulent pas.</p></div><div class="dual"><article class="face sgvd-panel"><p class="sgvd-kicker">Face A</p><h3>Utile, douce, fonctionnelle</h3><p>Des morceaux lisibles pour soutenir les transitions, calmer les tensions et donner des repères. Une musique d’appui, au service des rythmes de la crèche et de la stabilité affective.</p></article><article class="face sgvd-panel"><p class="sgvd-kicker">Face B</p><h3>Lecture SGVD</h3><p>Une lecture plus froide, mélancolique et lucide des mêmes gestes : ce qu’ils protègent, ce qu’ils normalisent, ce qu’ils apprennent déjà de la séparation, du cadre et du collectif.</p><a class="sgvd-btn" href="/rituels/face-b.html">Lire la Face B complète</a></article></div></section>
+    <section class="section"><div class="section-head"><div><p class="sgvd-kicker">Triptyque</p><h2>La vie prise en charge</h2></div><p>Trois âges, trois formes d’encadrement. Rituels est le premier mouvement.</p></div><div class="triptych"><article class="phase current sgvd-panel"><span>ACTE I // OUVERT</span><h3>La crèche</h3><p>Premiers gestes, premiers repères, premières séparations. Le premier sas.</p></article><article class="phase future sgvd-panel"><span>ACTE II // À VENIR</span><h3>L’école</h3><p>Socialisation pilotée, conformité rendue désirable, apprentissage du cadre.</p></article><article class="phase future sgvd-panel"><span>ACTE III // À VENIR</span><h3>La fin de parcours</h3><p>Accompagnement normalisé, dépendance administrée, disparition sous protocole.</p></article></div></section>
     <section class="footer-nav sgvd-panel"><p>Rituels est une porte d’entrée parallèle dans l’univers SGVD.</p><div><a class="sgvd-btn" href="/titres/">Catalogue</a> <a class="sgvd-btn" href="/manifeste">Manifeste</a></div></section>
   </main>
+  <script src="/assets/js/sgvd-interactive.js" defer></script>
 </body>
 </html>
