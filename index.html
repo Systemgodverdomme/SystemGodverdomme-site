@@ -14,6 +14,9 @@
   <meta property="og:url" content="https://systemgodverdomme.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="System Godverdomme — Une anomalie artistique sous surveillance" />
+  <meta name="twitter:description" content="Musique, satire, chaos et théorie de la simulation. Entrez dans le signal SGVD." />
+  <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
   <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
   <link rel="stylesheet" href="/assets/css/sgvd-home-v2.css" />
 </head>
@@ -26,9 +29,9 @@
       <a href="/titres/">Titres</a>
       <a href="/rituels/">Rituels</a>
       <a href="/videos/">Vidéos</a>
-      <a href="/manifeste.html">Manifeste</a>
-      <a href="/simulation.html">Simulation</a>
-      <a href="/dictionnaire.html">Dictionnaire</a>
+      <a href="/manifeste">Manifeste</a>
+      <a href="/simulation">Simulation</a>
+      <a href="/dictionnaire">Dictionnaire</a>
     </nav>
   </header>
 
@@ -40,11 +43,11 @@
         <p class="sgvd-hero-copy">Projet musical subversif, satirique et glitché. Ici, les chansons ne sont qu’une porte d’entrée : le signal continue dans les vidéos, les textes, les anomalies et la simulation.</p>
         <div class="sgvd-hero-actions">
           <a class="sgvd-primary" href="/titres/">Entrer par la musique</a>
-          <a class="sgvd-secondary" href="/simulation.html">Tester la simulation</a>
+          <a class="sgvd-secondary" href="/simulation">Tester la simulation</a>
         </div>
       </div>
       <figure class="sgvd-hero-art">
-        <img src="/assets/og-cover.jpg" alt="Univers visuel de System Godverdomme" />
+        <img src="/assets/og-cover.jpg" alt="Univers visuel de System Godverdomme" fetchpriority="high" decoding="async" />
       </figure>
     </section>
 
@@ -56,16 +59,16 @@
       <div class="sgvd-grid">
         <a class="sgvd-card" href="/titres/"><span class="sgvd-card-index">01 / SIGNALS</span><h3>Les chansons</h3><p>Rock, trap, métal, soul et satire. Le cœur sonore du projet.</p></a>
         <a class="sgvd-card" href="/videos/"><span class="sgvd-card-index">02 / TRANSMISSIONS</span><h3>Les vidéos</h3><p>Clips, fragments, mises en scène et extensions visuelles de l’univers SGVD.</p></a>
-        <a class="sgvd-card" href="/manifeste.html"><span class="sgvd-card-index">03 / DOCTRINE</span><h3>Le manifeste</h3><p>Ce que SGVD attaque, observe, détourne et refuse de rendre confortable.</p></a>
-        <a class="sgvd-card" href="/simulation.html"><span class="sgvd-card-index">04 / PROTOCOL</span><h3>Simulation</h3><p>Quand le doute devient méthode : perception, interface, réalité et glitch.</p></a>
-        <a class="sgvd-card" href="/dictionnaire.html"><span class="sgvd-card-index">05 / ARCHIVE</span><h3>Dictionnaire</h3><p>Le lexique interne : concepts, mots contaminés et définitions anormales.</p></a>
+        <a class="sgvd-card" href="/manifeste"><span class="sgvd-card-index">03 / DOCTRINE</span><h3>Le manifeste</h3><p>Ce que SGVD attaque, observe, détourne et refuse de rendre confortable.</p></a>
+        <a class="sgvd-card" href="/simulation"><span class="sgvd-card-index">04 / PROTOCOL</span><h3>Simulation</h3><p>Quand le doute devient méthode : perception, interface, réalité et glitch.</p></a>
+        <a class="sgvd-card" href="/dictionnaire"><span class="sgvd-card-index">05 / ARCHIVE</span><h3>Dictionnaire</h3><p>Le lexique interne : concepts, mots contaminés et définitions anormales.</p></a>
         <a class="sgvd-card" href="/rituels/"><span class="sgvd-card-index">06 / RITUALS</span><h3>Rituels</h3><p>Une collection parallèle, douce en surface et beaucoup moins innocente dessous.</p></a>
       </div>
     </section>
 
     <section class="sgvd-section" aria-labelledby="rituels-title">
       <div class="sgvd-feature">
-        <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de Rituels pour petits humains" />
+        <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de Rituels pour petits humains" loading="lazy" decoding="async" />
         <div class="sgvd-feature-copy">
           <p class="sgvd-kicker-v2">Release active</p>
           <h3 id="rituels-title">Rituels pour petits humains</h3>
@@ -104,7 +107,6 @@
     let i = 0;
     const apply = () => {
       const on = localStorage.getItem(key) === '1';
-      document.documentElement.toggleAttribute('data-sim', on);
       if (on) document.documentElement.setAttribute('data-sim','on');
       else document.documentElement.removeAttribute('data-sim');
       btn.textContent = on ? 'Simulation ON' : 'Simulation OFF';
