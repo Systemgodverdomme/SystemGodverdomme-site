@@ -2,495 +2,120 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>System Godverdomme – Projet musical glitché & subversif</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="System Godverdomme est un projet musical hybride, absurde et glitché. Une anomalie sonore sous surveillance, entre satire, chaos et théorie de la simulation." />
-  <meta name="keywords" content="System Godverdomme, musique alternative, projet musical, glitch pop, théorie de la simulation, matrice, bug de la réalité, absurde, dystopie, réalité augmentée, glitch art, sound design, art numérique, musique expérimentale" />
+  <title>System Godverdomme — Musique, satire & anomalie</title>
+  <meta name="description" content="System Godverdomme est un projet musical hybride, satirique et glitché. Musique, vidéos, manifeste, simulation et anomalies culturelles." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://systemgodverdomme.com/" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-  <!-- Open Graph (pour Facebook, Discord, etc.) -->
-  <meta property="og:title" content="System Godverdomme – Projet musical subversif & glitché" />
-  <meta property="og:description" content="Bienvenue dans l’anomalie. Un projet musical entre satire, distorsion, et glitchs de la réalité." />
+  <meta property="og:title" content="System Godverdomme — Une anomalie artistique sous surveillance" />
+  <meta property="og:description" content="Musique, satire, chaos et théorie de la simulation. Entrez dans le signal SGVD." />
   <meta property="og:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
   <meta property="og:url" content="https://systemgodverdomme.com/" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="System Godverdomme" />
-  <meta name="twitter:description" content="Un projet musical qui remet la réalité en question. Bienvenue dans la matrice glitchée." />
+  <meta name="twitter:title" content="System Godverdomme — Une anomalie artistique sous surveillance" />
+  <meta name="twitter:description" content="Musique, satire, chaos et théorie de la simulation. Entrez dans le signal SGVD." />
   <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
   <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--sgvd-fg-main);
-      font-family: 'Courier New', Courier, monospace;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      backdrop-filter: blur(1.6px);
-      position: relative;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      color: #f8f8f8;
-      letter-spacing: 2px;
-      margin: 0.3rem 0 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      color: var(--sgvd-fg-soft);
-      max-width: 600px;
-      margin-bottom: 40px;
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
-    }
-
-    nav {
-      margin-bottom: 30px;
-      width: min(900px, calc(100% - 2rem));
-      padding: 1rem;
-      border-radius: 12px;
-    }
-
-    .socials {
-      display: flex;
-      gap: 1rem;
-      margin: 20px 0;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: min(900px, calc(100% - 2rem));
-      padding: 1rem;
-      border-radius: 12px;
-    }
-
-    .socials a {
-      color: var(--sgvd-fg-soft);
-      text-decoration: none;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 0.5rem 0.9rem;
-      border-radius: 6px;
-      transition: all 0.16s ease-in-out;
-    }
-
-    .socials a:hover {
-      color: white;
-      border-color: rgba(255, 79, 85, 0.6);
-      text-shadow: 0 0 8px rgba(215, 38, 46, 0.4);
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 1rem;
-      font-size: 0.8rem;
-      color: #888;
-    }
-
-    .seo-note {
-      font-size: 0.75rem;
-      color: #9f9fa8;
-      text-align: center;
-      margin-top: 1.5rem;
-      line-height: 1.5;
-    }
-
-    .start-here {
-      margin: 0 1rem 1.4rem;
-      padding: 1rem 1.1rem 1.1rem;
-      max-width: 760px;
-      color: var(--sgvd-fg-soft);
-      line-height: 1.62;
-      font-size: 1rem;
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-    }
-
-    .start-here a {
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255, 79, 85, 0.45);
-    }
-
-    .start-here a:hover {
-      color: #fff;
-      border-bottom-color: #ff4b4b;
-      text-shadow: 0 0 8px rgba(215, 38, 46, 0.35);
-    }
-
-    .release-note {
-      width: min(760px, 92%);
-      margin: 22px auto 26px;
-      padding: 1rem 1.2rem;
-      text-align: center;
-      border-radius: 10px;
-    }
-
-    .release-note p {
-      margin: 0 0 0.45rem;
-      color: var(--sgvd-fg-soft);
-    }
-
-    .release-note .release-cta {
-      display: inline-block;
-      margin-top: 0.55rem;
-    }
-
-    #contact {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      width: min(760px, calc(100% - 2rem));
-      padding: 1rem 1.1rem 1.2rem;
-      border-radius: 10px;
-    }
-
-    #contact h3 {
-      margin: 0.2rem 0 0.6rem;
-      color: #f2e8e8;
-      text-shadow: 0 0 10px rgba(215, 38, 46, 0.44);
-    }
-
-    #contact p {
-      font-size: 1rem;
-      color: var(--sgvd-fg-soft);
-      font-family: monospace;
-    }
-  </style>
-
-  <style>
-    :root{
-      --sim-sat: 1.20;
-      --sim-ctr: 1.08;
-      --sim-br: 1.03;
-    }
-
-    html[data-sim="on"]::before{
-      content:"";
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 2147482999;
-      box-shadow:
-        inset 0 0 120px 40px rgba(255,30,30,.22),
-        inset 0 0 260px 90px rgba(255,30,30,.10);
-    }
-
-    html[data-sim="on"] h1,
-    html[data-sim="on"] h2,
-    html[data-sim="on"] h3,
-    html[data-sim="on"] a:hover{
-      text-shadow: 0 0 10px rgba(255,30,30,.5);
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/sgvd-home-v2.css" />
 </head>
+<body class="sgvd-home-v2">
+  <div class="sgvd-glitch-line" aria-hidden="true"></div>
 
-<body class="sgvd-shell">
-  <h1 class="sgvd-wobble sgvd-title">System Godverdomme</h1>
-  <h2 class="sgvd-wobble sgvd-subtitle">Projet musical subversif et glitché. Une anomalie artistique sous surveillance.</h2>
+  <header class="sgvd-sitebar">
+    <a class="sgvd-brand" href="/">System Godverdomme</a>
+    <nav class="sgvd-mainnav" aria-label="Navigation principale">
+      <a href="/titres/">Titres</a>
+      <a href="/rituels/">Rituels</a>
+      <a href="/videos/">Vidéos</a>
+      <a href="/manifeste">Manifeste</a>
+      <a href="/simulation">Simulation</a>
+      <a href="/dictionnaire">Dictionnaire</a>
+    </nav>
+  </header>
 
-  <nav class="sgvd-nav sgvd-panel">
-    <a href="/titres/">🎶&nbsp;Les Chansons</a>
-    <a href="/rituels/">🧸&nbsp;Rituels</a>
-    <a href="/videos/">📺&nbsp;Vidéos</a>
-    <a href="/manifeste.html">📡&nbsp;Le Manifeste</a>
-    <a href="/simulation.html">🧠&nbsp;Simulation</a>
-    <a href="/dictionnaire.html">📖&nbsp;Dictionnaire</a>
-  </nav>
+  <main class="sgvd-home">
+    <section class="sgvd-hero" aria-labelledby="hero-title">
+      <div>
+        <p class="sgvd-status">Transmission active // SGVD_NODE_01</p>
+        <h1 id="hero-title">System <span>Godverdomme</span></h1>
+        <p class="sgvd-hero-copy">Projet musical subversif, satirique et glitché. Ici, les chansons ne sont qu’une porte d’entrée : le signal continue dans les vidéos, les textes, les anomalies et la simulation.</p>
+        <div class="sgvd-hero-actions">
+          <a class="sgvd-primary" href="/titres/">Entrer par la musique</a>
+          <a class="sgvd-secondary" href="/simulation">Tester la simulation</a>
+        </div>
+      </div>
+      <figure class="sgvd-hero-art">
+        <img src="/assets/og-cover.jpg" alt="Univers visuel de System Godverdomme" fetchpriority="high" decoding="async" />
+      </figure>
+    </section>
 
-  <section class="start-here sgvd-panel" aria-labelledby="par-ou-commencer">
-    <h3 id="par-ou-commencer">Par où commencer</h3>
-    <p>
-      Pour entrer dans l’anomalie sans te perdre, commence par
-      <a href="/titres/">Titres</a>, puis explore
-      <a href="/simulation.html">Simulation</a>,
-      <a href="/manifeste.html">Manifeste</a>,
-      <a href="/dictionnaire.html">Dictionnaire</a>
-      et <a href="/rituels/">Rituels</a>.
-    </p>
-  </section>
+    <section class="sgvd-section" aria-labelledby="explore-title">
+      <div class="sgvd-section-head">
+        <div><p class="sgvd-kicker-v2">Architecture du signal</p><h2 id="explore-title">Choisir une porte</h2></div>
+        <p class="sgvd-section-intro">Pas besoin de tout comprendre dans l’ordre. Chaque zone fonctionne seule, mais elles finissent toutes par se contaminer.</p>
+      </div>
+      <div class="sgvd-grid">
+        <a class="sgvd-card" href="/titres/"><span class="sgvd-card-index">01 / SIGNALS</span><h3>Les chansons</h3><p>Rock, trap, métal, soul et satire. Le cœur sonore du projet.</p></a>
+        <a class="sgvd-card" href="/videos/"><span class="sgvd-card-index">02 / TRANSMISSIONS</span><h3>Les vidéos</h3><p>Clips, fragments, mises en scène et extensions visuelles de l’univers SGVD.</p></a>
+        <a class="sgvd-card" href="/manifeste"><span class="sgvd-card-index">03 / DOCTRINE</span><h3>Le manifeste</h3><p>Ce que SGVD attaque, observe, détourne et refuse de rendre confortable.</p></a>
+        <a class="sgvd-card" href="/simulation"><span class="sgvd-card-index">04 / PROTOCOL</span><h3>Simulation</h3><p>Quand le doute devient méthode : perception, interface, réalité et glitch.</p></a>
+        <a class="sgvd-card" href="/dictionnaire"><span class="sgvd-card-index">05 / ARCHIVE</span><h3>Dictionnaire</h3><p>Le lexique interne : concepts, mots contaminés et définitions anormales.</p></a>
+        <a class="sgvd-card" href="/rituels/"><span class="sgvd-card-index">06 / RITUALS</span><h3>Rituels</h3><p>Une collection parallèle, douce en surface et beaucoup moins innocente dessous.</p></a>
+      </div>
+    </section>
 
-  <section class="release-note sgvd-panel" aria-label="Sortie de l’album Rituels pour petits humains">
-    <p>Le premier sas est désormais ouvert.</p>
-    <p><em>Rituels pour petits humains</em> est disponible.</p>
-    <a class="release-cta sgvd-btn" href="/rituels/">Découvrir l’album</a>
-  </section>
+    <section class="sgvd-section" aria-labelledby="rituels-title">
+      <div class="sgvd-feature">
+        <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de Rituels pour petits humains" loading="lazy" decoding="async" />
+        <div class="sgvd-feature-copy">
+          <p class="sgvd-kicker-v2">Release active</p>
+          <h3 id="rituels-title">Rituels pour petits humains</h3>
+          <p>Le premier sas est ouvert. Un album pensé pour accompagner des gestes réels du quotidien, tout en observant ce que ces rituels racontent de l’encadrement, de la normalisation et du passage.</p>
+          <div class="sgvd-hero-actions"><a class="sgvd-primary" href="/rituels/">Explorer l’album</a></div>
+          <div class="sgvd-platforms" aria-label="Plateformes d'écoute">
+            <a href="https://open.spotify.com/intl-fr/artist/5UulbiFA76NN7SEbmNmkvd" target="_blank" rel="noopener noreferrer">Spotify</a>
+            <a href="https://music.apple.com/fr/artist/system-godverdomme/1802644752" target="_blank" rel="noopener noreferrer">Apple Music</a>
+            <a href="https://www.youtube.com/@SystemGodverdomme" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://systemgodverdomme.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="socials sgvd-panel">
-    <a href="https://open.spotify.com/intl-fr/artist/5UulbiFA76NN7SEbmNmkvd?si=SI9km3mKSU2p2zmmdD0lUA" target="_blank">Spotify</a>
-    <a href="https://music.apple.com/fr/artist/system-godverdomme/1802644752" target="_blank">Apple Music</a>
-    <a href="https://dzr.page.link/qDRR9H33H8L5YWMe8" target="_blank">Deezer</a>
-    <a href="https://www.youtube.com/@SystemGodverdomme" target="_blank">YouTube</a>
-    <a href="https://music.amazon.fr/artists/B0F22H6G4X/system-godverdomme?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_W6vCLlYCRV6oqBT7759Ac8kTF" target="_blank">Amazon Music</a>
-    <a href="https://open.qobuz.com/artist/26199791" target="_blank">Qobuz</a>
-    <a href="https://tidal.com/browse/artist/55749301?u" target="_blank">Tidal</a>
-    <a href="https://systemgodverdomme.bandcamp.com/" target="_blank">Bandcamp</a>
-  </div>
+    <section class="sgvd-section" aria-label="Contact">
+      <div class="sgvd-contact">
+        <div><p class="sgvd-kicker-v2">Canal externe</p><h2>Tu veux parler au bug ?</h2><p>Collaboration, presse, visuel, musique ou anomalie artistique.</p></div>
+        <a class="sgvd-secondary" href="mailto:systemgodverdomme@gmail.com">systemgodverdomme@gmail.com</a>
+      </div>
+    </section>
 
-  <section id="contact" class="sgvd-panel" style="text-align: center;">
-    <h3 class="sgvd-wobble">📡 Tu veux parler au bug ?</h3>
-    <p>
-      Pour toute collaboration, glitch sonore, ou dissonance artistique :<br>
-      <a href="mailto:systemgodverdomme@gmail.com" class="sgvd-link" style="font-weight: bold;">
-        ✉️ systemgodverdomme@gmail.com
-      </a><br>
-      <span style="font-size: 0.8rem; color: #888;">(réponse non garantie si l’algorithme est en PLS)</span>
-    </p>
-  </section>
+    <footer class="sgvd-footer-v2">
+      <span>© 2026 System Godverdomme</span>
+      <span id="sgvd-tx">Signal instable // transmission partielle</span>
+    </footer>
+  </main>
 
-  <footer>
-    © 2025 – Transmission Godverdommienne active.
-    <div class="seo-note">
-      <strong>System Godverdomme</strong> est un projet musical subversif, satirique et glitché.<br>
-      Une anomalie artistique qui mêle musique, simulation, satire et chaos.<br>
-      Univers hybride : rock, trap, métal, soul, absurdisme et dissonance cognitive.<br>
-      Influences : South Park, Stupeflip, System of a Down, Rizwan Virk, Donald Hoffman.
-    </div>
-    <div class="sgvd-transmission-wrap">
-      <p id="sgvd-tx" class="sgvd-transmission">[ Transmission en cours… ]</p>
-    </div>
-  </footer>
-
+  <button id="simToggle" class="sgvd-sim-toggle" type="button" aria-pressed="false">Simulation OFF</button>
   <script>
-  (function(){
-    const el = document.getElementById('sgvd-tx');
-    if(!el) return;
-    const phrases = [
-      "[ Signal instable ]",
-      "[ Source : JMT.BRG.404 not found ]",
-      "[ Transmission partielle ]",
-      "[ Ce monde n'existe pas ]",
-      "[ Tu ne décides pas. Tu ne fais que valider. ]",
-      "[ Simulation : statut > instable ]"
-    ];
-    let i = 0;
-    setInterval(() => { i = (i + 1) % phrases.length; el.textContent = phrases[i]; }, 4000);
-  })();
-  </script>
-
-  <button id="simToggle" class="sim-toggle" aria-pressed="false">🧪 Mode Simulation</button>
-  <script>
-  (function () {
-    const css = `
-    .sim-toggle{
-      position:fixed; right:16px; bottom:16px; z-index:2147483000;
-      background:#ff1e1e; color:#fff; border:0;
-      font-family:'Courier New', monospace; font-weight:700;
-      padding:10px 14px; border-radius:8px; cursor:pointer;
-      box-shadow:0 0 10px rgba(255,30,30,.5);
-      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-    .sim-toggle:hover{ transform:translateY(-2px); box-shadow:0 0 16px rgba(255,30,30,.7) }
-    :root{ --sim-sat:1.12; --sim-ctr:1.05; --sim-br:1.02 }
-    html[data-sim="on"] body{
-      filter: saturate(var(--sim-sat)) contrast(var(--sim-ctr)) brightness(var(--sim-br));
-      transition: filter .2s ease;
-    }
-    html[data-sim="on"] h1, html[data-sim="on"] h2, html[data-sim="on"] h3,
-    html[data-sim="on"] a:hover{
-      text-shadow: 0 0 6px rgba(255,30,30,.45);
-    }`;
-    if (!document.getElementById('sim-css')) {
-      const s = document.createElement('style'); s.id = 'sim-css'; s.textContent = css; document.head.appendChild(s);
-    }
+  (() => {
     const key = 'sgvd_sim_on';
     const btn = document.getElementById('simToggle');
-    const applyUI = () => {
-      const on = document.documentElement.getAttribute('data-sim') === 'on';
-      btn.textContent = on ? '🧪 Simulation ON' : '🧪 Mode Simulation';
+    const tx = document.getElementById('sgvd-tx');
+    const phrases = ['Signal instable // transmission partielle','Source : JMT.BRG.404 not found','Ce monde n\'existe pas','Simulation : statut > instable','Tu ne décides pas. Tu ne fais que valider.'];
+    let i = 0;
+    const apply = () => {
+      const on = localStorage.getItem(key) === '1';
+      if (on) document.documentElement.setAttribute('data-sim','on');
+      else document.documentElement.removeAttribute('data-sim');
+      btn.textContent = on ? 'Simulation ON' : 'Simulation OFF';
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      localStorage.setItem(key, on ? '1' : '0');
     };
-    if (localStorage.getItem(key) === '1') document.documentElement.setAttribute('data-sim','on');
-    applyUI();
-    btn.addEventListener('click', () => {
-      const on = document.documentElement.getAttribute('data-sim') === 'on';
-      if (on) document.documentElement.removeAttribute('data-sim');
-      else document.documentElement.setAttribute('data-sim','on');
-      applyUI();
-    });
-  })();
-  </script>
-
-  <script>
-  (function () {
-    const css = `
-      #sgvd-matrix { position: fixed; inset: 0; z-index: 0; pointer-events: none; display: none; }
-      html[data-sim="on"] #sgvd-matrix{ display:block; }
-    `;
-    const style = document.createElement('style'); style.id = 'sgvd-matrix-css'; style.textContent = css; document.head.appendChild(style);
-    const canvas = document.createElement('canvas'); canvas.id = 'sgvd-matrix'; document.body.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    let W = 0, H = 0, cols = 0, drops = [];
-    const fontSize = 16, speedMin = 2, speedMax = 6;
-    const glyphs = '01░▒▓█ø∆§/\\<>-=+•†‡∎☣☢';
-    const color = 'rgba(255,30,30,0.85)', trail = 'rgba(0,0,0,0.08)';
-    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; cols = Math.floor(W / fontSize);
-      drops = Array.from({length: cols}, () => ({ y: Math.random() * H, speed: speedMin + Math.random() * (speedMax - speedMin) }));
-      ctx.font = fontSize + "px 'Courier New', monospace"; }
-    addEventListener('resize', resize);
-    let raf = null;
-    function frame(){
-      ctx.fillStyle = trail; ctx.fillRect(0,0,W,H);
-      ctx.fillStyle = color;
-      for(let i=0;i<cols;i++){
-        const g = glyphs[Math.floor(Math.random()*glyphs.length)];
-        const x = i*fontSize, y = drops[i].y;
-        ctx.fillText(g, x, y);
-        drops[i].y += drops[i].speed;
-        if (drops[i].y > H + fontSize*4 || Math.random()>0.985){
-          drops[i].y = -Math.random()*200;
-          drops[i].speed = speedMin + Math.random()*(speedMax-speedMin);
-        }
-      }
-      raf = requestAnimationFrame(frame);
-    }
-    function start(){ resize(); cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); }
-    function stop(){ cancelAnimationFrame(raf); ctx.clearRect(0,0,W,H); }
-    const isOn = () => document.documentElement.getAttribute('data-sim') === 'on';
-    if (isOn()) start();
-    const btn = document.getElementById('simToggle');
-    if (btn) btn.addEventListener('click', () => setTimeout(() => (isOn()?start():stop()), 0));
-    document.addEventListener('DOMContentLoaded', () => { if (isOn()) start(); });
-  })();
-  </script>
-
-  <script>
-  (function () {
-    const BTN = document.getElementById('simToggle');
-    if (!BTN) return;
-    let ctx, master, osc1, noiseNode, lp, isReady = false;
-    const VOL = 0.18, FADE = 0.6;
-    function makeBrownNoise(context){
-      const bufferSize = 2*context.sampleRate, noiseBuffer = context.createBuffer(1, bufferSize, context.sampleRate);
-      const output = noiseBuffer.getChannelData(0); let lastOut = 0.0;
-      for (let i=0;i<bufferSize;i++){ const white = Math.random()*2-1; output[i]=(lastOut+0.02*white)/1.02; lastOut=output[i]; output[i]*=3.5; }
-      const node = context.createBufferSource(); node.buffer = noiseBuffer; node.loop = true; return node;
-    }
-    function setup(){
-      if (isReady) return;
-      ctx = new (window.AudioContext || window.webkitAudioContext)();
-      master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
-      osc1 = ctx.createOscillator(); osc1.type='sine'; osc1.frequency.value = 40;
-      noiseNode = makeBrownNoise(ctx);
-      lp = ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value = 220;
-      const g1=ctx.createGain(); g1.gain.value=.5;
-      const g2=ctx.createGain(); g2.gain.value=.35;
-      osc1.connect(g1).connect(master);
-      noiseNode.connect(lp).connect(g2).connect(master);
-      osc1.start(); noiseNode.start(0);
-      isReady = true;
-    }
-    const isOn = () => document.documentElement.getAttribute('data-sim') === 'on';
-    function fadeTo(v){ if(!isReady) return; const t=ctx.currentTime; master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value,t); master.gain.linearRampToValueAtTime(v,t+FADE); }
-    function startHum(){ if(!isReady) setup(); if (ctx.state==='suspended') ctx.resume(); fadeTo(VOL); }
-    function stopHum(){ if(!isReady) return; fadeTo(0); }
-    if (isOn()) { addEventListener('click', function once(){ setup(); startHum(); removeEventListener('click', once); }); }
-    BTN.addEventListener('click', () => { if(!isReady) setup(); setTimeout(() => (isOn()?startHum():stopHum()), 0); });
-  })();
-  </script>
-
-  <script>
-  (function(){
-    const nodes = document.querySelectorAll('.seo-note, footer');
-    if (!nodes.length) return;
-    function apply(){ const simOn = document.documentElement.getAttribute('data-sim') === 'on'; nodes.forEach(n => { n.style.display = simOn ? 'none' : ''; }); }
     apply();
-    const btn = document.getElementById('simToggle');
-    if (btn) btn.addEventListener('click', () => setTimeout(apply, 0));
+    btn.addEventListener('click', () => { localStorage.setItem(key, localStorage.getItem(key) === '1' ? '0' : '1'); apply(); });
+    setInterval(() => { i=(i+1)%phrases.length; tx.textContent=phrases[i]; }, 4200);
   })();
   </script>
-
-  <script>
-  (function(){
-    document.querySelectorAll('h1,h2,h3').forEach(el => el.classList.add('sgvd-wobble'));
-    if (location.pathname.toLowerCase().includes('dictionnaire')) {
-      document.querySelectorAll('main a, section a, li a, .mot, .entry, .lexique a').forEach(el => {
-        el.classList.add('sgvd-wobble');
-      });
-    }
-  })();
-  </script>
-
-  <script>
-  (function(){
-    function addWobbleTargets(){
-      document.querySelectorAll('h1,h2,h3').forEach(el => el.classList.add('sgvd-wobble'));
-      if (location.pathname.toLowerCase().includes('dictionnaire')) {
-        document.querySelectorAll('main a, section a, li a, .mot, .entry, .lexique a')
-          .forEach(el => el.classList.add('sgvd-wobble'));
-      }
-    }
-
-    if (!document.getElementById('sgvd-wobble-css')) {
-      const s = document.createElement('style');
-      s.id = 'sgvd-wobble-css';
-      s.textContent = `
-        .sgvd-wobble{
-          will-change: transform, text-shadow, filter;
-          transition: transform .06s linear, text-shadow .06s linear, filter .06s linear;
-        }
-      `;
-      document.head.appendChild(s);
-    }
-
-    addWobbleTargets();
-
-    let ticking = false;
-    const nodes = () => Array.from(document.querySelectorAll('.sgvd-wobble'));
-    function ease(x){ return (1 - Math.cos(Math.min(1, Math.max(0, x)) * Math.PI)) / 2; }
-
-    function render(){
-      ticking = false;
-      const y = scrollY || 0;
-      const simOn = document.documentElement.getAttribute('data-sim') === 'on';
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced && !simOn) return;
-
-      const t = performance.now()/1000;
-      const intensity = simOn ? 1.0 : 0.55;
-
-      nodes().forEach((el, i) => {
-        const seed = (i*37) + (el.textContent?.length || 1) * 11;
-        const rect = el.getBoundingClientRect();
-        const centerDist = Math.abs((rect.top + rect.bottom)/2 - innerHeight/2);
-        const falloff = 1 - ease(centerDist/(innerHeight*0.9));
-        const a = Math.sin((y + seed)*0.004 + t*0.9);
-        const b = Math.sin((y + seed*0.7)*0.007 + t*1.3);
-        const c = Math.sin((y + seed*1.3)*0.011 + t*0.6);
-        const amp = 1.6*intensity*falloff;
-        const skewAmp = 0.25*intensity*falloff;
-        const blurAmp = 0.3*intensity*falloff;
-
-        const dy = (a*0.5 + b*0.35 + c*0.15)*amp;
-        const skew = (a*0.5 + b*0.5)*skewAmp;
-        const blur = Math.abs(b)*blurAmp;
-
-        el.style.transform = `translate3d(0, ${dy.toFixed(2)}px, 0) skewY(${skew.toFixed(2)}deg)`;
-        el.style.filter = blur>0.02 ? `blur(${blur.toFixed(2)}px)` : 'none';
-        el.style.textShadow = `0 0 ${Math.max(0,(0.8*intensity*falloff)).toFixed(2)}px rgba(255,30,30,0.25)`;
-      });
-    }
-
-    function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(render); } }
-    addEventListener('scroll', onScroll, {passive:true});
-    addEventListener('resize', onScroll);
-    const btn = document.getElementById('simToggle');
-    if (btn) btn.addEventListener('click', () => setTimeout(onScroll, 0));
-    onScroll();
-  })();
-  </script>
-
 </body>
 </html>

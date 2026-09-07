@@ -3,210 +3,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>System Godverdomme — Toutes les vidéos YouTube</title>
-  <meta name="description" content="Toutes les vidéos publiées sur la chaîne YouTube de System Godverdomme (SGVD)." />
+  <title>Vidéos — System Godverdomme</title>
+  <meta name="description" content="Clips, transmissions et vidéos publiées par System Godverdomme." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://systemgodverdomme.com/videos/" />
-  <meta property="og:title" content="System Godverdomme — Toutes les vidéos YouTube" />
-  <meta property="og:description" content="Toutes les vidéos SGVD en un point d’entrée unique : uploads, recherche et pagination." />
+  <meta property="og:title" content="Vidéos — System Godverdomme" />
+  <meta property="og:description" content="Clips, transmissions, performances et extensions visuelles de l’univers SGVD." />
+  <meta property="og:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
   <meta property="og:url" content="https://systemgodverdomme.com/videos/" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vidéos — System Godverdomme" />
+  <meta name="twitter:description" content="Clips, transmissions, performances et extensions visuelles de l’univers SGVD." />
+  <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
   <style>
-    :root{
-      --bg:#0b0b0d;--fg:#eaeaf0;--muted:#a1a1b3;--card:#15151a;--accent:#ff2a6d;--stroke:#25252d;
-    }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 "Courier New",Courier,monospace}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:0 auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .title{font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:.2px}
-    .sub{color:var(--muted);font-size:14px}
-    .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .input{background:var(--card);border:1px solid var(--stroke);border-radius:12px;padding:10px 12px;color:var(--fg);min-width:220px}
-    .btn{background:var(--accent);color:#fff;border:0;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:600}
-    .btn[disabled]{opacity:.5;cursor:default}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
-    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media (max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:520px){.grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .12s ease}
-    .card:hover{transform:translateY(-2px)}
+    body{margin:0;background:#050506;color:#f4f4f5;font:16px/1.55 "Courier New",Courier,monospace;min-height:100vh}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 78% 10%,rgba(215,38,46,.15),transparent 28%),linear-gradient(180deg,#08080a,#050506)}
+    .top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px clamp(16px,4vw,48px);background:rgba(5,5,6,.82);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(16px)}
+    .brand{color:#fff;text-decoration:none;text-transform:uppercase;font-size:.82rem;font-weight:800;letter-spacing:.08em}
+    .back{color:#a9a9b1;text-decoration:none;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em}
+    .wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:54px 0 70px}
+    .eyebrow{color:#ff666c;text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;margin:0 0 10px}
+    h1{font-size:clamp(2.6rem,7vw,6rem);line-height:.95;margin:0;letter-spacing:-.06em;text-transform:uppercase}
+    .lead{max-width:720px;color:#aaaab3;font-size:clamp(1rem,2vw,1.16rem);margin:22px 0 32px;line-height:1.7}
+    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.025)}
+    .input{flex:1;min-width:220px;background:#111115;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 12px;color:#fff;font:inherit}
+    .btn{background:#ef383f;color:#fff;border:1px solid #ff656a;border-radius:8px;padding:11px 14px;cursor:pointer;font:700 .8rem/1 inherit;text-transform:uppercase;letter-spacing:.05em}
+    .btn[disabled]{opacity:.35;cursor:default}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .card{background:linear-gradient(180deg,rgba(18,18,22,.95),rgba(9,9,12,.95));border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;color:#fff;text-decoration:none;transition:.2s ease}
+    .card:hover{transform:translateY(-4px);border-color:rgba(255,79,85,.48);box-shadow:0 20px 40px rgba(0,0,0,.32)}
     .thumb{aspect-ratio:16/9;background:#111 center/cover no-repeat}
-    .meta{padding:12px}
-    .ttl{font-weight:700;font-size:15px;line-height:1.35;margin:0 0 6px}
-    .row{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:#1d1d25;border:1px solid var(--stroke);padding:4px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .footer{display:flex;justify-content:center;margin:22px 0 12px}
-    .helper{background:#0f0f14;border:1px dashed var(--stroke);border-radius:12px;padding:14px;color:var(--muted);font-size:14px;margin-top:18px}
-    iframe{width:100%;height:60vh;border:0;border-radius:16px}
+    .meta{padding:14px}
+    .ttl{font-weight:700;font-size:.95rem;line-height:1.4;margin:0 0 8px}
+    .row{display:flex;gap:8px;align-items:center;color:#777781;font-size:.72rem}
+    .chip{border:1px solid rgba(255,255,255,.1);padding:4px 7px;border-radius:999px}
+    .footer{display:flex;justify-content:center;margin:22px 0}
+    .fallback{margin-top:22px;padding:16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.025)}
+    iframe{width:100%;min-height:60vh;border:0;border-radius:10px}
     .hidden{display:none}
-    /* — Lien retour (local à la page vidéos) — */
-.return-home {
-  text-align: center;
-  margin: 32px 0 16px;
-}
-    .btn-return {
-      display: inline-block;
-    }
+    .status{color:#8d8d96;font-size:.8rem;margin-top:10px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.wrap{padding-top:38px}.top{padding:12px 14px}}
   </style>
 </head>
 <body class="sgvd-shell">
-  <!--
-    COMMENT INSTALLER
-    1) Remplacez CHANNEL_ID ci-dessous par l'ID de votre chaîne YouTube (forme "UC........").
-       Pour SGVD, ouvrez la page de chaîne YouTube > À propos > copier l'identifiant.
-    2) Configurez la Netlify Function avec la variable d'environnement YOUTUBE_API_KEY.
-    3) Si la Function/API échoue : la page bascule automatiquement sur un lecteur Playlist (iframe) des "Mises en ligne".
+  <header class="top"><a class="brand" href="/">System Godverdomme</a><a class="back" href="/">← Retour au signal</a></header>
+  <main class="wrap">
+    <p class="eyebrow">Transmissions // archive vidéo</p>
+    <h1>Vidéos</h1>
+    <p class="lead">Clips, fragments, performances et extensions visuelles de l’univers SGVD. La grille se synchronise automatiquement avec la chaîne YouTube.</p>
 
-    INTÉGRATION
-    - Sauvegardez ce fichier comme /videos/index.html (ou /videos.html) sur systemgodverdomme.com.
-    - Vous pouvez intégrer ce bloc dans votre template existant (header/footer de votre site) si besoin.
-  -->
-
-  <div class="wrap">
-    <header>
-      <div>
-        <div class="title">System Godverdomme — Toutes les vidéos</div>
-        <div class="sub">Liste auto des uploads YouTube de SGVD (recherche + pagination). Fallback playlist si l'API n'est pas configurée.</div>
-      </div>
-      <div class="controls">
-        <input id="q" class="input" type="search" placeholder="Rechercher une vidéo… (titre)" />
-        <button id="btn-more" class="btn" disabled>Charger plus</button>
-      </div>
-    </header>
+    <div class="controls">
+      <input id="q" class="input" type="search" placeholder="Rechercher dans les transmissions…" aria-label="Rechercher une vidéo" />
+      <button id="btn-more" class="btn" disabled>Charger plus</button>
+    </div>
+    <p id="count" class="status" aria-live="polite"></p>
 
     <div id="api-grid" class="grid"></div>
-    <div class="footer"><span id="count" class="sub"></span></div>
-
-    <div id="fallback" class="helper hidden">
-      <p><strong>Mode simplifié :</strong> affichage de la playlist des mises en ligne (aucune clé API requise).</p>
-      <iframe id="fallback-frame" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      <p class="sub">Astuce : configurez YOUTUBE_API_KEY côté Netlify pour bénéficier de la grille, de la recherche locale et de la pagination.</p>
+    <div id="fallback" class="fallback hidden">
+      <iframe id="fallback-frame" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Playlist YouTube System Godverdomme"></iframe>
     </div>
-  </div>
+  </main>
 
   <script>
-    // —————— CONFIG ——————
-    const CHANNEL_ID = "UCVvuvQB-Dz-ZTkhNzWpQeZQ"; // SGVD channel // ⬅️ Remplacer par l'ID de la chaîne SGVD (commence par UC)
+    const CHANNEL_ID = "UCVvuvQB-Dz-ZTkhNzWpQeZQ";
     const YT_FUNCTION_URL = "/.netlify/functions/youtube-videos";
-
-    // —————— LOGIQUE ——————
-    const state = {
-      uploadsPlaylistId: null,
-      nextPageToken: null,
-      items: [],
-      filtered: [],
-    };
-
-    const elGrid = document.getElementById('api-grid');
-    const elMore = document.getElementById('btn-more');
-    const elCount = document.getElementById('count');
-    const elQ = document.getElementById('q');
-    const elFallback = document.getElementById('fallback');
-    const elFallbackFrame = document.getElementById('fallback-frame');
-
-    function fmtDate(iso){
-      try{ return new Date(iso).toLocaleDateString('fr-FR',{ year:'numeric', month:'short', day:'numeric' }); }catch(e){ return '' }
-    }
-
-    function computeUploadsId(channelId){
-      if(!channelId || !channelId.startsWith('UC')) return null;
-      return 'UU' + channelId.substring(2);
-    }
-
-    function render(){
-      const q = (elQ.value||'').trim().toLowerCase();
-      state.filtered = !q ? state.items : state.items.filter(v => v.snippet.title.toLowerCase().includes(q));
-      elGrid.innerHTML = state.filtered.map(toCardHTML).join('');
-      elCount.textContent = state.filtered.length ? `${state.filtered.length} vidéo(s) affichée(s)` : '';
-      elMore.disabled = !state.nextPageToken;
-    }
-
-    function toCardHTML(it){
-      const id = it.contentDetails?.videoId || it.snippet?.resourceId?.videoId || '';
-      const s = it.snippet || {};
-      const ttl = s.title || 'Sans titre';
-      const dt = s.publishedAt ? fmtDate(s.publishedAt) : '';
-      const thumb = s.thumbnails?.maxres?.url || s.thumbnails?.high?.url || s.thumbnails?.medium?.url || '';
-      const url = `https://www.youtube.com/watch?v=${id}`;
-      return `
-        <a class="card" href="${url}" target="_blank" rel="noopener noreferrer">
-          <div class="thumb" style="background-image:url('${thumb}')"></div>
-          <div class="meta">
-            <h3 class="ttl">${escapeHTML(ttl)}</h3>
-            <div class="row">
-              <span class="chip">${dt}</span>
-              <span class="chip">YouTube</span>
-            </div>
-          </div>
-        </a>`;
-    }
-
-    function escapeHTML(str){
-      return (str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m]));
-    }
-
-    async function fetchPage(){
-      const playlistId = state.uploadsPlaylistId || computeUploadsId(CHANNEL_ID);
-      if(!playlistId){ throw new Error('Missing uploads playlistId'); }
-      const params = new URLSearchParams({
-        playlistId,
-      });
-      if(state.nextPageToken) params.set('pageToken', state.nextPageToken);
-      const res = await fetch(`${YT_FUNCTION_URL}?${params.toString()}`);
-      if(!res.ok){ throw new Error('YouTube proxy error ' + res.status); }
-      const raw = await res.json();
-      const data = raw?.data && Array.isArray(raw.data.items) ? raw.data : raw;
-      if(!data || !Array.isArray(data.items)){ throw new Error('Unexpected youtube-videos payload'); }
-      state.items.push(...data.items);
-      state.nextPageToken = data.nextPageToken || null;
-      render();
-    }
-
-    function enableGridMode(){
-      document.querySelector('header .sub').textContent = 'Liste auto des uploads YouTube (grille dynamique activée).';
-      elFallback.classList.add('hidden');
-      elGrid.classList.remove('hidden');
-      elQ.removeAttribute('disabled');
-      elMore.disabled = true;
-      elMore.addEventListener('click', () => fetchPage().catch(onFail));
-      elQ.addEventListener('input', render);
-    }
-
-    function enableFallbackMode(){
-      elGrid.classList.add('hidden');
-      elMore.setAttribute('disabled','');
-      elQ.setAttribute('disabled','');
-      elFallback.classList.remove('hidden');
-      const uploadsId = state.uploadsPlaylistId;
-      const src = `https://www.youtube.com/embed?listType=playlist&list=${encodeURIComponent(uploadsId)}`;
-      elFallbackFrame.src = src;
-    }
-
-    function onFail(err){
-      console.warn(err);
-      // Si l'API échoue au chargement initial, on bascule sur le fallback
-      if(!state.items.length){ enableFallbackMode(); }
-    }
-
-    (async function init(){
-      state.uploadsPlaylistId = computeUploadsId(CHANNEL_ID);
-      if(!state.uploadsPlaylistId){
-        document.querySelector('header .sub').textContent = "⚠️ CHANNEL_ID invalide. Veuillez renseigner l'identifiant de chaîne (UC...).";
-        return;
-      }
-
-      // Mode API via Netlify Function
-      enableGridMode();
-      try{ await fetchPage(); }catch(e){ onFail(e); }
-    })();
+    const state = { uploadsPlaylistId:null, nextPageToken:null, items:[], filtered:[] };
+    const grid=document.getElementById('api-grid'), more=document.getElementById('btn-more'), count=document.getElementById('count'), q=document.getElementById('q'), fallback=document.getElementById('fallback'), frame=document.getElementById('fallback-frame');
+    const fmtDate=iso=>{try{return new Date(iso).toLocaleDateString('fr-FR',{year:'numeric',month:'short',day:'numeric'})}catch(e){return ''}};
+    const uploadsId=id=>id&&id.startsWith('UC')?'UU'+id.substring(2):null;
+    const esc=str=>(str||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    function card(it){const id=it.contentDetails?.videoId||it.snippet?.resourceId?.videoId||'';const s=it.snippet||{};const thumb=s.thumbnails?.maxres?.url||s.thumbnails?.high?.url||s.thumbnails?.medium?.url||'';return `<a class="card" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer"><div class="thumb" style="background-image:url('${thumb}')"></div><div class="meta"><h2 class="ttl">${esc(s.title||'Sans titre')}</h2><div class="row"><span class="chip">${fmtDate(s.publishedAt)}</span><span class="chip">YouTube</span></div></div></a>`}
+    function render(){const term=(q.value||'').trim().toLowerCase();state.filtered=!term?state.items:state.items.filter(v=>(v.snippet?.title||'').toLowerCase().includes(term));grid.innerHTML=state.filtered.map(card).join('');count.textContent=state.filtered.length?`${state.filtered.length} transmission${state.filtered.length>1?'s':''} affichée${state.filtered.length>1?'s':''}`:'';more.disabled=!state.nextPageToken}
+    async function fetchPage(){const pid=state.uploadsPlaylistId||uploadsId(CHANNEL_ID);if(!pid)throw new Error('playlist');const params=new URLSearchParams({playlistId:pid});if(state.nextPageToken)params.set('pageToken',state.nextPageToken);const res=await fetch(`${YT_FUNCTION_URL}?${params}`);if(!res.ok)throw new Error('proxy');const raw=await res.json();const data=raw?.data&&Array.isArray(raw.data.items)?raw.data:raw;if(!data||!Array.isArray(data.items))throw new Error('payload');state.items.push(...data.items);state.nextPageToken=data.nextPageToken||null;render()}
+    function fail(){if(state.items.length)return;grid.classList.add('hidden');q.disabled=true;more.disabled=true;fallback.classList.remove('hidden');frame.src=`https://www.youtube.com/embed?listType=playlist&list=${encodeURIComponent(state.uploadsPlaylistId)}`;count.textContent='Flux vidéo chargé en mode simplifié.'}
+    state.uploadsPlaylistId=uploadsId(CHANNEL_ID);more.addEventListener('click',()=>fetchPage().catch(fail));q.addEventListener('input',render);fetchPage().catch(fail);
   </script>
-<div class="return-home">
-  <a href="/" class="btn-return sgvd-btn">⬅️ Retour au site principal</a>
-  <p style="margin-top:10px;color:var(--muted);font-size:0.92rem;">Continuer : <a class="sgvd-link" href="/titres/">Titres</a> · <a class="sgvd-link" href="/simulation">Simulation</a> · <a class="sgvd-link" href="/manifeste">Manifeste</a></p>
-</div>
 </body>
 </html>
