@@ -13,165 +13,73 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="/assets/css/sgvd-core.css">
   <style>
-    body {
-      margin: 0;
-      background-color: #050506;
-      color: var(--sgvd-fg-main);
-      font-family: monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 42px 20px;
-      line-height: 1.52;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: 760px;
-      padding: 1.2rem 1.2rem 1rem;
-      border-radius: 12px;
-    }
-
-    h1 {
-      margin: 0.2rem 0 0;
-      text-transform: uppercase;
-      font-size: 2.1rem;
-      letter-spacing: 2px;
-    }
-
-    .subtitle {
-      margin: 8px 0 0;
-      color: var(--sgvd-fg-soft);
-      font-size: 0.95rem;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-    }
-
-    .intro {
-      margin: 16px 0 28px;
-      color: var(--sgvd-fg-soft);
-      font-size: 1rem;
-      max-width: 64ch;
-    }
-
-    h2 {
-      margin: 30px 0 12px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #f0b2b2;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    li {
-      margin: 0 0 14px;
-      padding: 0.3rem 0 0.7rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .entry-link {
-      display: inline-block;
-      margin-bottom: 0.1rem;
-    }
-
-    .badge {
-      display: inline-block;
-      margin-left: 8px;
-      font-size: 0.72rem;
-      color: #ff9a9a;
-      border: 1px solid #6b1b1b;
-      padding: 1px 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    .note {
-      margin: 6px 0 0;
-      color: var(--sgvd-fg-muted);
-      font-size: 0.92rem;
-    }
-
-    .orient {
-      margin-top: 34px;
-      padding: 14px 0 0;
-      border-top: 1px dashed rgba(255, 255, 255, 0.2);
-      color: var(--sgvd-fg-soft);
-      font-size: 0.9rem;
-    }
-
-    .orient a,
-    .back a {
-      color: var(--sgvd-fg-soft);
-    }
-
-    .back {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #8d8d95;
-    }
+    body{margin:0;background:#050506;color:var(--sgvd-fg-main);font-family:"Courier New",monospace;line-height:1.6}
+    .catalog{width:min(1160px,calc(100% - 32px));margin:0 auto;padding:54px 0 70px}
+    .hero{padding:clamp(28px,5vw,52px);border-radius:16px;margin-bottom:20px;position:relative;overflow:hidden}
+    .hero::after{content:"ARCHIVE_AUDIO // INDEX_006";position:absolute;right:20px;top:18px;color:#676770;font-size:.68rem;letter-spacing:.12em}
+    .hero h1{font-size:clamp(2.8rem,7vw,6.6rem);line-height:.9;margin:.35rem 0 1rem;letter-spacing:-.06em;text-transform:uppercase}
+    .hero p{max-width:720px;color:#bdbdc5;margin:0;font-size:clamp(.98rem,1.8vw,1.12rem)}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:44px 0 16px}
+    .section-head h2{margin:0;font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-.03em}
+    .section-head p{margin:0;color:#85858e;font-size:.85rem}
+    .tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .track{position:relative;min-height:220px;padding:22px;border-radius:13px;color:#fff;text-decoration:none;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(255,255,255,.11);background:linear-gradient(160deg,rgba(18,18,22,.95),rgba(8,8,11,.95));transition:.22s ease}
+    .track:hover{transform:translateY(-4px);border-color:rgba(255,79,85,.45);box-shadow:0 24px 54px rgba(0,0,0,.36)}
+    .track::before{content:attr(data-index);position:absolute;left:20px;top:18px;color:#6f6f78;font-size:.7rem;letter-spacing:.14em}
+    .track::after{content:"↗";position:absolute;right:18px;top:14px;color:#777780;font-size:1.1rem}
+    .track h3{margin:0 0 7px;font-size:clamp(1.25rem,2.2vw,1.7rem);letter-spacing:-.03em}
+    .track p{margin:0;color:#a9a9b1;font-size:.88rem;max-width:48ch}
+    .track .tag{display:inline-flex;align-self:flex-start;margin-bottom:18px;border:1px solid rgba(255,79,85,.35);color:#ffb1b4;border-radius:999px;padding:4px 8px;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;background:rgba(215,38,46,.08)}
+    .collection{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);gap:22px;padding:20px;border-radius:14px;align-items:center}
+    .collection img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;display:block}
+    .collection h3{font-size:clamp(1.8rem,3.5vw,3rem);margin:0 0 10px;letter-spacing:-.04em}
+    .collection p{color:#b4b4bd;max-width:60ch}
+    .orbit{margin-top:26px;padding:18px;border-radius:12px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+    .orbit p{margin:0;color:#96969f;font-size:.86rem}
+    .orbit-links{display:flex;gap:8px;flex-wrap:wrap}
+    @media(max-width:760px){.tracks{grid-template-columns:1fr}.collection{grid-template-columns:1fr}.catalog{width:min(100% - 22px,1160px);padding-top:28px}.hero{padding:24px}.hero::after{display:none}.section-head{display:block}.section-head p{margin-top:8px}}
   </style>
 </head>
 <body class="sgvd-shell">
-  <main class="wrap sgvd-panel">
-    <h1 class="sgvd-title">Les Chansons</h1>
-    <p class="subtitle">Salle des anomalies sonores</p>
-    <p class="intro">
-      Hub musical SGVD : morceaux publiés, pages dédiées et archives en mouvement.
-      Une porte d’entrée pour naviguer vite dans les anomalies contrôlées.
-    </p>
+  <header class="sgvd-globalbar">
+    <a href="/">System Godverdomme</a>
+    <nav aria-label="Navigation principale">
+      <a href="/titres/">Titres</a><a href="/videos/">Vidéos</a><a href="/manifeste.html">Manifeste</a><a href="/simulation.html">Simulation</a><a href="/dictionnaire.html">Dictionnaire</a><a href="/rituels/">Rituels</a>
+    </nav>
+  </header>
 
-    <h2>Morceaux</h2>
-    <ul>
-      <li>
-        <a class="entry-link sgvd-link" href="/vnpmb/">📡 Vous n’aurez pas ma bite</a>
-        <p class="note">Signal brut, frontal, sans demande de permission.</p>
-      </li>
-      <li>
-        <a class="entry-link sgvd-link" href="/imdone/">🏍️ I’m Done!</a>
-        <p class="note">Rupture nette et vitesse assumée.</p>
-      </li>
-      <li>
-        <a class="entry-link sgvd-link" href="/Anlevmwendou/">💘 Anlèv Mwen Dou</a>
-        <p class="note">Tension émotionnelle en terrain instable.</p>
-      </li>
-      <li>
-        <a class="entry-link sgvd-link" href="/Sansunbruit/">💀 Sans un bruit</a>
-        <p class="note">Présence basse fréquence, impact discret.</p>
-      </li>
-      <li>
-        <a class="entry-link sgvd-link" href="/candaceowens/">🧬 The Resuscitation of Candace Owens</a>
-        <p class="note">Satire chirurgicale, collision politique et pop culture.</p>
-      </li>
-      <li>
-        <a class="entry-link sgvd-link" href="/lesfrouzbacks/">Les Frouzbacks</a>
-        <p class="note">Rengaine frontalière sur plaques, salaires, fatigue et destin commun.</p>
-      </li>
-    </ul>
+  <main class="catalog">
+    <section class="hero sgvd-panel">
+      <p class="sgvd-kicker">Signals / discographie active</p>
+      <h1>Les<br>Titres</h1>
+      <p>Une archive de signaux : morceaux autonomes, collisions satiriques et fragments de système. Chaque piste ouvre sa propre faille.</p>
+    </section>
 
-    <h2>Projets / collections</h2>
-    <ul>
-      <li>
-        <a class="entry-link sgvd-link" href="/rituels/">🧸 Rituels pour petits humains</a>
-        <p class="note">Entrée parallèle : formats, gestes et fragments SGVD.</p>
-      </li>
-    </ul>
+    <div class="section-head"><div><p class="sgvd-kicker">Index principal</p><h2>Morceaux</h2></div><p>06 anomalies documentées</p></div>
+    <section class="tracks" aria-label="Morceaux System Godverdomme">
+      <a class="track" data-index="SGVD_001" href="/vnpmb/"><span class="tag">frontal</span><h3>Vous n’aurez pas ma bite</h3><p>Signal brut, frontal, sans demande de permission.</p></a>
+      <a class="track" data-index="SGVD_002" href="/imdone/"><span class="tag">rupture</span><h3>I’m Done!</h3><p>Rupture nette, vitesse assumée, sortie de boucle.</p></a>
+      <a class="track" data-index="SGVD_003" href="/Anlevmwendou/"><span class="tag">tension</span><h3>Anlèv Mwen Dou</h3><p>Tension émotionnelle en terrain instable.</p></a>
+      <a class="track" data-index="SGVD_004" href="/Sansunbruit/"><span class="tag">basse fréquence</span><h3>Sans un bruit</h3><p>Présence basse fréquence, impact discret, disparition contrôlée.</p></a>
+      <a class="track" data-index="SGVD_005" href="/candaceowens/"><span class="tag">satire</span><h3>The Resuscitation of Candace Owens</h3><p>Collision politique, pop culture et mémoire médiatique.</p></a>
+      <a class="track" data-index="SGVD_006" href="/lesfrouzbacks/"><span class="tag">frontière</span><h3>Les Frouzbacks</h3><p>Rengaine frontalière sur plaques, salaires, fatigue et destin commun.</p></a>
+    </section>
 
-    <div class="orient">
-      <p>
-        Orientation rapide : <a class="sgvd-link" href="/videos/">Vidéos</a> ·
-        <a class="sgvd-link" href="/manifeste.html">Manifeste</a> ·
-        <a class="sgvd-link" href="/dictionnaire.html">Dictionnaire</a>
-      </p>
-    </div>
+    <div class="section-head"><div><p class="sgvd-kicker">Collection parallèle</p><h2>Rituels</h2></div><p>Premier sas ouvert</p></div>
+    <section class="collection sgvd-panel">
+      <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette Rituels pour petits humains">
+      <div>
+        <p class="sgvd-kicker">Album / dispositif</p>
+        <h3>Rituels pour petits humains</h3>
+        <p>Un projet doux en surface, plus inquiétant dès qu’on observe ce qu’il raconte de l’encadrement, des gestes et des passages administrés.</p>
+        <a class="sgvd-btn" href="/rituels/">Entrer dans le premier sas</a>
+      </div>
+    </section>
 
-    <div class="back">
-      <p><a class="sgvd-btn" href="/">Retour au site principal</a></p>
-    </div>
+    <section class="orbit sgvd-panel">
+      <p>Continuer l’exploration du système.</p>
+      <div class="orbit-links"><a class="sgvd-btn" href="/videos/">Vidéos</a><a class="sgvd-btn" href="/manifeste.html">Manifeste</a><a class="sgvd-btn" href="/simulation.html">Simulation</a><a class="sgvd-btn" href="/dictionnaire.html">Dictionnaire</a></div>
+    </section>
   </main>
 </body>
 </html>
