@@ -9,14 +9,15 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://systemgodverdomme.com/lesfrouzbacks/" />
   <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
+  <script src="/assets/js/sgvd-interactive.js" defer></script>
   <style>
     .sgvd-track-page { --track-accent: #f06d6d; background: url('/assets/bruit_glitch_fond.jpg') no-repeat center center fixed; background-size: cover; }
     .sgvd-track-cover { margin: 18px 0; }
     .sgvd-track-cover img { width: 100%; max-width: 360px; height: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); }
     .sgvd-track-video { margin: 22px 0 8px; }
     .sgvd-track-video h2 { margin-bottom: 10px; }
-    .sgvd-track-video-frame { position: relative; width: 100%; max-width: 720px; aspect-ratio: 16 / 9; }
-    .sgvd-track-video-frame iframe { width: 100%; height: 100%; border: 0; border-radius: 8px; }
+    .sgvd-track-video-frame { position: relative; width: 100%; max-width: 720px; }
+    .sgvd-track-video-frame iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; }
   </style>
 </head>
 <body class="sgvd-shell sgvd-track-page">
@@ -30,8 +31,8 @@
       </div>
 
       <p class="sgvd-track-lead">
-        “Les Frouzbacks transforme la guerre des plaques, des bouchons, des salaires et des clichés en rengaine frontalière ironique, nerveuse et populaire.<br>
-        Le morceau joue le match retour entre Genevois et frontaliers français, entre mépris mutuel, dépendance économique et fatigue quotidienne.”
+        Les Frouzbacks transforme la guerre des plaques, des bouchons, des salaires et des clichés en rengaine frontalière ironique, nerveuse et populaire.<br>
+        Le morceau joue le match retour entre Genevois et frontaliers français, entre mépris mutuel, dépendance économique et fatigue quotidienne.
       </p>
 
       <div class="sgvd-track-cta">
@@ -52,12 +53,66 @@
         </div>
       </section>
 
+      <section id="sgvd-frouze-quiz" class="sgvd-panel sgvd-frouze-quiz" aria-labelledby="frouze-test-title">
+        <p class="sgvd-kicker">Contrôle frontalier // expérimental</p>
+        <h2 id="frouze-test-title">Quel est votre niveau de frouzitude ?</h2>
+        <p class="intro">Cinq questions. Aucun permis G ne sera délivré à l’issue de cette procédure.</p>
+
+        <fieldset class="sgvd-frouze-question" data-frouze-question>
+          <legend>1. À 7h45, « Bardonnex » évoque surtout…</legend>
+          <div class="sgvd-frouze-options">
+            <label><input type="radio" name="fq0" value="0"> un lieu sur une carte</label>
+            <label><input type="radio" name="fq0" value="1"> une frontière</label>
+            <label><input type="radio" name="fq0" value="2"> une expérience spirituelle douloureuse</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sgvd-frouze-question" data-frouze-question>
+          <legend>2. Votre voiture porte une plaque 74 ou 01 ?</legend>
+          <div class="sgvd-frouze-options">
+            <label><input type="radio" name="fq1" value="0"> jamais</label>
+            <label><input type="radio" name="fq1" value="1"> ça m’arrive</label>
+            <label><input type="radio" name="fq1" value="2"> elle connaît Genève par cœur</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sgvd-frouze-question" data-frouze-question>
+          <legend>3. Vous savez spontanément convertir CHF → EUR ?</legend>
+          <div class="sgvd-frouze-options">
+            <label><input type="radio" name="fq2" value="0"> non</label>
+            <label><input type="radio" name="fq2" value="1"> à peu près</label>
+            <label><input type="radio" name="fq2" value="2"> plus vite que ma calculatrice</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sgvd-frouze-question" data-frouze-question>
+          <legend>4. Un café à Genève à plus de 5 CHF provoque chez vous…</legend>
+          <div class="sgvd-frouze-options">
+            <label><input type="radio" name="fq3" value="0"> rien</label>
+            <label><input type="radio" name="fq3" value="1"> un léger doute</label>
+            <label><input type="radio" name="fq3" value="2"> une comparaison immédiate avec la France</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sgvd-frouze-question" data-frouze-question>
+          <legend>5. « Je rentre en France » signifie pour vous…</legend>
+          <div class="sgvd-frouze-options">
+            <label><input type="radio" name="fq4" value="0"> partir en vacances</label>
+            <label><input type="radio" name="fq4" value="1"> traverser une frontière</label>
+            <label><input type="radio" name="fq4" value="2"> rentrer chez moi après le boulot</label>
+          </div>
+        </fieldset>
+
+        <div class="sgvd-frouze-actions"><button class="sgvd-btn" type="button" data-frouze-calc>Calculer mon niveau</button></div>
+        <div class="sgvd-frouze-result" data-frouze-result hidden aria-live="polite"></div>
+      </section>
+
       <div class="sgvd-panel sgvd-track-panel sgvd-track-analysis">
         <h2>Lecture Godverdommienne</h2>
         <p>
-          “Sous la vanne locale, le morceau parle d’un territoire qui tourne à la friction :<br>
+          Sous la vanne locale, le morceau parle d’un territoire qui tourne à la friction :<br>
           circulation, travail, loyers, pouvoir d’achat, image de soi, utilité réciproque.<br>
-          Deux camps qui se caricaturent à l’heure de pointe, puis se rendent indispensables le reste du temps.”
+          Deux camps qui se caricaturent à l’heure de pointe, puis se rendent indispensables le reste du temps.
         </p>
       </div>
 
