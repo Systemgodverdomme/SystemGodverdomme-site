@@ -67,6 +67,31 @@
       </div>
     </section>
 
+    <section class="sgvd-section sgvd-live-section" aria-labelledby="live-title">
+      <div class="sgvd-section-head">
+        <div><p class="sgvd-kicker-v2">Transmission en cours</p><h2 id="live-title">Ce qui bouge maintenant</h2></div>
+        <p class="sgvd-section-intro" id="sgvd-live-status">Signal local actif // bassin genevois</p>
+      </div>
+      <article class="sgvd-live-card">
+        <div class="sgvd-live-visual">
+          <img src="/assets/les-frouzbacks-cover.png" alt="Pochette Les Frouzbacks" loading="lazy" decoding="async" />
+          <span class="sgvd-live-badge">SIGNAL ACTIF</span>
+        </div>
+        <div class="sgvd-live-copy">
+          <p class="sgvd-live-code">SGVD_006 // FRONTIÈRE // GENÈVE</p>
+          <h3>Les Frouzbacks</h3>
+          <p>Le morceau frontalier est en circulation. Plaques, bouchons, salaires, clichés et dépendance mutuelle : le bassin genevois passe au contrôle.</p>
+          <div class="sgvd-live-facts" aria-label="État de la transmission">
+            <span>Clip disponible</span><span>Test de frouzitude actif</span><span>Transmission locale</span>
+          </div>
+          <div class="sgvd-hero-actions">
+            <a class="sgvd-primary" href="/lesfrouzbacks/">Ouvrir la transmission</a>
+            <a class="sgvd-secondary" href="/videos/">Voir les vidéos</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
     <section class="sgvd-section" aria-labelledby="rituels-title">
       <div class="sgvd-feature">
         <img src="/assets/rituels-pour-petits-humains-cover.png" alt="Pochette de Rituels pour petits humains" loading="lazy" decoding="async" />
@@ -102,9 +127,12 @@
   <script>
   (() => {
     const tx = document.getElementById('sgvd-tx');
+    const live = document.getElementById('sgvd-live-status');
     const phrases = ['Signal instable // transmission partielle','Source : JMT.BRG.404 not found','Ce monde n\'existe pas','Simulation : statut > instable','Tu ne décides pas. Tu ne fais que valider.'];
-    let i = 0;
+    const livePhrases = ['Signal local actif // bassin genevois','Les Frouzbacks // diffusion active','Test frontalier // protocole disponible','Frontière détectée // humour non neutralisé'];
+    let i = 0, j = 0;
     setInterval(() => { i=(i+1)%phrases.length; tx.textContent=phrases[i]; }, 4200);
+    setInterval(() => { j=(j+1)%livePhrases.length; live.textContent=livePhrases[j]; }, 5200);
   })();
   </script>
 </body>
