@@ -19,6 +19,7 @@
   <meta name="twitter:image" content="https://systemgodverdomme.com/assets/og-cover.jpg" />
   <link rel="stylesheet" href="/assets/css/sgvd-core.css" />
   <link rel="stylesheet" href="/assets/css/sgvd-home-v2.css" />
+  <script src="/assets/js/sgvd-interactive.js" defer></script>
 </head>
 <body class="sgvd-home-v2">
   <div class="sgvd-glitch-line" aria-hidden="true"></div>
@@ -100,20 +101,9 @@
   <button id="simToggle" class="sgvd-sim-toggle" type="button" aria-pressed="false">Simulation OFF</button>
   <script>
   (() => {
-    const key = 'sgvd_sim_on';
-    const btn = document.getElementById('simToggle');
     const tx = document.getElementById('sgvd-tx');
     const phrases = ['Signal instable // transmission partielle','Source : JMT.BRG.404 not found','Ce monde n\'existe pas','Simulation : statut > instable','Tu ne décides pas. Tu ne fais que valider.'];
     let i = 0;
-    const apply = () => {
-      const on = localStorage.getItem(key) === '1';
-      if (on) document.documentElement.setAttribute('data-sim','on');
-      else document.documentElement.removeAttribute('data-sim');
-      btn.textContent = on ? 'Simulation ON' : 'Simulation OFF';
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    };
-    apply();
-    btn.addEventListener('click', () => { localStorage.setItem(key, localStorage.getItem(key) === '1' ? '0' : '1'); apply(); });
     setInterval(() => { i=(i+1)%phrases.length; tx.textContent=phrases[i]; }, 4200);
   })();
   </script>
